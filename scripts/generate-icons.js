@@ -1,24 +1,34 @@
 /* eslint-disable no-console */
 /**
- * Generate plugin icon PNGs using the dashicons "book" SVG path.
- * Matches the banner style: white background, dark charcoal (#3c434a) icon.
+ * Generate plugin icon PNGs from the dashicons "book" glyph.
+ * Extracts the glyph from the dashicons TTF font, rasterizes it
+ * on a white background with dark charcoal fill to match the banners.
  *
  * Usage: node scripts/generate-icons.js
+ *
+ * Requires: opentype.js (npm install --no-save opentype.js)
  */
 
 const fs = require('fs');
 const path = require('path');
 const zlib = require('zlib');
+const opentype = require('opentype.js');
 
-// Dashicons "book" path (20x20 viewbox)
-const BOOK_PATH =
-	'M16 3H6.5C5.12 3 4 4.12 4 5.5v9C4 15.88 5.12 17 6.5 17H16V3z' +
-	'M6.5 14.5c-.28 0-.5-.22-.5-.5s.22-.5.5-.5.5.22.5.5-.22.5-.5.5z' +
-	'M14 14H8v-1h6v1z' +
-	'm0-3H8V9h6v2z' +
-	'm0-4H8V6h6v1z';
+const FONT_PATH = path.resolve(
+	__dirname,
+	'../node_modules/dashicons/fonts/dashicons.ttf'
+);
+const OUTPUT_DIR = path.resolve(__dirname, '../.wordpress-org');
 
-// CRC32
+// dashicons-book = U+F330
+const BOOK_CODEPOINT = 0xf330;
+
+// Colors matching the banner
+const BG = { r: 255, g: 255, b: 255 };
+const FG = { r: 60, g: 67, b: 74 }; // #3c434a
+
+// --- PNG encoder (no dependencies) ---
+
 const crcTable = new Uint32Array(256);
 for (let n = 0; n < 256; n++) {
 	let c = n;
@@ -26,6 +36,7 @@ for (let n = 0; n < 256; n++) {
 		c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1;
 	crcTable[n] = c;
 }
+
 function crc32(buf) {
 	let c = 0xffffffff;
 	for (let i = 0; i < buf.length; i++)
@@ -37,19 +48,18 @@ function makeChunk(type, data) {
 	const len = Buffer.alloc(4);
 	len.writeUInt32BE(data.length, 0);
 	const typeB = Buffer.from(type);
-	const crcData = Buffer.concat([typeB, data]);
 	const crcB = Buffer.alloc(4);
-	crcB.writeUInt32BE(crc32(crcData) >>> 0, 0);
+	crcB.writeUInt32BE(crc32(Buffer.concat([typeB, data])) >>> 0, 0);
 	return Buffer.concat([len, typeB, data, crcB]);
 }
 
 function encodePNG(pixels, width, height) {
-	const signature = Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]);
+	const sig = Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]);
 	const ihdr = Buffer.alloc(13);
 	ihdr.writeUInt32BE(width, 0);
 	ihdr.writeUInt32BE(height, 4);
 	ihdr[8] = 8;
-	ihdr[9] = 6; // RGBA
+	ihdr[9] = 6;
 	const raw = Buffer.alloc(height * (1 + width * 4));
 	for (let y = 0; y < height; y++) {
 		raw[y * (1 + width * 4)] = 0;
@@ -60,219 +70,201 @@ function encodePNG(pixels, width, height) {
 			(y + 1) * width * 4
 		);
 	}
-	const compressed = zlib.deflateSync(raw);
 	return Buffer.concat([
-		signature,
+		sig,
 		makeChunk('IHDR', ihdr),
-		makeChunk('IDAT', compressed),
+		makeChunk('IDAT', zlib.deflateSync(raw)),
 		makeChunk('IEND', Buffer.alloc(0)),
 	]);
 }
 
-// Minimal SVG path parser
-function parsePath(d) {
-	const tokens = d.match(/[MmLlHhVvCcSsQqTtAaZz]|[-+]?(?:\d+\.?\d*|\.\d+)(?:[eE][-+]?\d+)?/g);
-	const commands = [];
-	let i = 0;
-	while (i < tokens.length) {
-		const cmd = tokens[i++];
-		if (/[A-Za-z]/.test(cmd)) {
-			const args = [];
-			while (i < tokens.length && !/[A-Za-z]/.test(tokens[i])) {
-				args.push(parseFloat(tokens[i++]));
-			}
-			commands.push({ cmd, args });
-		}
-	}
-	return commands;
-}
+// --- Glyph rasterizer using supersampling ---
 
-// Rasterize SVG path to alpha mask using scanline fill
-function renderPathToMask(pathD, viewW, viewH, targetW, targetH) {
-	const commands = parsePath(pathD);
-	const mask = new Float32Array(targetW * targetH);
+function rasterizeGlyph(glyph, size, padding) {
+	const inner = size - padding * 2;
 
-	const scaleX = targetW / viewW;
-	const scaleY = targetH / viewH;
+	// Supersample at 4x for anti-aliasing
+	const ss = 4;
+	const ssSize = size * ss;
+	const ssMask = new Uint8Array(ssSize * ssSize);
 
-	// Build subpath polygons
+	// Render at a reference font size, then measure the actual path bounds
+	const refSize = 1000;
+	const p = glyph.getPath(0, 0, refSize);
+
+	// Collect subpath polygons from path commands
 	const polygons = [];
 	let currentPoly = [];
 	let cx = 0,
 		cy = 0;
-	let startX = 0,
-		startY = 0;
 
-	function pushPoint(x, y) {
-		currentPoly.push([x * scaleX, y * scaleY]);
-	}
-
-	for (const { cmd, args } of commands) {
-		const isRel = cmd === cmd.toLowerCase();
-		switch (cmd.toUpperCase()) {
-			case 'M': {
-				if (currentPoly.length > 0) polygons.push(currentPoly);
+	for (const cmd of p.commands) {
+		switch (cmd.type) {
+			case 'M':
+				if (currentPoly.length > 1) polygons.push(currentPoly);
 				currentPoly = [];
-				cx = isRel ? cx + args[0] : args[0];
-				cy = isRel ? cy + args[1] : args[1];
-				startX = cx;
-				startY = cy;
-				pushPoint(cx, cy);
-				// Subsequent pairs are implicit L commands
-				for (let j = 2; j < args.length; j += 2) {
-					cx = isRel ? cx + args[j] : args[j];
-					cy = isRel ? cy + args[j + 1] : args[j + 1];
-					pushPoint(cx, cy);
-				}
+				cx = cmd.x;
+				cy = cmd.y;
+				currentPoly.push([cx, cy]);
 				break;
-			}
 			case 'L':
-				for (let j = 0; j < args.length; j += 2) {
-					cx = isRel ? cx + args[j] : args[j];
-					cy = isRel ? cy + args[j + 1] : args[j + 1];
-					pushPoint(cx, cy);
-				}
+				cx = cmd.x;
+				cy = cmd.y;
+				currentPoly.push([cx, cy]);
 				break;
-			case 'H':
-				for (let j = 0; j < args.length; j++) {
-					cx = isRel ? cx + args[j] : args[j];
-					pushPoint(cx, cy);
+			case 'Q':
+				for (let t = 0.02; t <= 1.0; t += 0.02) {
+					const mt = 1 - t;
+					const px = mt * mt * cx + 2 * mt * t * cmd.x1 + t * t * cmd.x;
+					const py = mt * mt * cy + 2 * mt * t * cmd.y1 + t * t * cmd.y;
+					currentPoly.push([px, py]);
 				}
-				break;
-			case 'V':
-				for (let j = 0; j < args.length; j++) {
-					cy = isRel ? cy + args[j] : args[j];
-					pushPoint(cx, cy);
-				}
+				cx = cmd.x;
+				cy = cmd.y;
 				break;
 			case 'C':
-				for (let j = 0; j < args.length; j += 6) {
-					let x1 = isRel ? cx + args[j] : args[j];
-					let y1 = isRel ? cy + args[j + 1] : args[j + 1];
-					let x2 = isRel ? cx + args[j + 2] : args[j + 2];
-					let y2 = isRel ? cy + args[j + 3] : args[j + 3];
-					let x3 = isRel ? cx + args[j + 4] : args[j + 4];
-					let y3 = isRel ? cy + args[j + 5] : args[j + 5];
-					for (let t = 0.02; t <= 1.0; t += 0.02) {
-						const mt = 1 - t;
-						const px =
-							mt * mt * mt * cx +
-							3 * mt * mt * t * x1 +
-							3 * mt * t * t * x2 +
-							t * t * t * x3;
-						const py =
-							mt * mt * mt * cy +
-							3 * mt * mt * t * y1 +
-							3 * mt * t * t * y2 +
-							t * t * t * y3;
-						pushPoint(px, py);
-					}
-					cx = x3;
-					cy = y3;
+				for (let t = 0.02; t <= 1.0; t += 0.02) {
+					const mt = 1 - t;
+					const px =
+						mt * mt * mt * cx +
+						3 * mt * mt * t * cmd.x1 +
+						3 * mt * t * t * cmd.x2 +
+						t * t * t * cmd.x;
+					const py =
+						mt * mt * mt * cy +
+						3 * mt * mt * t * cmd.y1 +
+						3 * mt * t * t * cmd.y2 +
+						t * t * t * cmd.y;
+					currentPoly.push([px, py]);
 				}
+				cx = cmd.x;
+				cy = cmd.y;
 				break;
-			case 'S': {
-				// Smooth cubic — reflect previous control point
-				for (let j = 0; j < args.length; j += 4) {
-					let x2 = isRel ? cx + args[j] : args[j];
-					let y2 = isRel ? cy + args[j + 1] : args[j + 1];
-					let x3 = isRel ? cx + args[j + 2] : args[j + 2];
-					let y3 = isRel ? cy + args[j + 3] : args[j + 3];
-					// Use cx,cy as x1,y1 (simplified — no reflection tracking)
-					for (let t = 0.02; t <= 1.0; t += 0.02) {
-						const mt = 1 - t;
-						const px =
-							mt * mt * mt * cx +
-							3 * mt * mt * t * cx +
-							3 * mt * t * t * x2 +
-							t * t * t * x3;
-						const py =
-							mt * mt * mt * cy +
-							3 * mt * mt * t * cy +
-							3 * mt * t * t * y2 +
-							t * t * t * y3;
-						pushPoint(px, py);
-					}
-					cx = x3;
-					cy = y3;
-				}
-				break;
-			}
 			case 'Z':
-				cx = startX;
-				cy = startY;
-				if (currentPoly.length > 0) {
-					polygons.push(currentPoly);
-					currentPoly = [];
-				}
+				if (currentPoly.length > 1) polygons.push(currentPoly);
+				currentPoly = [];
 				break;
 		}
 	}
-	if (currentPoly.length > 0) polygons.push(currentPoly);
+	if (currentPoly.length > 1) polygons.push(currentPoly);
 
-	// Scanline fill with even-odd rule (XOR for subpath holes)
+	// Compute actual bounds of the path points
+	let minX = Infinity,
+		minY = Infinity,
+		maxX = -Infinity,
+		maxY = -Infinity;
 	for (const poly of polygons) {
-		for (let y = 0; y < targetH; y++) {
-			const intersections = [];
+		for (const [x, y] of poly) {
+			if (x < minX) minX = x;
+			if (x > maxX) maxX = x;
+			if (y < minY) minY = y;
+			if (y > maxY) maxY = y;
+		}
+	}
+
+	const pathW = maxX - minX;
+	const pathH = maxY - minY;
+	const scale = Math.min(inner / pathW, inner / pathH);
+
+	// Center within the padded area (no Y flip — getPath returns screen coords)
+	const scaledW = pathW * scale;
+	const scaledH = pathH * scale;
+	const offsetX = padding + (inner - scaledW) / 2 - minX * scale;
+	const offsetY = padding + (inner - scaledH) / 2 - minY * scale;
+
+	// Transform polygons to supersampled pixel space
+	const scaledPolys = polygons.map((poly) =>
+		poly.map(([x, y]) => [
+			(x * scale + offsetX) * ss,
+			(y * scale + offsetY) * ss,
+		])
+	);
+
+	// Scanline fill with non-zero winding rule (correct for font glyphs)
+	for (let y = 0; y < ssSize; y++) {
+		const crossings = [];
+		for (const poly of scaledPolys) {
 			for (let i = 0; i < poly.length; i++) {
 				const [x1, y1] = poly[i];
 				const [x2, y2] = poly[(i + 1) % poly.length];
 				if ((y1 <= y && y2 > y) || (y2 <= y && y1 > y)) {
 					const t = (y - y1) / (y2 - y1);
-					intersections.push(x1 + t * (x2 - x1));
+					const xInt = x1 + t * (x2 - x1);
+					const dir = y2 > y1 ? 1 : -1;
+					crossings.push({ x: xInt, dir });
 				}
 			}
-			intersections.sort((a, b) => a - b);
-			for (let i = 0; i < intersections.length - 1; i += 2) {
-				const xStart = Math.max(0, Math.ceil(intersections[i]));
+		}
+		crossings.sort((a, b) => a.x - b.x);
+
+		// Walk crossings left-to-right, tracking winding number.
+		// Fill the span between consecutive crossings when winding != 0.
+		let winding = 0;
+		for (let i = 0; i < crossings.length - 1; i++) {
+			winding += crossings[i].dir;
+			if (winding !== 0) {
+				const xStart = Math.max(0, Math.ceil(crossings[i].x));
 				const xEnd = Math.min(
-					targetW - 1,
-					Math.floor(intersections[i + 1])
+					ssSize - 1,
+					Math.floor(crossings[i + 1].x)
 				);
 				for (let x = xStart; x <= xEnd; x++) {
-					mask[y * targetW + x] = 1 - mask[y * targetW + x];
+					ssMask[y * ssSize + x] = 1;
 				}
 			}
 		}
 	}
-	return mask;
-}
 
-function createIcon(size) {
-	const pixels = Buffer.alloc(size * size * 4);
-
-	// Match banner: white bg, dark charcoal icon
-	const bgR = 255,
-		bgG = 255,
-		bgB = 255;
-	const fgR = 60,
-		fgG = 67,
-		fgB = 74; // #3c434a
-
-	const pad = Math.round(size * 0.18);
-	const innerSize = size - pad * 2;
-	const mask = renderPathToMask(BOOK_PATH, 20, 20, innerSize, innerSize);
-
+	// Downsample to target size
+	const alpha = new Float32Array(size * size);
 	for (let y = 0; y < size; y++) {
 		for (let x = 0; x < size; x++) {
-			const idx = (y * size + x) * 4;
-			const iy = y - pad;
-			const ix = x - pad;
-			let alpha = 0;
-			if (ix >= 0 && ix < innerSize && iy >= 0 && iy < innerSize) {
-				alpha = mask[iy * innerSize + ix];
+			let sum = 0;
+			for (let sy = 0; sy < ss; sy++) {
+				for (let sx = 0; sx < ss; sx++) {
+					sum += ssMask[(y * ss + sy) * ssSize + (x * ss + sx)];
+				}
 			}
-			pixels[idx] = Math.round(bgR * (1 - alpha) + fgR * alpha);
-			pixels[idx + 1] = Math.round(bgG * (1 - alpha) + fgG * alpha);
-			pixels[idx + 2] = Math.round(bgB * (1 - alpha) + fgB * alpha);
-			pixels[idx + 3] = 255;
+			alpha[y * size + x] = sum / (ss * ss);
 		}
+	}
+
+	// Render to RGBA pixels
+	const pixels = Buffer.alloc(size * size * 4);
+	for (let i = 0; i < size * size; i++) {
+		const a = alpha[i];
+		const idx = i * 4;
+		pixels[idx] = Math.round(BG.r * (1 - a) + FG.r * a);
+		pixels[idx + 1] = Math.round(BG.g * (1 - a) + FG.g * a);
+		pixels[idx + 2] = Math.round(BG.b * (1 - a) + FG.b * a);
+		pixels[idx + 3] = 255;
 	}
 
 	return encodePNG(pixels, size, size);
 }
 
-const dir = path.resolve(__dirname, '../.wordpress-org');
-fs.writeFileSync(path.join(dir, 'icon-256x256.png'), createIcon(256));
-fs.writeFileSync(path.join(dir, 'icon-128x128.png'), createIcon(128));
-console.log('Icons created with dashicons book path');
+// --- Main ---
+
+const font = opentype.loadSync(FONT_PATH);
+const glyph = font.charToGlyph(String.fromCodePoint(BOOK_CODEPOINT));
+
+if (!glyph || glyph.index === 0) {
+	console.error('Could not find dashicons-book glyph at U+F330');
+	process.exit(1);
+}
+
+console.log(
+	'Found glyph: index=%d, advanceWidth=%d',
+	glyph.index,
+	glyph.advanceWidth
+);
+
+fs.writeFileSync(
+	path.join(OUTPUT_DIR, 'icon-256x256.png'),
+	rasterizeGlyph(glyph, 256, 30)
+);
+fs.writeFileSync(
+	path.join(OUTPUT_DIR, 'icon-128x128.png'),
+	rasterizeGlyph(glyph, 128, 15)
+);
+console.log('Icons saved to %s/', OUTPUT_DIR);
