@@ -216,8 +216,17 @@ async function ensurePluginActive(page) {
 		}
 	}
 
+	// Hover over a citation entry to reveal the action icons.
+	const entryTrigger = editorFrame
+		.locator('.scholarly-bibliography-entry-trigger')
+		.first();
+	if (await entryTrigger.isVisible().catch(() => false)) {
+		await entryTrigger.hover();
+		await page.waitForTimeout(500);
+	}
+
 	await page.screenshot({ path: `${OUTPUT_DIR}/screenshot-4.png` });
-	console.log('Screenshot 4: Block settings sidebar with citations');
+	console.log('Screenshot 4: Block settings sidebar with citations and hover actions');
 
 	// --- Publish the post ---
 	const publishButton = page
