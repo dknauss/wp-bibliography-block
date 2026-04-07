@@ -95,6 +95,12 @@ jobs:
       - name: Run Playground Playwright smoke
         run: npm run test:e2e:playground
 
+      - name: Package release zip (for lifecycle tests)
+        run: npm run package:release
+
+      - name: Run lifecycle e2e tests
+        run: npm run test:e2e:lifecycle
+
       - name: Upload Playwright results
         if: always()
         uses: actions/upload-artifact@v6

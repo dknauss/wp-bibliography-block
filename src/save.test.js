@@ -173,6 +173,18 @@ describe('save', () => {
 
 		expect(markup).toContain('role="doc-bibliography"');
 		expect(markup).toContain('aria-label="Bibliography"');
+
+		// aria-label should match custom heading text when provided.
+		const customHeadingMarkup = renderToStaticMarkup(
+			save({
+				attributes: {
+					citationStyle: 'chicago-author-date',
+					headingText: 'References',
+					citations: [createCitation()],
+				},
+			})
+		);
+		expect(customHeadingMarkup).toContain('aria-label="References"');
 		expect(markup).toContain('role="doc-biblioentry"');
 		expect(markup).toContain('id="ref-citation-7"');
 		expect(markup).toContain('lang="fr"');

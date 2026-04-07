@@ -93,6 +93,11 @@
 		position: relative;
 		min-width: 0;
 
+		&:focus-visible {
+			outline: 2px solid #3858e9;
+			outline-offset: 2px;
+		}
+
 		&:hover,
 		&:focus-within {
 			background: rgba(0, 0, 0, 0.03);
@@ -347,5 +352,13 @@
 
 	.scholarly-bibliography-parse-button {
 		margin-top: 0.25em;
+	}
+
+
+	@media (prefers-reduced-motion: reduce) {
+
+		.scholarly-bibliography-actions {
+			transition: none;
+		}
 	}
 }

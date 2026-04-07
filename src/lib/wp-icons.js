@@ -7,7 +7,7 @@ import {
 	copy,
 	listView,
 	pencil,
-	reset,
+	undo,
 	trash,
 } from '@wordpress/icons';
 
@@ -24,7 +24,7 @@ export const ManualEntryIcon = wrapIcon(pencil);
 export const StructuredEditIcon = wrapIcon(listView);
 export const EditIcon = wrapIcon(pencil);
 export const CopyIcon = wrapIcon(copy);
-export const ResetIcon = wrapIcon(reset);
+export const ResetIcon = wrapIcon(undo);
 export const DeleteIcon = wrapIcon(trash);
 export const ConfirmIcon = wrapIcon(check);
 export const CancelIcon = wrapIcon(close);

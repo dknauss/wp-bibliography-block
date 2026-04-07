@@ -16,6 +16,7 @@ export function renderBibliographySave(
 		headingTag = 'p',
 		entryTag = 'cite',
 		linkVisibleUrls = true,
+		ariaLabel = null,
 	} = {}
 ) {
 	const {
@@ -48,7 +49,7 @@ export function renderBibliographySave(
 		<section
 			{...blockProps}
 			role="doc-bibliography"
-			aria-label="Bibliography"
+			aria-label={ariaLabel || headingText || 'Bibliography'}
 		>
 			{headingText ? (
 				<HeadingTag className="scholarly-bibliography-heading">

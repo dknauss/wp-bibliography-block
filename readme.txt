@@ -58,6 +58,14 @@ Yes. The editor currently includes Download CSL-JSON, Download BibTeX, Download 
 Yes. The plugin exposes read-only REST endpoints at `/wp-json/scholarly-bibliography/v1/posts/<post_id>/bibliographies` and `/wp-json/scholarly-bibliography/v1/posts/<post_id>/bibliographies/<index>`. Published posts are readable publicly; non-public posts require permission to edit the post. The single-bibliography route also supports `format=json`, `format=text`, and `format=csl-json`.
 
 
+= Does this work on WordPress Multisite? =
+
+Expected to work — block registration is site-local by default — but Multisite has not been explicitly tested yet. If you encounter issues, please report them.
+
+= What PHP and WordPress versions are supported? =
+
+PHP 7.4+ and WordPress 6.4+. The plugin has minimal PHP runtime (block registration and REST endpoints only). CI tests cover PHP 7.4 through 8.4 and WordPress 6.4 through latest.
+
 == Screenshots ==
 
 1. Discover the Bibliography block in the inserter.

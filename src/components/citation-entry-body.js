@@ -62,7 +62,6 @@ export function CitationEntryBody({
 					onChange={(event) => onEditTextChange(event.target.value)}
 					onKeyDown={handleEditKeyDown}
 					onBlur={handleEditConfirm}
-					aria-label={`Editing citation: ${getEntryLabel(citation)}`}
 					autoFocus // eslint-disable-line jsx-a11y/no-autofocus
 				/>
 			</>
@@ -75,6 +74,7 @@ export function CitationEntryBody({
 				type="button"
 				className="scholarly-bibliography-entry-trigger"
 				onClick={handleEntryActivate}
+				aria-label={`Edit ${getEntryLabel(citation)}`}
 			>
 				<div className="scholarly-bibliography-entry-main">
 					<span className="scholarly-bibliography-entry-text">

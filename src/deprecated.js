@@ -22,6 +22,17 @@ export const deprecated = [
 				sortEntries: true,
 				headingTag: 'p',
 				entryTag: 'cite',
+				linkVisibleUrls: true,
+				ariaLabel: 'Bibliography',
+			}),
+	},
+	{
+		attributes: deprecatedAttributes,
+		save: ({ attributes }) =>
+			renderBibliographySave(attributes, {
+				sortEntries: true,
+				headingTag: 'p',
+				entryTag: 'cite',
 				linkVisibleUrls: false,
 			}),
 	},

@@ -1,4 +1,5 @@
 import { Notice, Snackbar } from '@wordpress/components';
+import { __ } from '@wordpress/i18n';
 
 export function EditorCanvasNotices({ currentNotice, noticeRef, onDismiss }) {
 	let noticeContent = null;
@@ -33,6 +34,12 @@ export function EditorCanvasNotices({ currentNotice, noticeRef, onDismiss }) {
 				currentNotice ? ' has-notice' : ''
 			}`}
 			tabIndex={currentNotice ? -1 : undefined}
+			role={currentNotice ? 'region' : undefined}
+			aria-label={
+				currentNotice
+					? __('Notification', 'scholarly-bibliography')
+					: undefined
+			}
 		>
 			{noticeContent}
 		</div>

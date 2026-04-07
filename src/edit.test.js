@@ -1389,9 +1389,7 @@ describe('Edit focus management', () => {
 			})
 		);
 
-		const displayInput = screen.getByLabelText(
-			'Editing citation: Smith 2024'
-		);
+		const displayInput = screen.getByLabelText('Editing: Smith 2024');
 		fireEvent.change(displayInput, {
 			target: {
 				value: 'Manual override',
@@ -1578,7 +1576,7 @@ describe('Edit focus management', () => {
 			screen.getByRole('button', { name: 'Edit citation: Alpha 2024' })
 		);
 
-		const input = screen.getByLabelText('Editing citation: Alpha 2024');
+		const input = screen.getByLabelText('Editing: Alpha 2024');
 		fireEvent.keyDown(input, { key: 'Enter' });
 
 		await waitFor(() => {
@@ -1633,7 +1631,7 @@ describe('Edit focus management', () => {
 		await userEvent.click(screen.getByText('Alpha citation'));
 
 		expect(
-			screen.getByLabelText('Editing citation: Alpha 2024')
+			screen.getByLabelText('Editing: Alpha 2024')
 		).toBeInTheDocument();
 	});
 
@@ -1655,7 +1653,7 @@ describe('Edit focus management', () => {
 			screen.getByRole('button', { name: 'Edit citation: Alpha 2024' })
 		);
 
-		const input = screen.getByLabelText('Editing citation: Alpha 2024');
+		const input = screen.getByLabelText('Editing: Alpha 2024');
 		fireEvent.change(input, {
 			target: {
 				value: 'Updated citation',
@@ -1677,9 +1675,7 @@ describe('Edit focus management', () => {
 			screen.getByRole('button', { name: 'Edit citation: Alpha 2024' })
 		);
 
-		const secondInput = screen.getByLabelText(
-			'Editing citation: Alpha 2024'
-		);
+		const secondInput = screen.getByLabelText('Editing: Alpha 2024');
 		fireEvent.keyDown(secondInput, { key: 'Escape' });
 
 		await waitFor(() => {
@@ -1711,7 +1707,7 @@ describe('Edit focus management', () => {
 			screen.getByRole('button', { name: 'Edit citation: Alpha 2024' })
 		);
 
-		const input = screen.getByLabelText('Editing citation: Alpha 2024');
+		const input = screen.getByLabelText('Editing: Alpha 2024');
 		fireEvent.change(input, {
 			target: {
 				value: '',

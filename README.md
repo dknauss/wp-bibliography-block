@@ -19,11 +19,17 @@ Launch a disposable WordPress instance with the plugin preinstalled:
 
 - [Open Scholarly Bibliography Block in WordPress Playground](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/dknauss/wp-bibliography-block/main/playground/blueprint.json)
 
-The Playground setup lives in:
+The Playground installs the plugin from the latest GitHub Release zip artifact.
 
-- `/Users/danknauss/Developer/GitHub/wp-bibliography-block/playground/blueprint.json`
+## Screenshots
 
-It installs the plugin straight from this GitHub repository using a Playground `git:directory` blueprint step.
+| Editor with citations | Front-end output |
+|---|---|
+| ![](.wordpress-org/screenshot-4.png) | ![](.wordpress-org/screenshot-5.png) |
+
+| Block inserter | Empty-state form | Manual entry |
+|---|---|---|
+| ![](.wordpress-org/screenshot-1.png) | ![](.wordpress-org/screenshot-2.png) | ![](.wordpress-org/screenshot-3.png) |
 
 ## Features
 
@@ -119,6 +125,7 @@ npm run test:js:coverage # JS coverage for Codecov
 npm run test:rest:local  # Local REST endpoint smoke test (Studio site)
 npm run test:e2e         # Playwright smoke suite against local site
 npm run test:e2e:playground # Playground-based Playwright smoke suite
+npm run test:e2e:lifecycle  # Plugin lifecycle e2e tests (activate/deactivate/delete)
 npm run test:runtime:local # Docker-based runtime smoke environment
 composer test:php        # PHPUnit REST and bootstrap tests
 composer test:php:coverage # PHP coverage for Codecov
@@ -132,7 +139,7 @@ GitHub Actions currently runs:
 - Psalm static analysis
 - CodeQL for JavaScript and PHP
 - Codecov uploads from JS + PHP coverage
-- Playwright smoke tests against WordPress Playground
+- Playwright smoke and lifecycle tests against WordPress Playground
 
 The GitHub Actions runtime matrix currently covers:
 
@@ -173,16 +180,17 @@ scholarly-bibliography/
 └── readme.txt                    # WordPress.org readme
 ```
 
+## Compatibility
+
+- **WordPress** 6.4+ (block.json v3 requires 6.4+)
+- **PHP** 7.4+ (minimal PHP runtime — the plugin registers a block and REST endpoints only)
+- **Multisite** — expected to work (block registration is site-local by default), but not yet tested
+
+The GitHub Actions runtime matrix covers PHP 7.4 through 8.4 and WordPress 6.4 through latest on both Apache and Nginx. Multisite-specific and SQLite runtime e2e tests are on the backlog.
+
 ## Roadmap
 
-Current near-term priorities:
-
-1. docs/spec/checklist sync
-2. parser/storage hardening
-3. manual citation entry via a general structured form with CSL type selection
-4. follow-on manual-entry/output hardening and remaining specialized style work
-
-See [SPEC.md](SPEC.md) for the authoritative behavior and roadmap.
+See [SPEC.md](SPEC.md) for the authoritative behavior specification and future plans.
 
 ## Contributing
 

@@ -18,6 +18,7 @@
 		"test:rest:local": "sh ./scripts/test-rest-endpoints.sh",
 		"test:e2e": "playwright test",
 		"test:e2e:playground": "sh ./scripts/test-playground-e2e.sh",
+		"test:e2e:lifecycle": "sh ./scripts/test-lifecycle-e2e.sh",
 		"test:runtime:local": "sh ./scripts/runtime-matrix/smoke.sh"
 	},
 	"jest": {

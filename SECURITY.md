@@ -4,7 +4,7 @@
 
 | Version | Supported |
 |---------|-----------|
-| 0.1.x   | Yes       |
+| 1.0.x   | Yes       |
 
 ## Reporting a Vulnerability
 
@@ -14,7 +14,7 @@ This plugin accepts untrusted input (pasted text, CrossRef API responses) and re
 
 To report a vulnerability:
 
-1. Use [GitHub Private Vulnerability Reporting](https://github.com/dknauss/blibliography-block/security/advisories/new) to submit a report.
+1. Use [GitHub Private Vulnerability Reporting](https://github.com/dknauss/wp-bibliography-block/security/advisories/new) to submit a report.
 2. Include:
    - A description of the vulnerability.
    - Steps to reproduce or a proof of concept.
