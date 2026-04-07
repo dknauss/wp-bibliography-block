@@ -161,8 +161,10 @@ jobs:
         run: composer test:php:coverage
 
       - name: Upload to Codecov
-        if: ${{ secrets.CODECOV_TOKEN != '' }}
+        if: ${{ env.CODECOV_TOKEN != '' }}
         uses: codecov/codecov-action@v5
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         with:
           files: ./coverage/clover.xml,./build/logs/phpunit-clover.xml
           token: ${{ secrets.CODECOV_TOKEN }}
