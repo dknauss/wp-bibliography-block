@@ -1,4 +1,4 @@
-=== Scholarly Bibliography ===
+=== Bibliography ===
 Contributors: danknauss
 Tags: bibliography, citation, academic, scholarly, DOI, Chicago, MLA, APA, IEEE, BibTex, OSCOLA, ABNT
 Requires at least: 6.4
@@ -12,7 +12,7 @@ A block editor plugin that transforms DOI(s), BibTeX entries, and supported form
 
 == Description ==
 
-Scholarly Bibliography is a WordPress block plugin for building reference lists. Add DOI(s), BibTeX entries, and supported citations in common scholarly styles to get a properly formatted, semantically rich bibliography with:
+Bibliography is a WordPress block plugin for building reference lists. Add DOI(s), BibTeX entries, and supported citations in common scholarly styles to get a properly formatted, semantically rich bibliography with:
 
 * Chicago Notes-Bibliography formatting by default
 * Chicago Author-Date, APA 7, Harvard, Vancouver, IEEE, MLA 9, OSCOLA, and ABNT as selectable styles today
@@ -29,6 +29,8 @@ Scholarly Bibliography is a WordPress block plugin for building reference lists.
 * Manual Entry fallback for unsupported formats
 
 No shortcodes. No database tables. No server-side rendering. Clean, portable HTML.
+
+Project URL: https://dan.knauss.ca/
 
 == Installation ==
 
