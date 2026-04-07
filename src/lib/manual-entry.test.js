@@ -13,10 +13,24 @@ jest.mock('./formatting/csl', () => ({
 }));
 
 describe('manual-entry', () => {
+	let originalCrypto;
+
 	beforeEach(() => {
-		global.crypto = {
-			randomUUID: jest.fn(() => 'manual-uuid'),
-		};
+		originalCrypto = global.crypto;
+		Object.defineProperty(global, 'crypto', {
+			configurable: true,
+			value: {
+				...originalCrypto,
+				randomUUID: jest.fn(() => 'manual-uuid'),
+			},
+		});
+	});
+
+	afterEach(() => {
+		Object.defineProperty(global, 'crypto', {
+			configurable: true,
+			value: originalCrypto,
+		});
 	});
 
 	it('exposes the curated manual-entry type list', () => {

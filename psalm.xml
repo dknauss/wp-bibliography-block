@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<psalm
+	errorLevel="6"
+	resolveFromConfigFile="true"
+	findUnusedBaselineEntry="true"
+	findUnusedCode="false"
+>
+	<projectFiles>
+		<file name="scholarly-bibliography.php" />
+		<ignoreFiles>
+			<directory name="build" />
+			<directory name="node_modules" />
+			<directory name="tests" />
+		</ignoreFiles>
+	</projectFiles>
+	<stubs>
+		<file name="vendor/php-stubs/wordpress-stubs/wordpress-stubs.php" />
+	</stubs>
+</psalm>

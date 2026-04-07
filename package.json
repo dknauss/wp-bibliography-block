@@ -11,14 +11,19 @@
 		"lint:js": "wp-scripts lint-js",
 		"lint:css": "wp-scripts lint-style",
 		"test": "wp-scripts test-unit-js",
+		"test:js:coverage": "wp-scripts test-unit-js --runInBand --coverage --coverageReporters=clover --coverageReporters=text-summary --silent",
 		"benchmark:perf": "RUN_PERF_BENCHMARK=1 wp-scripts test-unit-js --runInBand --runTestsByPath src/benchmarks/performance-benchmark.test.js",
 		"package:release": "sh ./scripts/package-release.sh",
 		"test:rest:local": "sh ./scripts/test-rest-endpoints.sh",
 		"test:e2e": "playwright test",
+		"test:e2e:playground": "sh ./scripts/test-playground-e2e.sh",
 		"test:runtime:local": "sh ./scripts/runtime-matrix/smoke.sh"
 	},
 	"jest": {
 		"testEnvironment": "jsdom",
+		"setupFiles": [
+			"<rootDir>/jest.setup.js"
+		],
 		"transform": {
 			"^.+\\.[jt]sx?$": "babel-jest"
 		},
@@ -42,15 +47,28 @@
 		"@wordpress/notices": "^5.42.0"
 	},
 	"devDependencies": {
-		"@testing-library/dom": "^8.20.1",
-		"@testing-library/jest-dom": "^5.17.0",
-		"@testing-library/react": "^12.1.5",
-		"@testing-library/user-event": "^13.5.0",
-		"@wordpress/scripts": "^19.2.4",
+		"@testing-library/dom": "^10.4.1",
+		"@testing-library/jest-dom": "^6.6.3",
+		"@testing-library/react": "^16.3.0",
+		"@testing-library/user-event": "^14.6.1",
+		"@wordpress/scripts": "^31.8.0",
 		"prettier": "^2.8.8",
-		"react": "^17.0.2",
-		"react-dom": "^17.0.2",
-		"@wordpress/dependency-extraction-webpack-plugin": "^3.7.0",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"@wordpress/dependency-extraction-webpack-plugin": "^6.43.0",
 		"@playwright/test": "^1.54.2"
+	},
+	"overrides": {
+		"serialize-javascript": "^7.0.5",
+		"markdownlint-cli": {
+			"minimatch": "^3.1.5"
+		},
+		"@typescript-eslint/typescript-estree": {
+			"minimatch": "^9.0.8"
+		},
+		"@sentry/node": {
+			"minimatch": "^9.0.8"
+		},
+		"webpack-dev-server": "^5.2.3"
 	}
 }

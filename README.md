@@ -5,6 +5,8 @@
 [![PHP tested](https://img.shields.io/badge/PHP-7.4%E2%80%938.4-777bb4.svg?logo=php&logoColor=white)](https://github.com/dknauss/wp-bibliography-block/actions/workflows/runtime-matrix.yml)
 [![CI](https://github.com/dknauss/wp-bibliography-block/actions/workflows/ci.yml/badge.svg)](https://github.com/dknauss/wp-bibliography-block/actions/workflows/ci.yml)
 [![Runtime matrix](https://github.com/dknauss/wp-bibliography-block/actions/workflows/runtime-matrix.yml/badge.svg)](https://github.com/dknauss/wp-bibliography-block/actions/workflows/runtime-matrix.yml)
+[![CodeQL](https://github.com/dknauss/wp-bibliography-block/actions/workflows/codeql.yml/badge.svg)](https://github.com/dknauss/wp-bibliography-block/actions/workflows/codeql.yml)
+[![Codecov](https://codecov.io/gh/dknauss/wp-bibliography-block/branch/main/graph/badge.svg)](https://codecov.io/gh/dknauss/wp-bibliography-block)
 [![WordPress Playground](https://img.shields.io/badge/WordPress%20Playground-Try%20it-3858e9.svg?logo=wordpress&logoColor=white)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/dknauss/wp-bibliography-block/main/playground/blueprint.json)
 
 A WordPress block plugin that transforms pasted scholarly references into a semantically rich, auto-sorted bibliography block with static saved output.
@@ -133,19 +135,34 @@ Behavior:
 
 ## Development
 
-Requires Node.js 18+ and npm 9+.
+Requires Node.js 18+, npm 9+, and Composer.
 
 ```bash
 npm install          # Install dependencies
+composer install     # Install PHP tooling
 npm run build        # Production build
 npm run start        # Development mode with file watching
 npm run lint:js          # ESLint
 npm run lint:css         # Stylelint
 npm run test             # Unit tests
+npm run test:js:coverage # JS coverage for Codecov
 npm run test:rest:local  # Local REST endpoint smoke test (Studio site)
 npm run test:e2e         # Playwright smoke suite against local site
+npm run test:e2e:playground # Playground-based Playwright smoke suite
 npm run test:runtime:local # Docker-based runtime smoke environment
+composer test:php        # PHPUnit REST and bootstrap tests
+composer test:php:coverage # PHP coverage for Codecov
+composer analyze:php     # Psalm static analysis
 ```
+
+GitHub Actions currently runs:
+
+- Node quality/build checks
+- PHPUnit across PHP 7.4, 8.1, and 8.3
+- Psalm static analysis
+- CodeQL for JavaScript and PHP
+- Codecov uploads from JS + PHP coverage
+- Playwright smoke tests against WordPress Playground
 
 The GitHub Actions runtime matrix currently covers:
 

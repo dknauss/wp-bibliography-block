@@ -394,7 +394,7 @@ export default function Edit({ attributes, setAttributes }) {
 				clearNotice();
 			}
 		},
-		[clearNotice, currentNotice]
+		[clearNotice, currentNotice, updatePasteInput]
 	);
 
 	const handleInputFocus = useCallback(() => {
@@ -431,7 +431,7 @@ export default function Edit({ attributes, setAttributes }) {
 				clearNotice();
 			}
 		},
-		[clearNotice, currentNotice, updatePasteInput]
+		[clearNotice, currentNotice]
 	);
 
 	const handleManualClear = useCallback(() => {

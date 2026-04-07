@@ -1,0 +1,22 @@
+{
+	"name": "dknauss/scholarly-bibliography",
+	"description": "WordPress scholarly bibliography block plugin PHP tooling",
+	"type": "project",
+	"license": "GPL-2.0-or-later",
+	"require-dev": {
+		"phpunit/phpunit": "^9.6",
+		"php-stubs/wordpress-stubs": "^6.8",
+		"vimeo/psalm": "^6.0"
+	},
+	"scripts": {
+		"test:php": "phpunit",
+		"test:php:coverage": "phpunit --coverage-clover build/logs/phpunit-clover.xml",
+		"analyze:php": "psalm --no-progress"
+	},
+	"config": {
+		"sort-packages": true,
+		"allow-plugins": {
+			"composer/package-versions-deprecated": true
+		}
+	}
+}

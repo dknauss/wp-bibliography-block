@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import React from 'react';
-import { act, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import { useBlockNotices } from './use-block-notices';
 
 jest.useFakeTimers();
@@ -74,7 +74,9 @@ describe('useBlockNotices', () => {
 	it('auto-dismisses info notices after five seconds', () => {
 		render(<NoticeHarness />);
 
-		screen.getByRole('button', { name: 'Show info' }).click();
+		act(() => {
+			fireEvent.click(screen.getByRole('button', { name: 'Show info' }));
+		});
 		expect(screen.getByText('Info notice')).toBeInTheDocument();
 
 		act(() => {
@@ -87,7 +89,11 @@ describe('useBlockNotices', () => {
 	it('does not auto-dismiss warning notices', () => {
 		render(<NoticeHarness />);
 
-		screen.getByRole('button', { name: 'Show warning' }).click();
+		act(() => {
+			fireEvent.click(
+				screen.getByRole('button', { name: 'Show warning' })
+			);
+		});
 		expect(screen.getByText('Warning notice')).toBeInTheDocument();
 
 		act(() => {
@@ -100,7 +106,9 @@ describe('useBlockNotices', () => {
 	it('clears both default and snackbar notice buckets before announcing', () => {
 		render(<NoticeHarness />);
 
-		screen.getByRole('button', { name: 'Show info' }).click();
+		act(() => {
+			fireEvent.click(screen.getByRole('button', { name: 'Show info' }));
+		});
 
 		expect(
 			require('@wordpress/data').__unstableGetRemoveAllCalls()

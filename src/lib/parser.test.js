@@ -133,11 +133,25 @@ describe('validateAndSanitizeCsl', () => {
 });
 
 describe('parsePastedInput', () => {
+	let originalCrypto;
+
 	beforeEach(() => {
 		jest.clearAllMocks();
-		global.crypto = {
-			randomUUID: jest.fn(() => 'test-uuid'),
-		};
+		originalCrypto = global.crypto;
+		Object.defineProperty(global, 'crypto', {
+			configurable: true,
+			value: {
+				...originalCrypto,
+				randomUUID: jest.fn(() => 'test-uuid'),
+			},
+		});
+	});
+
+	afterEach(() => {
+		Object.defineProperty(global, 'crypto', {
+			configurable: true,
+			value: originalCrypto,
+		});
 	});
 
 	it('rejects parsed entries with invalid CSL shapes before persisting', async () => {
@@ -338,8 +352,6 @@ describe('parsePastedInput', () => {
 	});
 
 	it('falls back to a generated citation id when crypto.randomUUID is unavailable', async () => {
-		const originalCrypto = global.crypto;
-
 		Cite.async.mockResolvedValue({
 			get: () => [
 				{
@@ -349,7 +361,10 @@ describe('parsePastedInput', () => {
 			],
 		});
 
-		global.crypto = {};
+		Object.defineProperty(global, 'crypto', {
+			configurable: true,
+			value: {},
+		});
 
 		const result = await parsePastedInput(`@book{fallback,
   title = {Fallback ID Example}
@@ -357,8 +372,6 @@ describe('parsePastedInput', () => {
 
 		expect(result.entries).toHaveLength(1);
 		expect(result.entries[0].id).toMatch(/^citation-/u);
-
-		global.crypto = originalCrypto;
 	});
 
 	it('enforces the 50-entry paste cap and preserves overflow input for retry', async () => {
