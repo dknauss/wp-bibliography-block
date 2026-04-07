@@ -71,6 +71,22 @@ describe('validateAndSanitizeCsl', () => {
 		).toBe(false);
 	});
 
+	it('strips HTML tags from string fields', () => {
+		const sanitized = validateAndSanitizeCsl({
+			type: 'article-journal',
+			title:
+				'<i>\u201c</i>Contagious Air[s]\u201d: Wordsworth\u2019s Poetics and Politics of Immunity',
+			'container-title': 'European <i>Romantic</i> Review',
+		});
+
+		expect(sanitized.title).toBe(
+			'\u201cContagious Air[s]\u201d: Wordsworth\u2019s Poetics and Politics of Immunity'
+		);
+		expect(sanitized['container-title']).toBe(
+			'European Romantic Review'
+		);
+	});
+
 	it('rejects invalid scalar CSL fields like DOI objects', () => {
 		expect(() =>
 			validateAndSanitizeCsl({
@@ -190,7 +206,7 @@ describe('parsePastedInput', () => {
 		);
 
 		expect(result.errors).toEqual([]);
-		expect(result.entries[0].csl.title).toBe('<script>alert(1)</script>');
+		expect(result.entries[0].csl.title).toBe('alert(1)');
 	});
 
 	it('does not throw when review-title cleanup sees regex metacharacters in names', async () => {

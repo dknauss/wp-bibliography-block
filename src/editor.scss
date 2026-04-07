@@ -43,6 +43,8 @@
 		[class~="components-placeholder__fieldset"] {
 			max-width: none;
 			width: 100%;
+			align-self: stretch;
+			flex-direction: column;
 			align-items: stretch;
 		}
 	}
@@ -209,7 +211,9 @@
 		width: 100%;
 		display: block;
 		padding: 0.4em;
-		font: inherit;
+		font-family: inherit;
+		font-size: 13px;
+		line-height: 1.4;
 		border: 1px solid #007cba;
 		border-radius: 2px;
 		max-width: 100%;
@@ -227,6 +231,8 @@
 		padding-left: 0;
 		margin: 0;
 		box-sizing: border-box;
+		font-size: 13px;
+		line-height: 1.4;
 
 		.scholarly-bibliography-structured-field {
 			width: 100%;

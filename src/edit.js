@@ -789,6 +789,13 @@ export default function Edit({ attributes, setAttributes }) {
 						citations.length
 							? `${__('Settings', 'scholarly-bibliography')} (${
 									citations.length
+							  } ${
+									citations.length === 1
+										? __('source', 'scholarly-bibliography')
+										: __(
+												'sources',
+												'scholarly-bibliography'
+										  )
 							  })`
 							: __('Settings', 'scholarly-bibliography')
 					}

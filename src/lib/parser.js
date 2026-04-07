@@ -224,24 +224,28 @@ function sanitizeIssued(issued) {
 	return sanitizedIssued;
 }
 
+function stripHtmlTags(text) {
+	return text.replace(/<[^>]*>/gu, '');
+}
+
 function sanitizeStringField(value, field) {
 	if (typeof value !== 'string') {
 		throw new Error(`Invalid CSL ${field}.`);
 	}
 
-	return value;
+	return stripHtmlTags(value);
 }
 
 function sanitizeStringOrStringArrayField(value, field) {
 	if (typeof value === 'string') {
-		return value;
+		return stripHtmlTags(value);
 	}
 
 	if (
 		Array.isArray(value) &&
 		value.every((item) => typeof item === 'string')
 	) {
-		return value;
+		return value.map(stripHtmlTags);
 	}
 
 	throw new Error(`Invalid CSL ${field}.`);
