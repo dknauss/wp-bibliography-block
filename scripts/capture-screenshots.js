@@ -226,7 +226,9 @@ async function ensurePluginActive(page) {
 	}
 
 	await page.screenshot({ path: `${OUTPUT_DIR}/screenshot-4.png` });
-	console.log('Screenshot 4: Block settings sidebar with citations and hover actions');
+	console.log(
+		'Screenshot 4: Block settings sidebar with citations and hover actions'
+	);
 
 	// --- Publish the post ---
 	const publishButton = page

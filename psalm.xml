@@ -7,7 +7,7 @@
 >
 	<projectFiles>
 		<file name="scholarly-bibliography.php" />
-		<ignoreFiles>
+		<ignoreFiles allowMissing="true">
 			<directory name="node_modules" />
 			<directory name="tests" />
 		</ignoreFiles>
