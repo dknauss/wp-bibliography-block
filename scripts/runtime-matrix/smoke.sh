@@ -199,9 +199,9 @@ POST_ID=$(docker compose -f "$COMPOSE_FILE" exec -T -e BLOCK_CONTENT="$BLOCK_CON
 printf '%s\n' "$POST_ID" > "$ARTIFACT_DIR/post-id.txt"
 
 capture_http frontend "$SITE_URL/?p=$POST_ID"
-capture_http rest-collection "$SITE_URL/wp-json/scholarly-bibliography/v1/posts/$POST_ID/bibliographies"
-capture_http rest-text "$SITE_URL/wp-json/scholarly-bibliography/v1/posts/$POST_ID/bibliographies/0?format=text"
-capture_http rest-csl-json "$SITE_URL/wp-json/scholarly-bibliography/v1/posts/$POST_ID/bibliographies/0?format=csl-json"
+capture_http rest-collection "$SITE_URL/?rest_route=/scholarly-bibliography/v1/posts/$POST_ID/bibliographies"
+capture_http rest-text "$SITE_URL/?rest_route=/scholarly-bibliography/v1/posts/$POST_ID/bibliographies/0&format=text"
+capture_http rest-csl-json "$SITE_URL/?rest_route=/scholarly-bibliography/v1/posts/$POST_ID/bibliographies/0&format=csl-json"
 
 grep -q 'scholarly-bibliography-entry-text' "$ARTIFACT_RESPONSE_DIR/frontend.body"
 grep -q '"entryCount":1' "$ARTIFACT_RESPONSE_DIR/rest-collection.body"
