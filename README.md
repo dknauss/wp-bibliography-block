@@ -31,15 +31,6 @@ The Playground installs the plugin from the latest GitHub Release zip artifact.
 |---|---|---|
 | ![](.wordpress-org/screenshot-1.png) | ![](.wordpress-org/screenshot-2.png) | ![](.wordpress-org/screenshot-3.png) |
 
-## External Services
-
-This plugin connects to the [CrossRef REST API](https://api.crossref.org/) when you paste a DOI to resolve citation metadata. No account or API key is required. Requests are made only when you explicitly add a DOI in the block editor — no data is sent automatically or in the background.
-
-- [CrossRef](https://www.crossref.org/)
-- [CrossRef REST API documentation](https://api.crossref.org/swagger-ui/index.html)
-- [CrossRef privacy policy](https://www.crossref.org/privacy/)
-- [CrossRef terms of service](https://www.crossref.org/terms/)
-
 ## Installation
 
 1. Upload the plugin files to `/wp-content/plugins/scholarly-bibliography/`, or install directly through the WordPress plugin screen.
@@ -47,15 +38,24 @@ This plugin connects to the [CrossRef REST API](https://api.crossref.org/) when 
 3. Add the **Bibliography** block to any post or page.
 4. Paste DOI(s), BibTeX entries, or supported citations.
 
+## Compatibility
+
+- **WordPress** 6.4–7.0 (block.json v3 requires 6.4+)
+- **PHP** 7.4+ (minimal PHP runtime — the plugin registers a block and REST endpoints only)
+- **Multisite** — expected to work (block registration is site-local by default), but not yet tested
+
+The GitHub Actions runtime matrix covers PHP 7.4 through 8.4 and WordPress 6.4 through latest on both Apache and Nginx. Multisite-specific and SQLite runtime e2e tests are on the backlog.
+
 ## Features
 
 - **Multiple input paths** — add bare DOIs, DOI URLs, BibTeX entries, and supported formatted citations
-- **Current style support** — Chicago Notes-Bibliography by default, with Chicago Author-Date, APA 7, Harvard, Vancouver, IEEE, MLA 9, OSCOLA, and ABNT selectable now
+- **Nine citation styles** — Chicago Notes-Bibliography by default, with Chicago Author-Date, APA 7, Harvard, Vancouver, IEEE, MLA 9, OSCOLA, and ABNT selectable
 - **Structured editing** — plain-text editing plus per-field editing for heuristic or warning-marked citations
-- **Semantic output** — DPUB-ARIA bibliography roles, `<cite>` wrappers, `lang` attributes, JSON-LD by default, with optional COinS and CSL-JSON layers
-- **Practical export** — download the current bibliography as CSL-JSON from the editor
-- **Reference-manager export** — download the current bibliography as BibTeX from the editor
-- **Broad interoperability export** — download the current bibliography as RIS from the editor
+- **Semantic output** — DPUB-ARIA bibliography roles, `<cite>` wrappers, `lang` attributes, and hanging-indent styling
+- **JSON-LD** — Schema.org structured data for search engines, AI systems, and semantic consumers (on by default)
+- **COinS** — optional OpenURL spans for browser-based citation manager detection (useful for Zotero and similar tools)
+- **CSL-JSON output** — optional machine-readable metadata for tool interoperability (useful for scholarly services that consume structured data)
+- **Export** — download the current bibliography as CSL-JSON, BibTeX, or RIS; copy individual citations or the full bibliography as plain text
 - **Static save** — bibliography HTML and metadata are baked into post content at save time
 - **Accessible editor UX** — focus management, block-local Gutenberg notices, keyboard escape/cancel flows, and row action controls
 
@@ -80,39 +80,9 @@ The free-text parser currently supports a growing set of formatted citations for
 
 Support is heuristic rather than universal. Unsupported inputs fail closed with a block-local inline Gutenberg notice. Manual entry is now available as a fallback for unsupported formats.
 
-## Output
-
-Each saved bibliography block currently produces:
-
-- **Semantic HTML** — `role="doc-bibliography"`, `role="doc-biblioentry"`, hanging-indent styling, and `lang` attributes
-- **JSON-LD** — Schema.org objects for search engines, AI systems, and semantic consumers, enabled by default
-- **COinS** — optional OpenURL spans for browser-based citation manager detection
-- **CSL-JSON** — optional raw scholarly metadata for tool interoperability
-
-Current output-layer defaults:
-
-- **JSON-LD** on
-- **COinS** off
-- **CSL-JSON** off
-
-### Why would you enable COinS or CSL-JSON?
-
-- **COinS** is useful if you want readers using Zotero or similar citation-manager browser tools to detect and save citations directly from the page.
-- **CSL-JSON** is useful if you want developers, research tools, or scholarly services to reuse your bibliography data without scraping the visible citation text.
-
-## Export
-
-The editor currently includes:
-
-- **Download CSL-JSON** — exports the current bibliography as structured citation data you can reuse in scholarly tools, scripts, and conversion workflows.
-- **Download BibTeX** — exports the current bibliography as BibTeX for reference managers and scholarly writing tools.
-- **Download RIS** — exports the current bibliography as RIS for citation-manager import/export workflows.
-- **Copy citation** — copies the visible formatted citation text for an individual entry directly to the clipboard.
-- **Copy bibliography** — copies the full current bibliography as plain text in the current order and style.
-
 ## API
 
-The plugin now exposes a read-only REST endpoint for bibliography data:
+The plugin exposes a read-only REST endpoint for bibliography data:
 
 - `GET /wp-json/scholarly-bibliography/v1/posts/<post_id>/bibliographies`
 - `GET /wp-json/scholarly-bibliography/v1/posts/<post_id>/bibliographies/<index>`
@@ -123,6 +93,15 @@ Behavior:
 - non-public posts require permission to edit the post
 - the collection route returns each bibliography block found in the post, including style settings and citation data
 - the single-bibliography route supports `?format=json`, `?format=text`, and `?format=csl-json`
+
+## External Services
+
+This plugin connects to the [CrossRef REST API](https://api.crossref.org/) when you paste a DOI to resolve citation metadata. No account or API key is required. Requests are made only when you explicitly add a DOI in the block editor — no data is sent automatically or in the background.
+
+- [CrossRef](https://www.crossref.org/)
+- [CrossRef REST API documentation](https://api.crossref.org/swagger-ui/index.html)
+- [CrossRef privacy policy](https://www.crossref.org/privacy/)
+- [CrossRef terms of service](https://www.crossref.org/terms/)
 
 ## Development
 
@@ -173,7 +152,7 @@ Each runtime smoke job uploads artifacts including Docker logs, service status, 
 
 SQLite runtime smoke remains a planned follow-up while the CI bootstrap path is stabilized.
 
-## File Structure
+### File structure
 
 ```text
 scholarly-bibliography/
@@ -195,16 +174,6 @@ scholarly-bibliography/
 ├── package.json
 └── readme.txt                    # WordPress.org readme
 ```
-
-## Compatibility
-
-- **WordPress** 6.4–7.0 (block.json v3 requires 6.4+)
-- **PHP** 7.4+ (minimal PHP runtime — the plugin registers a block and REST endpoints only)
-- **Multisite** — expected to work (block registration is site-local by default), but not yet tested
-
-The GitHub Actions runtime matrix covers PHP 7.4 through 8.4 and WordPress 6.4 through latest on both Apache and Nginx. Multisite-specific and SQLite runtime e2e tests are on the backlog.
-
-## Roadmap
 
 See [SPEC.md](SPEC.md) for the authoritative behavior specification and future plans.
 
