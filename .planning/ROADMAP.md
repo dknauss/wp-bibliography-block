@@ -141,6 +141,17 @@ Investigation outcome on 2026-04-05:
 -   caller-owned / opt-in formatting responsibility has now landed in `parsePastedInput()` as the default behavior
 -   deeper formatter architecture changes are not justified yet
 
+## Compatibility and runtime coverage backlog
+
+Completed:
+
+-   expanded the GitHub Actions runtime matrix across additional Apache/Nginx/PHP/WordPress combinations
+-   added a SQLite single-site runtime smoke lane with the same artifact capture used for MySQL lanes
+
+Planned next:
+
+-   add multisite runtime smoke coverage so at least one network-install lane is exercised in CI
+
 ## Backlog / architecture investigations
 
 ### Option B: citation child blocks

@@ -4,7 +4,8 @@
 
 1. Post-export cleanup and longer-term maintainability backlog.
 2. Optional future UX refinements around citation-row interaction and success-message behavior.
-3. Future API/interoperability backlog.
+3. Broadened runtime compatibility coverage, with multisite smoke still planned.
+4. Future API/interoperability backlog.
 
 ## Current Priority Order
 
@@ -15,7 +16,10 @@
 2. Low-priority UX follow-up
     - periodically re-check row-interaction accessibility
     - reconsider global snackbars for pure success-only cases if it ever improves clarity
-3. Future API/interoperability backlog
+3. Runtime compatibility coverage
+    - expanded CI/runtime matrix across more PHP, WordPress, Apache, Nginx, and SQLite combinations
+    - plan a follow-on multisite smoke lane
+4. Future API/interoperability backlog
     - build on shipped copy-citation and bibliography REST access
     - consider richer API fields, discovery, or collection-level endpoints
 
@@ -43,6 +47,7 @@ Recent work completed in the working tree includes:
 -   a per-entry copy-citation action now ships in the editor for reusing visible citation text
 -   a Copy bibliography action now ships in the editor for copying the current bibliography as plain text
 -   read-only REST endpoints now expose bibliography block data at `/wp-json/scholarly-bibliography/v1/posts/<post_id>/bibliographies` and `/wp-json/scholarly-bibliography/v1/posts/<post_id>/bibliographies/<index>`
+-   GitHub Actions runtime coverage now spans additional Apache/Nginx/PHP/WordPress combinations and includes a SQLite smoke lane
 
 ## Active Concerns
 
@@ -56,7 +61,8 @@ Recent work completed in the working tree includes:
 
 ## Pending Todos
 
--   0 pending todos in `.planning/todos/pending`
+-   1 pending todo in `.planning/todos/pending`
+    - Add multisite runtime smoke coverage
 
 ## Roadmap Alignment
 
@@ -69,4 +75,5 @@ The project is currently between:
 In practice, the near-term execution order is:
 
 -   backlog architecture work
+-   follow-on multisite runtime coverage
 -   future API/interoperability work

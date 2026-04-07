@@ -134,10 +134,13 @@ npm run test:runtime:local # Docker-based runtime smoke environment
 The GitHub Actions runtime matrix currently covers:
 
 -   Apache + PHP 7.4 + WordPress 6.4
+-   Apache + PHP 8.1 + WordPress 6.4
 -   Apache + PHP 8.1 + WordPress 6.7
 -   Apache + PHP 8.2 + latest WordPress
 -   Apache + PHP 8.3 + latest WordPress
+-   Apache + PHP 8.3 + latest WordPress + SQLite
 -   Apache + PHP 8.4 + latest WordPress
+-   Nginx + PHP 8.1 + WordPress 6.7
 -   Nginx + PHP 8.2 + latest WordPress
 -   Nginx + PHP 8.3 + latest WordPress
 
