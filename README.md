@@ -1,5 +1,3 @@
-![](.wordpress-org/banner-1544x500.png)
-
 # A Bibliography Block for WordPress
 
 [![License: GPL v2+](https://img.shields.io/badge/License-GPLv2%2B-blue.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
@@ -22,6 +20,8 @@ Launch a disposable WordPress instance with the plugin preinstalled:
 - [Open Scholarly Bibliography Block in WordPress Playground](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/dknauss/wp-bibliography-block/main/playground/blueprint.json)
 
 The Playground installs the plugin from the latest GitHub Release zip artifact.
+
+![](.wordpress-org/banner-1544x500.png)
 
 ## Screenshots
 
