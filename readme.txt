@@ -74,7 +74,11 @@ PHP 7.4+ and WordPress 6.4+. The plugin has minimal PHP runtime (block registrat
 
 == Development ==
 
-Project URL: 
+Source code, issue tracker, and contribution guidelines are on GitHub:
+
+[https://github.com/dknauss/wp-bibliography-block](https://github.com/dknauss/wp-bibliography-block)
+
+Bug reports, feature requests, and pull requests are welcome. See CONTRIBUTING.md in the repository for development setup, coding standards, and the PR process.
 
 == External Services ==
 
