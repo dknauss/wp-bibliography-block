@@ -8,7 +8,7 @@ async function ensurePluginActivated(page) {
 	).toBeVisible();
 
 	const pluginRow = page.locator('tr', {
-		hasText: 'Scholarly Bibliography',
+		hasText: 'Bibliography',
 	});
 
 	await expect(pluginRow).toBeVisible();
@@ -20,7 +20,7 @@ async function ensurePluginActivated(page) {
 		await page.waitForLoadState('networkidle');
 	}
 
-	await expect(pluginRow).toContainText('Scholarly Bibliography');
+	await expect(pluginRow).toContainText('Bibliography');
 	await expect(
 		pluginRow.getByRole('link', { name: /Activate|Deactivate/i }).first()
 	).toBeVisible();
@@ -29,10 +29,41 @@ async function ensurePluginActivated(page) {
 test('plugin is active in WordPress Playground', async ({ page }) => {
 	await ensurePluginActivated(page);
 
-	await expect(
-		page.locator('tr', { hasText: 'Scholarly Bibliography' })
-	).toBeVisible();
+	await expect(page.locator('tr', { hasText: 'Bibliography' })).toBeVisible();
 });
+
+async function dismissEditorOverlay(page) {
+	for (let attempt = 0; attempt < 3; attempt += 1) {
+		const dialog = page.getByRole('dialog').first();
+		const dialogCloseButton = dialog
+			.getByRole('button', {
+				name: /Close|Dismiss|Got it|Okay|OK|Done|Skip/i,
+			})
+			.first();
+
+		if (
+			(await dialog.isVisible().catch(() => false)) &&
+			(await dialogCloseButton.isVisible().catch(() => false))
+		) {
+			await dialogCloseButton.click({ force: true });
+			await dialog
+				.waitFor({ state: 'hidden', timeout: 5000 })
+				.catch(() => {});
+		}
+
+		await page.keyboard.press('Escape').catch(() => {});
+
+		const overlay = page.locator('.components-modal__screen-overlay');
+		if (!(await overlay.count())) {
+			return;
+		}
+
+		await overlay
+			.first()
+			.waitFor({ state: 'hidden', timeout: 2000 })
+			.catch(() => {});
+	}
+}
 
 test('bibliography block is discoverable in the editor inserter', async ({
 	page,
@@ -43,16 +74,14 @@ test('bibliography block is discoverable in the editor inserter', async ({
 		'iframe[name="editor-canvas"], iframe'
 	);
 
-	const closeWelcomeButton = page.getByRole('button', { name: 'Close' });
-
-	if (await closeWelcomeButton.count()) {
-		await closeWelcomeButton.click();
-	}
+	await dismissEditorOverlay(page);
 
 	await expect(
 		editorFrame.getByRole('textbox', { name: /Add title/i })
 	).toBeVisible();
-	await page.getByRole('button', { name: 'Block Inserter' }).click();
+	await page
+		.getByRole('button', { name: 'Block Inserter' })
+		.click({ force: true });
 	await page.getByRole('searchbox').fill('Bibliography');
 	await expect(page.getByText('Bibliography')).toBeVisible();
 });

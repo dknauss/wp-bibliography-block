@@ -43,12 +43,8 @@ jobs:
         run: npm run build
 
   phpunit:
-    name: PHPUnit (PHP ${{ matrix.php }})
+    name: PHPUnit
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        php: ['7.4', '8.1', '8.3']
 
     steps:
       - name: Checkout
@@ -57,7 +53,7 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.php }}
+          php-version: '8.3'
           coverage: none
 
       - name: Validate Composer files

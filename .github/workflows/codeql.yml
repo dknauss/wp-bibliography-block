@@ -21,14 +21,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [javascript, php]
+        language: [javascript, actions]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v5
 
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
+        uses: github/codeql-action/init@v4
         with:
           languages: ${{ matrix.language }}
 
@@ -47,9 +47,9 @@ jobs:
         if: matrix.language == 'javascript'
         run: npm run build
 
-      - name: Autobuild PHP
-        if: matrix.language == 'php'
-        uses: github/codeql-action/autobuild@v3
+      - name: Autobuild non-JavaScript languages
+        if: matrix.language != 'javascript'
+        uses: github/codeql-action/autobuild@v4
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3
+        uses: github/codeql-action/analyze@v4

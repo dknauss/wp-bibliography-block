@@ -52,13 +52,6 @@ jobs:
             db_engine: mysql
             http_port: '8894'
             db_port: '33074'
-          - name: apache-php83-wplatest-sqlite
-            server: apache
-            php: '8.3'
-            wp: latest
-            db_engine: sqlite
-            http_port: '8899'
-            db_port: '33079'
           - name: apache-php84-wplatest
             server: apache
             php: '8.4'

@@ -171,13 +171,14 @@ The GitHub Actions runtime matrix currently covers:
 -   Apache + PHP 8.1 + WordPress 6.7
 -   Apache + PHP 8.2 + latest WordPress
 -   Apache + PHP 8.3 + latest WordPress
--   Apache + PHP 8.3 + latest WordPress + SQLite
 -   Apache + PHP 8.4 + latest WordPress
 -   Nginx + PHP 8.1 + WordPress 6.7
 -   Nginx + PHP 8.2 + latest WordPress
 -   Nginx + PHP 8.3 + latest WordPress
 
 Each runtime smoke job uploads artifacts including Docker logs, service status, HTTP responses, and environment summaries under `output/runtime-matrix/<matrix-name>`.
+
+SQLite runtime smoke remains a planned follow-up while the CI bootstrap path is stabilized.
 
 ## File Structure
 
