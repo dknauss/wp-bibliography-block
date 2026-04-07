@@ -167,13 +167,10 @@ async function ensurePluginActive(page) {
 	await page.waitForTimeout(4000);
 
 	// --- Screenshot 3: Editor with populated citations and manual entry form ---
-	// Switch to manual entry to show the form.
-	let manualTab = editorFrame
+	// Switch to manual entry via the block toolbar button.
+	const manualTab = page
 		.getByRole('button', { name: /Manual Entry/i })
 		.first();
-	if (!(await manualTab.isVisible().catch(() => false))) {
-		manualTab = page.getByRole('button', { name: /Manual Entry/i }).first();
-	}
 	if (await manualTab.isVisible().catch(() => false)) {
 		await manualTab.click();
 		await page.waitForTimeout(1000);
@@ -181,13 +178,10 @@ async function ensurePluginActive(page) {
 	await page.screenshot({ path: `${OUTPUT_DIR}/screenshot-3.png` });
 	console.log('Screenshot 3: Manual entry form with existing citations');
 
-	// Switch back to paste/import for the sidebar screenshot.
-	let pasteTab = editorFrame
+	// Switch back to paste/import via the block toolbar button.
+	const pasteTab = page
 		.getByRole('button', { name: /Paste.*Import/i })
 		.first();
-	if (!(await pasteTab.isVisible().catch(() => false))) {
-		pasteTab = page.getByRole('button', { name: /Paste.*Import/i }).first();
-	}
 	if (await pasteTab.isVisible().catch(() => false)) {
 		await pasteTab.click();
 		await page.waitForTimeout(500);
