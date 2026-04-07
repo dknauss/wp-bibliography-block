@@ -785,10 +785,13 @@ export default function Edit({ attributes, setAttributes }) {
 			</BlockControls>
 			<InspectorControls>
 				<PanelBody
-					title={__(
-						'Bibliography Settings',
-						'scholarly-bibliography'
-					)}
+					title={
+						citations.length
+							? `${__('Settings', 'scholarly-bibliography')} (${
+									citations.length
+							  })`
+							: __('Settings', 'scholarly-bibliography')
+					}
 				>
 					<SelectControl
 						label={__('Citation Style', 'scholarly-bibliography')}
@@ -845,12 +848,6 @@ export default function Edit({ attributes, setAttributes }) {
 							'scholarly-bibliography'
 						)}
 					/>
-					<p>
-						{citations.length}{' '}
-						{citations.length === 1
-							? __('citation', 'scholarly-bibliography')
-							: __('citations', 'scholarly-bibliography')}
-					</p>
 				</PanelBody>
 				<PanelBody title={__('Exports', 'scholarly-bibliography')}>
 					<Button
