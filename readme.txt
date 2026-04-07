@@ -15,15 +15,13 @@ Paste a DOI or BibTeX entry — get a formatted, auto-sorted bibliography in any
 
 **Bibliography** transforms pasted DOI(s), BibTeX entries, and citations into a semantically rich, auto-sorted reference list.
 
-**One-click import.** Paste a DOI and CrossRef resolves the metadata instantly. Paste BibTeX or formatted citations for books, articles, chapters, webpages, reviews, and theses.
+**One-click import.** Paste a DOI, and CrossRef resolves the metadata instantly. Paste BibTeX or formatted citations for books, articles, chapters, webpages, reviews, and theses.
 
 **Nine citation styles.** Choose from Chicago Notes-Bibliography, Chicago Author-Date, APA 7, MLA 9, Harvard, Vancouver, IEEE, OSCOLA, and ABNT — all with automatic alphabetical sorting per style rules.
 
 **Portable.** Static HTML output survives plugin deactivation. No shortcodes. No database tables.
 
 **Zotero-ready.** Schema.org JSON-LD by default. Optional COinS metadata for citation manager detection. Download CSL-JSON, BibTeX, or RIS for reuse in reference managers and scripts.
-
-Project URL: https://dan.knauss.ca/
 
 == Installation ==
 
@@ -64,7 +62,19 @@ Expected to work — block registration is site-local by default — but Multisi
 
 = What PHP and WordPress versions are supported? =
 
-PHP 7.4+ and WordPress 6.4+. The plugin has minimal PHP runtime (block registration and REST endpoints only). CI tests cover PHP 7.4 through 8.4 and WordPress 6.4 through latest.
+PHP 7.4+ and WordPress 6.4+. The plugin has minimal PHP runtime (block registration and REST endpoints only). CI tests cover PHP 7.4 through 8.4 and WordPress 6.4 through 7.0.
+
+== Screenshots ==
+
+1. Discover the Bibliography block in the inserter.
+2. Paste DOI, BibTeX, or supported citation text into the default import form.
+3. Use Manual Entry to build a citation with Publication Type and structured fields.
+4. Configure citation style, metadata output, and export actions in the block settings sidebar.
+5. View the rendered bibliography on the site front end with linked URLs and semantic output.
+
+== Development ==
+
+Project URL: 
 
 == External Services ==
 
@@ -74,14 +84,6 @@ This plugin connects to the **CrossRef REST API** (https://api.crossref.org/) wh
 * CrossRef REST API documentation: https://api.crossref.org/swagger-ui/index.html
 * CrossRef privacy policy: https://www.crossref.org/privacy/
 * CrossRef terms of service: https://www.crossref.org/terms/
-
-== Screenshots ==
-
-1. Discover the Bibliography block in the inserter.
-2. Paste DOI, BibTeX, or supported citation text into the default import form.
-3. Use Manual Entry to build a citation with Publication Type and structured fields.
-4. Configure citation style, metadata output, and export actions in the block settings sidebar.
-5. View the rendered bibliography on the site front end with linked URLs and semantic output.
 
 == Changelog ==
 
