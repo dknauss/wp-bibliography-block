@@ -24,15 +24,6 @@ The only all-in-one scholarly bibliography block. Paste a DOI or BibTeX entry �
 
 Project URL: https://dan.knauss.ca/
 
-== External Services ==
-
-This plugin connects to the **CrossRef REST API** (https://api.crossref.org/) when you paste a DOI to resolve citation metadata. No account or API key is required. Requests are made only when you explicitly add a DOI in the block editor — no data is sent automatically or in the background.
-
-* CrossRef service: https://www.crossref.org/
-* CrossRef REST API documentation: https://api.crossref.org/swagger-ui/index.html
-* CrossRef privacy policy: https://www.crossref.org/privacy/
-* CrossRef terms of service: https://www.crossref.org/terms/
-
 == Installation ==
 
 1. Upload the plugin files to `/wp-content/plugins/scholarly-bibliography/`, or install directly through the WordPress plugin screen.
@@ -42,7 +33,7 @@ This plugin connects to the **CrossRef REST API** (https://api.crossref.org/) wh
 
 == Frequently Asked Questions ==
 
-= What input formats are supported? =
+= What citation input formats does Bibliography support? =
 
 Bare DOIs, DOI URLs, BibTeX entries, and supported formatted citations for books, articles, chapters, webpages, reviews, and theses/dissertations. You can paste multiple entries at once, up to 50 entries per add.
 
@@ -50,7 +41,7 @@ Bare DOIs, DOI URLs, BibTeX entries, and supported formatted citations for books
 
 Your bibliographies remain fully readable. The block uses static HTML output, so all formatted citations stay in your post content.
 
-= Does this work with Zotero? =
+= Does Bibliography work with Zotero? =
 
 Yes, if you enable the optional COinS output layer. That metadata is intended for Zotero's browser connector and similar tools.
 
@@ -66,14 +57,22 @@ Yes. The editor currently includes Download CSL-JSON, Download BibTeX, Download 
 
 Yes. The plugin exposes read-only REST endpoints at `/wp-json/scholarly-bibliography/v1/posts/<post_id>/bibliographies` and `/wp-json/scholarly-bibliography/v1/posts/<post_id>/bibliographies/<index>`. Published posts are readable publicly; non-public posts require permission to edit the post. The single-bibliography route also supports `format=json`, `format=text`, and `format=csl-json`.
 
-
-= Does this work on WordPress Multisite? =
+= Does Bibliography work on WordPress Multisite? =
 
 Expected to work — block registration is site-local by default — but Multisite has not been explicitly tested yet. If you encounter issues, please report them.
 
 = What PHP and WordPress versions are supported? =
 
 PHP 7.4+ and WordPress 6.4+. The plugin has minimal PHP runtime (block registration and REST endpoints only). CI tests cover PHP 7.4 through 8.4 and WordPress 6.4 through latest.
+
+== External Services ==
+
+This plugin connects to the **CrossRef REST API** (https://api.crossref.org/) when you paste a DOI to resolve citation metadata. No account or API key is required. Requests are made only when you explicitly add a DOI in the block editor — no data is sent automatically or in the background.
+
+* CrossRef service: https://www.crossref.org/
+* CrossRef REST API documentation: https://api.crossref.org/swagger-ui/index.html
+* CrossRef privacy policy: https://www.crossref.org/privacy/
+* CrossRef terms of service: https://www.crossref.org/terms/
 
 == Screenshots ==
 
