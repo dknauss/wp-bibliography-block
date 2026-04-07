@@ -941,6 +941,24 @@ A central store (custom post type or taxonomy) for citations used across multipl
 -   **Style detection.** Identify which citation style was used in pasted text.
 -   **Suggested citations.** Given the post's content, suggest relevant citations from the user's library or from public databases.
 
+### Future: Editor Bundle Optimization
+
+The editor JS bundle is 759KB minified (248KB zip). The frontend loads zero JS. Bundle analysis (webpack `--json` stats) identified these optimization opportunities, roughly ordered by savings:
+
+-   **Tree-shake CSL locales.** `@citation-js/plugin-csl/locales.json` ships all CSL locale translations (~97KB). Extracting only `en-US` (or a small user-configurable set) would save ~80KB.
+-   **Drop `buffer` polyfill.** The Node.js `Buffer` polyfill (`buffer/index.js`, ~49KB) is pulled in by citation-js internals. If citation-js can be patched or forked to use `Uint8Array`, this polyfill can be eliminated.
+-   **Drop `fetch-ponyfill`.** The fetch polyfill (~22KB) is unnecessary in all modern browsers. citation-js could use native `fetch` directly.
+-   **Cherry-pick `@wordpress/icons`.** The full barrel import (`@wordpress/icons/build-module/library/index.mjs`, ~28KB) is included even though only ~10 icons are used. Switching to direct imports from `@wordpress/icons/build-module/library/<icon>.js` would tree-shake the rest.
+-   **Lazy-load citeproc.** The `citeproc` CSL engine (~945KB unminified, ~350KB in the minified bundle) is the largest single module. It is currently in the main chunk because `citation-js/plugin-csl` imports it synchronously. A deeper code-split — wrapping the first citeproc invocation behind a dynamic `import()` — would defer this cost to first citation format, but requires patching citation-js internals or using a custom wrapper.
+-   **Strip unused `styles.json`.** `@citation-js/plugin-csl` bundles a default CSL styles map (~68KB). The plugin already bundles its own style XMLs as separate chunks. The default map may be eliminable with a webpack `IgnorePlugin` or `NormalModuleReplacementPlugin`.
+
+None of these are blocking for 1.0. The frontend is zero-JS and the editor bundle is comparable to other Gutenberg blocks that include rich processing (e.g., the core Table block with sorting). Revisit if users report slow editor load times.
+
+### Future: Testing Gaps
+
+-   **WordPress Multisite** — expected to work but not yet tested in CI.
+-   **SQLite runtime** — Docker-based runtime smoke planned but CI bootstrap path not yet stabilized.
+
 ---
 
 ## Technical Notes & Decisions Log
