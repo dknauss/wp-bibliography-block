@@ -15,11 +15,9 @@ No shortcodes. No database storage. Static HTML output survives plugin deactivat
 
 ## Try it in WordPress Playground
 
-Launch a disposable WordPress instance with the plugin preinstalled:
+Launch a disposable WordPress instance with the plugin preinstalled: [Try the Bibliography Block in WordPress Playground](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/dknauss/wp-bibliography-block/main/playground/blueprint.json)
 
-- [Open Scholarly Bibliography Block in WordPress Playground](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/dknauss/wp-bibliography-block/main/playground/blueprint.json)
-
-The Playground installs the plugin from the latest GitHub Release zip artifact.
+Playground installs the plugin from the latest GitHub Release zip artifact.
 
 ![](.wordpress-org/banner-1544x500.png)
 
