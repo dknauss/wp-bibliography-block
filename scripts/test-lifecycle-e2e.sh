@@ -2,7 +2,7 @@
 set -eu
 
 ROOT_DIR=$(cd "$(dirname "$0")/.." && pwd)
-ZIP_PATH="$ROOT_DIR/output/release/scholarly-bibliography.zip"
+ZIP_PATH="$ROOT_DIR/output/release/bibliography-block.zip"
 
 # --- Server 1: auto-mount (activate/deactivate tests) ---
 PORT_MOUNT="${PLAYGROUND_PORT_MOUNT:-9401}"

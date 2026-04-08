@@ -17,7 +17,7 @@
       "step": "installPlugin",
       "pluginData": {
         "resource": "url",
-        "url": "https://github.com/dknauss/wp-bibliography-block/releases/latest/download/scholarly-bibliography.zip"
+        "url": "https://github.com/dknauss/wp-bibliography-block/releases/latest/download/bibliography-block.zip"
       },
       "options": {
         "activate": true,

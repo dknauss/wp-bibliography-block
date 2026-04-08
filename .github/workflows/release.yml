@@ -35,5 +35,5 @@ jobs:
             - name: Create GitHub Release
               uses: softprops/action-gh-release@v2
               with:
-                  files: output/release/scholarly-bibliography.zip
+                  files: output/release/bibliography-block.zip
                   generate_release_notes: true

@@ -212,5 +212,5 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: scholarly-bibliography-release
-          path: output/release/scholarly-bibliography.zip
+          path: output/release/bibliography-block.zip
           if-no-files-found: error

@@ -248,7 +248,7 @@ async function installPluginFromZip(page) {
 
 	const zipPath = path.resolve(
 		__dirname,
-		'../../output/release/scholarly-bibliography.zip'
+		'../../output/release/bibliography-block.zip'
 	);
 
 	const fileInput = page.locator('input[type="file"]');
