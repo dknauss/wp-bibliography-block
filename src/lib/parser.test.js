@@ -84,6 +84,18 @@ describe('validateAndSanitizeCsl', () => {
 		expect(sanitized['container-title']).toBe('European Romantic Review');
 	});
 
+	it('strips nested HTML tags that survive a single replacement pass', () => {
+		const sanitized = validateAndSanitizeCsl({
+			type: 'article-journal',
+			title: '<scr<script>ipt>alert(1)</scr</script>ipt>',
+			'container-title': '<<b>img src=x</b>>',
+		});
+
+		// No intact HTML tags survive — leftover fragments are harmless text
+		expect(sanitized.title).not.toMatch(/<[^>]*>/u);
+		expect(sanitized['container-title']).not.toMatch(/<[^>]*>/u);
+	});
+
 	it('rejects invalid scalar CSL fields like DOI objects', () => {
 		expect(() =>
 			validateAndSanitizeCsl({

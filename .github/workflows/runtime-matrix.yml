@@ -9,6 +9,9 @@ on:
       - master
       - 'codex/**'
 
+permissions:
+  contents: read
+
 jobs:
   smoke:
     name: Runtime smoke (${{ matrix.name }})

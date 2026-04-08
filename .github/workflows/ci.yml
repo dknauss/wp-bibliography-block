@@ -8,6 +8,9 @@ on:
       - 'codex/**'
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   quality:
     name: Quality (Node ${{ matrix.node }})

@@ -225,7 +225,13 @@ function sanitizeIssued(issued) {
 }
 
 function stripHtmlTags(text) {
-	return text.replace(/<[^>]*>/gu, '');
+	let result = text;
+	let previous;
+	do {
+		previous = result;
+		result = result.replace(/<[^>]*>/gu, '');
+	} while (result !== previous);
+	return result;
 }
 
 function sanitizeStringField(value, field) {
