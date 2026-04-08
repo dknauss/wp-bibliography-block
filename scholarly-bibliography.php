@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Bibliography
  * Plugin URI:        https://github.com/dknauss/wp-bibliography-block/
- * Description:       Paste DOIs, BibTeX, or formatted citations — get a semantically rich, auto-sorted bibliography in any of nine academic styles.
+ * Description:       Paste a DOI or BibTeX entry to build a formatted, auto-sorted bibliography in nine styles.
  * Version:           1.0.0
  * Requires at least: 6.4
  * Tested up to:      7.0

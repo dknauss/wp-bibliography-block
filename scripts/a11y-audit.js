@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+/* eslint-disable no-console, import/no-extraneous-dependencies, @wordpress/no-global-active-element */
 /**
  * Automated accessibility audit: keyboard navigation + screen reader semantics.
  * Tests the full add → edit → delete flow using keyboard only.
@@ -36,7 +36,9 @@ async function safeCheck(desc, fn) {
 
 (async () => {
 	const browser = await chromium.launch();
-	const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+	const page = await browser.newPage({
+		viewport: { width: 1280, height: 900 },
+	});
 
 	// --- Setup: navigate to editor and insert block ---
 	await page.goto(`${BASE_URL}/wp-admin/post-new.php`);
@@ -90,14 +92,14 @@ async function safeCheck(desc, fn) {
 
 	// Check toolbar buttons exist with proper roles
 	await safeCheck('Paste/Import toolbar button has role=button', async () => {
-		const btn = page.getByRole('button', { name: /Paste.*Import/i }).first();
+		const btn = page
+			.getByRole('button', { name: /Paste.*Import/i })
+			.first();
 		return await btn.isVisible();
 	});
 
 	await safeCheck('Manual Entry toolbar button has role=button', async () => {
-		const btn = page
-			.getByRole('button', { name: /Manual Entry/i })
-			.first();
+		const btn = page.getByRole('button', { name: /Manual Entry/i }).first();
 		return await btn.isVisible();
 	});
 
@@ -112,15 +114,18 @@ async function safeCheck(desc, fn) {
 	);
 
 	// Tab to the toolbar and switch modes via keyboard
-	await safeCheck('Can switch to Manual Entry via keyboard click', async () => {
-		const btn = page
-			.getByRole('button', { name: /Manual Entry/i })
-			.first();
-		await btn.focus();
-		await page.keyboard.press('Enter');
-		await page.waitForTimeout(500);
-		return (await btn.getAttribute('aria-pressed')) === 'true';
-	});
+	await safeCheck(
+		'Can switch to Manual Entry via keyboard click',
+		async () => {
+			const btn = page
+				.getByRole('button', { name: /Manual Entry/i })
+				.first();
+			await btn.focus();
+			await page.keyboard.press('Enter');
+			await page.waitForTimeout(500);
+			return (await btn.getAttribute('aria-pressed')) === 'true';
+		}
+	);
 
 	await safeCheck(
 		'Manual entry form appears after keyboard activation',
@@ -150,9 +155,7 @@ async function safeCheck(desc, fn) {
 	const textarea = editorFrame.locator('textarea').first();
 	await safeCheck('Textarea is focusable', async () => {
 		await textarea.focus();
-		return await textarea.evaluate(
-			(el) => document.activeElement === el
-		);
+		return await textarea.evaluate((el) => document.activeElement === el);
 	});
 
 	await safeCheck('Textarea has accessible label', async () => {
@@ -164,7 +167,9 @@ async function safeCheck(desc, fn) {
 	await textarea.fill('10.1093/oxfordhb/9780199589449.001.0001');
 	await page.waitForTimeout(300);
 
-	const addButton = editorFrame.getByRole('button', { name: /^Add$/i }).first();
+	const addButton = editorFrame
+		.getByRole('button', { name: /^Add$/i })
+		.first();
 	await safeCheck('Add button is keyboard-activable', async () => {
 		await addButton.focus();
 		await page.keyboard.press('Enter');
@@ -181,9 +186,12 @@ async function safeCheck(desc, fn) {
 		.getByRole('button', { name: /Hide citation form|Show citation form/i })
 		.first();
 
-	await safeCheck('Chevron toggle appears after adding citation', async () => {
-		return await chevronBtn.isVisible({ timeout: 2000 });
-	});
+	await safeCheck(
+		'Chevron toggle appears after adding citation',
+		async () => {
+			return await chevronBtn.isVisible({ timeout: 2000 });
+		}
+	);
 
 	await safeCheck('Chevron has accessible label', async () => {
 		const label = await chevronBtn.getAttribute('aria-label');
@@ -198,19 +206,16 @@ async function safeCheck(desc, fn) {
 		return (await textarea2.count()) === 0;
 	});
 
-	await safeCheck(
-		'Mode toggle auto-expands when collapsed',
-		async () => {
-			const pasteBtn = page
-				.getByRole('button', { name: /Paste.*Import/i })
-				.first();
-			await pasteBtn.focus();
-			await page.keyboard.press('Enter');
-			await page.waitForTimeout(500);
-			const textarea2 = editorFrame.locator('textarea');
-			return (await textarea2.count()) > 0;
-		}
-	);
+	await safeCheck('Mode toggle auto-expands when collapsed', async () => {
+		const pasteBtn = page
+			.getByRole('button', { name: /Paste.*Import/i })
+			.first();
+		await pasteBtn.focus();
+		await page.keyboard.press('Enter');
+		await page.waitForTimeout(500);
+		const textarea2 = editorFrame.locator('textarea');
+		return (await textarea2.count()) > 0;
+	});
 
 	console.log('\n=== 4. Citation Entry Keyboard Interaction ===');
 
@@ -233,17 +238,12 @@ async function safeCheck(desc, fn) {
 	});
 
 	// Focus entry and check action buttons appear
-	await safeCheck(
-		'Action buttons visible on entry focus',
-		async () => {
-			await entry.focus();
-			await page.waitForTimeout(500);
-			const actions = entry.locator(
-				'.scholarly-bibliography-action-button'
-			);
-			return (await actions.count()) > 0;
-		}
-	);
+	await safeCheck('Action buttons visible on entry focus', async () => {
+		await entry.focus();
+		await page.waitForTimeout(500);
+		const actions = entry.locator('.scholarly-bibliography-action-button');
+		return (await actions.count()) > 0;
+	});
 
 	// Check delete button accessibility
 	const deleteBtn = entry
@@ -273,10 +273,6 @@ async function safeCheck(desc, fn) {
 		return tag === 'ul' || tag === 'ol';
 	});
 
-	// Check notice region semantics
-	const noticeRegion = editorFrame.locator(
-		'[role="region"][aria-label*="notice"], [role="region"][aria-label*="Notice"]'
-	);
 	await safeCheck(
 		'Notice container uses role=region when active',
 		async () => {
