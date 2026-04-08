@@ -21,6 +21,8 @@ Launch a disposable WordPress instance with the plugin preinstalled: [Try the Bi
 
 ![](.wordpress-org/banner-1544x500.png)
 
+## Brand Assets
+
 WordPress.org branding assets, including the bookshelf icon and banner source files, live in `/Users/danknauss/Developer/GitHub/wp-bibliography-block/.wordpress-org/` and `/Users/danknauss/Developer/GitHub/wp-bibliography-block/.wordpress-org/source/`.
 
 ## Screenshots
