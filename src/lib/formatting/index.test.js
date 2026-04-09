@@ -219,26 +219,30 @@ describe('formatting helpers', () => {
 		expect(italicSegment.text).toBe('Standalone Work');
 	});
 
-	it.each(['entry', 'paper-conference', 'post', 'post-weblog', 'review', 'review-book'])(
-		'italicizes the container-title for type "%s"',
-		(type) => {
-			const citation = createCitation({
-				csl: {
-					type,
-					title: 'Contained Work',
-					'container-title': 'Parent Collection',
-				},
-				formattedText:
-					'Author. "Contained Work." Parent Collection. Publisher, 2024.',
-			});
+	it.each([
+		'entry',
+		'paper-conference',
+		'post',
+		'post-weblog',
+		'review',
+		'review-book',
+	])('italicizes the container-title for type "%s"', (type) => {
+		const citation = createCitation({
+			csl: {
+				type,
+				title: 'Contained Work',
+				'container-title': 'Parent Collection',
+			},
+			formattedText:
+				'Author. "Contained Work." Parent Collection. Publisher, 2024.',
+		});
 
-			const segments = getDisplaySegments(citation);
-			const italicSegment = segments.find((s) => s.italic);
+		const segments = getDisplaySegments(citation);
+		const italicSegment = segments.find((s) => s.italic);
 
-			expect(italicSegment).toBeDefined();
-			expect(italicSegment.text).toBe('Parent Collection');
-		}
-	);
+		expect(italicSegment).toBeDefined();
+		expect(italicSegment.text).toBe('Parent Collection');
+	});
 
 	it('returns no italic segments for an unrecognized CSL type', () => {
 		const citation = createCitation({

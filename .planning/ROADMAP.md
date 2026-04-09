@@ -162,6 +162,42 @@ Planned next:
 
 -   add multisite runtime smoke coverage so at least one network-install lane is exercised in CI
 
+## wp.org submission track
+
+Items required before the plugin directory submission is complete:
+
+1. **Verify Codecov badge** — CI condition was fixed (`secrets.CODECOV_TOKEN`); confirm badge resolves after next push to main.
+2. **Debug Playground block registration** — block does not appear in the Playground block editor; likely a runtime JS error; requires a browser-capable session (`/Users/danknauss/bin/claude-playwright`).
+3. **Generate plugin-directory screenshots** — editor and frontend screenshots needed for the wp.org listing; requires a browser-capable session.
+4. **Submit to wp.org** — upload `bibliography-block.zip` from the v1.0.0 GitHub Release.
+
+## Code quality backlog
+
+Identified in the 2026-04-08 post-release review. All are non-blocking improvements deferred from the 1.0.0 sweep:
+
+### Consolidate `getPrimaryIdentifierValue`
+
+Identical implementation is copy-pasted across three files:
+
+-   `src/lib/coins.js:89`
+-   `src/lib/jsonld.js:19`
+-   `src/lib/export.js:63`
+
+Extract to a shared utility (e.g. `src/lib/csl-utils.js`) and import from there. Add a single test for the shared function.
+
+### Upgrade format cache from FIFO to LRU
+
+`FORMAT_CACHE` in `src/lib/formatting/csl.js` evicts the oldest-inserted entry regardless of access recency. A frequently accessed entry can be evicted while stale entries survive. Replace with a simple LRU eviction policy (track access order on get).
+
+### Reconcile `getYear` sentinel values
+
+Two private `getYear` implementations with different semantics for missing dates:
+
+-   `src/lib/sorter.js` returns `Infinity` (correct for sort-last behavior)
+-   `src/lib/export.js` returns `undefined` (correct for output suppression)
+
+Same name, different contracts. Document the distinction explicitly or rename one to make the intent clear at the call site.
+
 ## Backlog / architecture investigations
 
 ### Translation backlog

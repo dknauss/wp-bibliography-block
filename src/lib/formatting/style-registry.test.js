@@ -71,5 +71,4 @@ describe('style registry', () => {
 			},
 		]);
 	});
-
 });

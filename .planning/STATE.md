@@ -56,6 +56,7 @@ Recent work completed in the working tree includes:
 
 ## Active Concerns
 
+-   **wp.org submission track** — 1.0.0 is tagged and the release zip is built. Three things remain before submission: Codecov badge verification, Playground block-registration debug (needs browser session), and plugin-directory screenshots (needs browser session).
 -   The remaining style-expansion focus has shifted away from core bibliography styles now that OSCOLA and ABNT both shipped.
 -   The benchmark harness makes it easier to watch regression risk in editor-side formatting and deferred citation chunks over time.
 -   Notification behavior is now intentionally split between block-local inline notices for contextual validation and block-local snackbars for pure success messages.
@@ -66,20 +67,22 @@ Recent work completed in the working tree includes:
 
 ## Pending Todos
 
--   1 pending todo in `.planning/todos/pending`
+-   4 pending todos in `.planning/todos/pending`
+    - Verify Codecov badge resolves after CI fix
+    - Debug Playground block registration (browser session required)
+    - Generate wp.org plugin-directory screenshots (browser session required)
     - Add multisite runtime smoke coverage
 
 ## Roadmap Alignment
 
-The project is currently between:
+**1.0.0 shipped 2026-04-08.** The project is now between milestones, ready to plan v1.1.
 
--   Phase 4: Core multi-style bibliography support
--   Phase 5: Remaining specialized style support
--   follow-on roadmap work around editor/output hardening
+Proposed v1.1 focus areas (in priority order):
 
-In practice, the near-term execution order is:
+1. **wp.org submission completion** — Codecov badge, Playground registration, screenshots, submit
+2. **Code quality sweep** — consolidate `getPrimaryIdentifierValue`, LRU format cache, `getYear` naming
+3. **CI/runtime coverage** — multisite smoke lane
+4. **Translation expansion** — Arabic, Turkish, Indonesian, Hebrew, Vietnamese, Ukrainian, Romanian, Czech
+5. **Longer-horizon** — citation child blocks investigation, inline citation integration, API enhancements
 
--   backlog architecture work
--   follow-on multisite runtime coverage
--   WordPress.org asset follow-up: generate plugin screenshots in a browser-capable session
--   future API/interoperability work
+Run `/gsd:new-milestone` to kick off v1.1 planning.

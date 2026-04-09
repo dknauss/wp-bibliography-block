@@ -18,8 +18,12 @@ jest.mock(
 // Stub formatting utilities — only the shapes matter here.
 jest.mock('../lib/formatting', () => ({
 	getAutoFormattedText: jest.fn((citation) => citation.formattedText || ''),
-	getDisplayText: jest.fn((citation) => citation.displayOverride || citation.formattedText || ''),
-	getStyleDefinition: jest.fn(() => ({ label: 'Chicago Notes-Bibliography' })),
+	getDisplayText: jest.fn(
+		(citation) => citation.displayOverride || citation.formattedText || ''
+	),
+	getStyleDefinition: jest.fn(() => ({
+		label: 'Chicago Notes-Bibliography',
+	})),
 }));
 
 jest.mock('../lib/manual-entry', () => ({
@@ -75,7 +79,14 @@ function makeHookArgs(citations = [makeCitation()]) {
 	const clearNotice = jest.fn();
 	const queueFocus = jest.fn();
 
-	return { announce, clearNotice, citationsRef, queueFocus, setAttributes, citationStyle: 'chicago-notes-bibliography' };
+	return {
+		announce,
+		clearNotice,
+		citationsRef,
+		queueFocus,
+		setAttributes,
+		citationStyle: 'chicago-notes-bibliography',
+	};
 }
 
 // --- Inline text editing ---
@@ -276,8 +287,12 @@ describe('handleStructuredFieldChange', () => {
 		const { result } = renderHook(() => useCitationEditorState(args));
 
 		act(() => result.current.handleStructuredEditStart('cit-1'));
-		act(() => result.current.handleStructuredFieldChange('title', 'New Title'));
-		act(() => result.current.handleStructuredFieldChange('publisher', 'MIT Press'));
+		act(() =>
+			result.current.handleStructuredFieldChange('title', 'New Title')
+		);
+		act(() =>
+			result.current.handleStructuredFieldChange('publisher', 'MIT Press')
+		);
 
 		expect(result.current.structuredFields.title).toBe('New Title');
 		expect(result.current.structuredFields.publisher).toBe('MIT Press');
