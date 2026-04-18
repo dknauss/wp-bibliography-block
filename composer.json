@@ -4,7 +4,7 @@
 	"type": "project",
 	"license": "GPL-2.0-or-later",
 	"require-dev": {
-		"phpunit/phpunit": "^9.6",
+		"phpunit/phpunit": "^12.5",
 		"php-stubs/wordpress-stubs": "^6.8",
 		"sirbrillig/phpcs-changed": "^2.11",
 		"vimeo/psalm": "^6.0",
