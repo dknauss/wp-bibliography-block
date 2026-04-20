@@ -72,9 +72,34 @@ async function openInserterAndSearch(page, query) {
 		}
 	}
 
-	if (await inserterSearch.isVisible({ timeout: 5000 }).catch(() => false)) {
-		await inserterSearch.fill(query);
+	await expect(inserterSearch).toBeVisible({ timeout: 10_000 });
+	await inserterSearch.fill(query);
+}
+
+async function clickVisibleBibliographyInserterOption(page) {
+	const optionLocator = page.locator(
+		'.block-editor-block-types-list__item, [role="option"], button[role="option"], button'
+	);
+	const optionCount = await optionLocator.count();
+
+	for (let i = 0; i < optionCount; i += 1) {
+		const option = optionLocator.nth(i);
+		const isVisible = await option.isVisible().catch(() => false);
+
+		if (!isVisible) {
+			continue;
+		}
+
+		const optionText = (await option.textContent()) || '';
+		if (!/bibliography/i.test(optionText)) {
+			continue;
+		}
+
+		await option.click({ force: true });
+		return;
 	}
+
+	throw new Error('Visible Bibliography block option not found in inserter.');
 }
 
 async function getPluginRow(page) {
@@ -138,15 +163,8 @@ async function createPostWithBibliography(page) {
 	// Insert bibliography block.
 	await openInserterAndSearch(page, 'Bibliography');
 
-	// Wait for search results, then click the Bibliography block option.
-	const blockOption = page
-		.locator(
-			'.block-editor-block-types-list__item, [role="option"], button[role="option"], button'
-		)
-		.filter({ hasText: 'Bibliography' })
-		.first();
-	await expect(blockOption).toBeVisible({ timeout: 10_000 });
-	await blockOption.click({ force: true });
+	// Wait for search results, then click a visible Bibliography block option.
+	await clickVisibleBibliographyInserterOption(page);
 	await page.waitForTimeout(1000);
 
 	// Fill the paste textarea with a BibTeX entry.
