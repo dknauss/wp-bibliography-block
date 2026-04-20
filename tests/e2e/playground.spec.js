@@ -65,6 +65,35 @@ async function dismissEditorOverlay(page) {
 	}
 }
 
+async function openInserterAndSearch(page, query) {
+	await page
+		.getByRole('button', { name: /Block Inserter|Toggle block inserter/i })
+		.click({ force: true });
+
+	const inserterSearch = page
+		.locator(
+			'input[placeholder*="Search" i], input[aria-label*="Search" i], [role="searchbox"], .block-editor-inserter__search input'
+		)
+		.first();
+
+	if (
+		!(await inserterSearch.isVisible({ timeout: 3000 }).catch(() => false))
+	) {
+		const browseAllButton = page
+			.getByRole('button', {
+				name: /Browse all|See all|Open block inserter/i,
+			})
+			.first();
+
+		if (await browseAllButton.isVisible().catch(() => false)) {
+			await browseAllButton.click({ force: true });
+		}
+	}
+
+	await expect(inserterSearch).toBeVisible();
+	await inserterSearch.fill(query);
+}
+
 test('bibliography block is discoverable in the editor inserter', async ({
 	page,
 }) => {
@@ -79,17 +108,6 @@ test('bibliography block is discoverable in the editor inserter', async ({
 	await expect(
 		editorFrame.getByRole('textbox', { name: /Add title/i })
 	).toBeVisible();
-	await page
-		.getByRole('button', { name: /Block Inserter|Toggle block inserter/i })
-		.click({ force: true });
-
-	const inserterSearch = page
-		.locator(
-			'input[placeholder*="Search" i], input[aria-label*="Search" i], [role="searchbox"], .block-editor-inserter__search input'
-		)
-		.first();
-
-	await expect(inserterSearch).toBeVisible();
-	await inserterSearch.fill('Bibliography');
+	await openInserterAndSearch(page, 'Bibliography');
 	await expect(page.getByText('Bibliography').first()).toBeVisible();
 });

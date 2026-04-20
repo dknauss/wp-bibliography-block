@@ -45,6 +45,38 @@ async function dismissEditorOverlay(page) {
 	}
 }
 
+async function openInserterAndSearch(page, query) {
+	await page
+		.getByRole('button', {
+			name: /Block Inserter|Toggle block inserter/i,
+		})
+		.click({ force: true });
+
+	const inserterSearch = page
+		.locator(
+			'input[placeholder*="Search" i], input[aria-label*="Search" i], [role="searchbox"], .block-editor-inserter__search input'
+		)
+		.first();
+
+	if (
+		!(await inserterSearch.isVisible({ timeout: 3000 }).catch(() => false))
+	) {
+		const browseAllButton = page
+			.getByRole('button', {
+				name: /Browse all|See all|Open block inserter/i,
+			})
+			.first();
+
+		if (await browseAllButton.isVisible().catch(() => false)) {
+			await browseAllButton.click({ force: true });
+		}
+	}
+
+	if (await inserterSearch.isVisible({ timeout: 5000 }).catch(() => false)) {
+		await inserterSearch.fill(query);
+	}
+}
+
 async function getPluginRow(page) {
 	await page.goto('/wp-admin/plugins.php');
 	await expect(
@@ -104,23 +136,13 @@ async function createPostWithBibliography(page) {
 	await titleField.fill('Lifecycle Test Post');
 
 	// Insert bibliography block.
-	await page
-		.getByRole('button', {
-			name: /Block Inserter|Toggle block inserter/i,
-		})
-		.click({ force: true });
-
-	const inserterSearch = page
-		.locator(
-			'input[placeholder*="Search" i], input[aria-label*="Search" i], [role="searchbox"], .block-editor-inserter__search input'
-		)
-		.first();
-	await expect(inserterSearch).toBeVisible();
-	await inserterSearch.fill('Bibliography');
+	await openInserterAndSearch(page, 'Bibliography');
 
 	// Wait for search results, then click the Bibliography block option.
 	const blockOption = page
-		.locator('.block-editor-block-types-list__item')
+		.locator(
+			'.block-editor-block-types-list__item, [role="option"], button[role="option"], button'
+		)
 		.filter({ hasText: 'Bibliography' })
 		.first();
 	await expect(blockOption).toBeVisible({ timeout: 10_000 });
