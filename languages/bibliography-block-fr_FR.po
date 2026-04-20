@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Domain: bibliography\n"
+"X-Domain: bibliography-block\n"
 
 msgid "Imported metadata may be incomplete. Verify before publishing."
 msgstr "Les métadonnées importées peuvent être incomplètes. Vérifiez-les avant publication."

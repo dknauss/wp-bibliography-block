@@ -5,55 +5,55 @@ msgstr ""
 "POT-Creation-Date: 2026-04-08 00:00+0000\n"
 "PO-Revision-Date: 2026-04-08 00:00+0000\n"
 "Last-Translator: Dan Knauss <dan@newlocalmedia.com>\n"
-"Language: zh_CN\n"
-"Language-Team: Simplified Chinese\n"
+"Language: ko_KR\n"
+"Language-Team: Korean\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Domain: bibliography\n"
+"X-Domain: bibliography-block\n"
 
 msgid "Imported metadata may be incomplete. Verify before publishing."
-msgstr "导入的元数据可能不完整。请在发布前核对。"
+msgstr "가져온 메타데이터가 불완전할 수 있습니다. 게시 전에 확인하세요."
 
 msgid "Add citations"
-msgstr "添加引文"
+msgstr "인용 추가"
 
 msgid "Paste / Import"
-msgstr "粘贴 / 导入"
+msgstr "붙여넣기 / 가져오기"
 
 msgid "Manual Entry"
-msgstr "手动输入"
+msgstr "수동 입력"
 
 msgid "Add DOI(s), BibTeX entries, and citations in supported styles for books, articles, chapters, and webpages. Separate multiple formatted citations with a blank line."
-msgstr "为图书、文章、章节和网页添加 DOI、BibTeX 条目以及受支持样式的引文。多条已格式化引文请用空行分隔。"
+msgstr "도서, 논문, 장, 웹페이지에 대해 지원되는 스타일의 DOI, BibTeX 항목 및 인용을 추가합니다. 여러 개의 서식 있는 인용은 빈 줄로 구분하세요."
 
 msgid "Resolving…"
-msgstr "处理中…"
+msgstr "처리 중…"
 
 msgid "Add"
-msgstr "添加"
+msgstr "추가"
 
 msgid "Clear"
-msgstr "清除"
+msgstr "지우기"
 
 msgid "Author(s)"
-msgstr "作者"
+msgstr "저자"
 
 msgid "Title"
-msgstr "标题"
+msgstr "제목"
 
 msgid "Container"
-msgstr "容器"
+msgstr "컨테이너"
 
 msgid "Publisher"
-msgstr "出版者"
+msgstr "출판사"
 
 msgid "Year"
-msgstr "年份"
+msgstr "연도"
 
 msgid "Pages"
-msgstr "页码"
+msgstr "페이지"
 
 msgid "DOI"
 msgstr "DOI"
@@ -62,106 +62,106 @@ msgid "URL"
 msgstr "URL"
 
 msgid "Hide citation form"
-msgstr "隐藏引文表单"
+msgstr "인용 양식 숨기기"
 
 msgid "Show citation form"
-msgstr "显示引文表单"
+msgstr "인용 양식 보기"
 
 msgid "Settings"
-msgstr "设置"
+msgstr "설정"
 
 msgid "source"
-msgstr "来源"
+msgstr "출처"
 
 msgid "sources"
-msgstr "来源"
+msgstr "출처"
 
 msgid "Citation Style"
-msgstr "引文样式"
+msgstr "인용 스타일"
 
 msgid "Changing styles reformats auto-generated citations and keeps manual overrides intact."
-msgstr "更改样式会重新格式化自动生成的引文，并保留手动覆盖内容。"
+msgstr "스타일을 변경하면 자동 생성된 인용이 다시 서식 지정되며 수동 재정의는 유지됩니다."
 
 msgid "Visible Heading"
-msgstr "可见标题"
+msgstr "표시 제목"
 
 msgid "Optional heading shown above the bibliography on the site front end when at least one citation exists."
-msgstr "当至少存在一条引文时，在站点前端显示在参考书目上方的可选标题。"
+msgstr "하나 이상의 인용이 있을 때 사이트 프런트엔드에서 참고문헌 위에 표시되는 선택적 제목입니다."
 
 msgid "Output JSON-LD"
-msgstr "输出 JSON-LD"
+msgstr "JSON-LD 출력"
 
 msgid "Helps search engines and other tools understand the bibliography."
-msgstr "帮助搜索引擎和其他工具理解参考书目。"
+msgstr "검색 엔진과 다른 도구가 참고문헌을 이해하는 데 도움이 됩니다."
 
 msgid "Output COinS"
-msgstr "输出 COinS"
+msgstr "COinS 출력"
 
 msgid "Lets Zotero and similar tools detect citations on the page."
-msgstr "让 Zotero 和类似工具在页面上识别引文。"
+msgstr "Zotero 및 유사한 도구가 페이지에서 인용을 감지할 수 있게 합니다."
 
 msgid "Output CSL-JSON"
-msgstr "输出 CSL-JSON"
+msgstr "CSL-JSON 출력"
 
 msgid "Makes citation data reusable by scholarly tools and services."
-msgstr "使学术工具和服务能够重复使用引文数据。"
+msgstr "학술 도구와 서비스가 인용 데이터를 재사용할 수 있게 합니다."
 
 msgid "Exports"
-msgstr "导出"
+msgstr "내보내기"
 
 msgid "Copy bibliography"
-msgstr "复制参考书目"
+msgstr "참고문헌 복사"
 
 msgid "Copies the current bibliography as plain text in the current order and style."
-msgstr "按当前顺序和样式将当前参考书目复制为纯文本。"
+msgstr "현재 순서와 스타일로 현재 참고문헌을 일반 텍스트로 복사합니다."
 
 msgid "Download CSL-JSON"
-msgstr "下载 CSL-JSON"
+msgstr "CSL-JSON 다운로드"
 
 msgid "Downloads the current bibliography as structured citation data."
-msgstr "将当前参考书目下载为结构化引文数据。"
+msgstr "현재 참고문헌을 구조화된 인용 데이터로 다운로드합니다."
 
 msgid "Download BibTeX"
-msgstr "下载 BibTeX"
+msgstr "BibTeX 다운로드"
 
 msgid "Downloads the current bibliography as BibTeX for reference-manager and scholarly-writing workflows."
-msgstr "将当前参考书目下载为 BibTeX，用于文献管理和学术写作工作流。"
+msgstr "현재 참고문헌을 참고문헌 관리자 및 학술 작성 워크플로용 BibTeX로 다운로드합니다."
 
 msgid "Download RIS"
-msgstr "下载 RIS"
+msgstr "RIS 다운로드"
 
 msgid "Downloads the current bibliography as RIS for citation managers and import/export workflows."
-msgstr "将当前参考书目下载为 RIS，用于引文管理器和导入/导出工作流。"
+msgstr "현재 참고문헌을 인용 관리자 및 가져오기/내보내기 워크플로용 RIS로 다운로드합니다."
 
 msgid "Notification"
-msgstr "通知"
+msgstr "알림"
 
 msgid "Publication Type"
-msgstr "出版物类型"
+msgstr "출판물 유형"
 
 msgid "Select a publication type"
-msgstr "选择出版物类型"
+msgstr "출판물 유형 선택"
 
 msgid "Save"
-msgstr "保存"
+msgstr "저장"
 
 msgid "Cancel"
-msgstr "取消"
+msgstr "취소"
 
 msgid "Post not found."
-msgstr "未找到文章。"
+msgstr "글을 찾을 수 없습니다."
 
 msgid "Sorry, you are not allowed to read this bibliography."
-msgstr "抱歉，您无权查看此参考书目。"
+msgstr "이 참고문헌을 읽을 권한이 없습니다."
 
 msgid "Bibliography block not found for the requested index."
-msgstr "未找到所请求索引的参考书目区块。"
+msgstr "요청한 색인의 참고문헌 블록을 찾을 수 없습니다."
 
 msgid "Post ID to inspect for bibliography blocks."
-msgstr "用于检查参考书目区块的文章 ID。"
+msgstr "참고문헌 블록을 검사할 글 ID입니다."
 
 msgid "Zero-based bibliography block index within the post."
-msgstr "文章中从零开始的参考书目区块索引。"
+msgstr "글 내부의 0부터 시작하는 참고문헌 블록 인덱스입니다."
 
 msgid "Response format: json, text, or csl-json."
-msgstr "响应格式：json、text 或 csl-json。"
+msgstr "응답 형식: json, text 또는 csl-json."

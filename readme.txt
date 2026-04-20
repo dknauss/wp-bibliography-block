@@ -1,5 +1,5 @@
-=== Bibliography ===
-Contributors: danknauss
+=== Bibliography Block ===
+Contributors: dpknauss
 Donate link: https://www.paypal.com/paypalme/DanKnauss
 Tags: bibliography, citation, doi, bibtex, academic
 Requires at least: 6.4

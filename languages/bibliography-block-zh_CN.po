@@ -5,55 +5,55 @@ msgstr ""
 "POT-Creation-Date: 2026-04-08 00:00+0000\n"
 "PO-Revision-Date: 2026-04-08 00:00+0000\n"
 "Last-Translator: Dan Knauss <dan@newlocalmedia.com>\n"
-"Language: it_IT\n"
-"Language-Team: Italian\n"
+"Language: zh_CN\n"
+"Language-Team: Simplified Chinese\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Domain: bibliography\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Domain: bibliography-block\n"
 
 msgid "Imported metadata may be incomplete. Verify before publishing."
-msgstr "I metadati importati potrebbero essere incompleti. Verificali prima della pubblicazione."
+msgstr "导入的元数据可能不完整。请在发布前核对。"
 
 msgid "Add citations"
-msgstr "Aggiungi citazioni"
+msgstr "添加引文"
 
 msgid "Paste / Import"
-msgstr "Incolla / Importa"
+msgstr "粘贴 / 导入"
 
 msgid "Manual Entry"
-msgstr "Inserimento manuale"
+msgstr "手动输入"
 
 msgid "Add DOI(s), BibTeX entries, and citations in supported styles for books, articles, chapters, and webpages. Separate multiple formatted citations with a blank line."
-msgstr "Aggiungi DOI, voci BibTeX e citazioni negli stili supportati per libri, articoli, capitoli e pagine web. Separa più citazioni formattate con una riga vuota."
+msgstr "为图书、文章、章节和网页添加 DOI、BibTeX 条目以及受支持样式的引文。多条已格式化引文请用空行分隔。"
 
 msgid "Resolving…"
-msgstr "Risoluzione in corso…"
+msgstr "处理中…"
 
 msgid "Add"
-msgstr "Aggiungi"
+msgstr "添加"
 
 msgid "Clear"
-msgstr "Cancella"
+msgstr "清除"
 
 msgid "Author(s)"
-msgstr "Autore/i"
+msgstr "作者"
 
 msgid "Title"
-msgstr "Titolo"
+msgstr "标题"
 
 msgid "Container"
-msgstr "Contenitore"
+msgstr "容器"
 
 msgid "Publisher"
-msgstr "Editore"
+msgstr "出版者"
 
 msgid "Year"
-msgstr "Anno"
+msgstr "年份"
 
 msgid "Pages"
-msgstr "Pagine"
+msgstr "页码"
 
 msgid "DOI"
 msgstr "DOI"
@@ -62,106 +62,106 @@ msgid "URL"
 msgstr "URL"
 
 msgid "Hide citation form"
-msgstr "Nascondi modulo citazione"
+msgstr "隐藏引文表单"
 
 msgid "Show citation form"
-msgstr "Mostra modulo citazione"
+msgstr "显示引文表单"
 
 msgid "Settings"
-msgstr "Impostazioni"
+msgstr "设置"
 
 msgid "source"
-msgstr "fonte"
+msgstr "来源"
 
 msgid "sources"
-msgstr "fonti"
+msgstr "来源"
 
 msgid "Citation Style"
-msgstr "Stile della citazione"
+msgstr "引文样式"
 
 msgid "Changing styles reformats auto-generated citations and keeps manual overrides intact."
-msgstr "La modifica dello stile riformatta le citazioni generate automaticamente e mantiene intatte le sovrascritture manuali."
+msgstr "更改样式会重新格式化自动生成的引文，并保留手动覆盖内容。"
 
 msgid "Visible Heading"
-msgstr "Intestazione visibile"
+msgstr "可见标题"
 
 msgid "Optional heading shown above the bibliography on the site front end when at least one citation exists."
-msgstr "Intestazione facoltativa mostrata sopra la bibliografia sul front-end del sito quando esiste almeno una citazione."
+msgstr "当至少存在一条引文时，在站点前端显示在参考书目上方的可选标题。"
 
 msgid "Output JSON-LD"
-msgstr "Mostra JSON-LD"
+msgstr "输出 JSON-LD"
 
 msgid "Helps search engines and other tools understand the bibliography."
-msgstr "Aiuta i motori di ricerca e altri strumenti a comprendere la bibliografia."
+msgstr "帮助搜索引擎和其他工具理解参考书目。"
 
 msgid "Output COinS"
-msgstr "Mostra COinS"
+msgstr "输出 COinS"
 
 msgid "Lets Zotero and similar tools detect citations on the page."
-msgstr "Consente a Zotero e strumenti simili di rilevare le citazioni nella pagina."
+msgstr "让 Zotero 和类似工具在页面上识别引文。"
 
 msgid "Output CSL-JSON"
-msgstr "Mostra CSL-JSON"
+msgstr "输出 CSL-JSON"
 
 msgid "Makes citation data reusable by scholarly tools and services."
-msgstr "Rende i dati delle citazioni riutilizzabili da strumenti e servizi accademici."
+msgstr "使学术工具和服务能够重复使用引文数据。"
 
 msgid "Exports"
-msgstr "Esportazioni"
+msgstr "导出"
 
 msgid "Copy bibliography"
-msgstr "Copia bibliografia"
+msgstr "复制参考书目"
 
 msgid "Copies the current bibliography as plain text in the current order and style."
-msgstr "Copia la bibliografia corrente come testo semplice nell'ordine e nello stile correnti."
+msgstr "按当前顺序和样式将当前参考书目复制为纯文本。"
 
 msgid "Download CSL-JSON"
-msgstr "Scarica CSL-JSON"
+msgstr "下载 CSL-JSON"
 
 msgid "Downloads the current bibliography as structured citation data."
-msgstr "Scarica la bibliografia corrente come dati strutturati delle citazioni."
+msgstr "将当前参考书目下载为结构化引文数据。"
 
 msgid "Download BibTeX"
-msgstr "Scarica BibTeX"
+msgstr "下载 BibTeX"
 
 msgid "Downloads the current bibliography as BibTeX for reference-manager and scholarly-writing workflows."
-msgstr "Scarica la bibliografia corrente come BibTeX per gestori di riferimenti e flussi di scrittura accademica."
+msgstr "将当前参考书目下载为 BibTeX，用于文献管理和学术写作工作流。"
 
 msgid "Download RIS"
-msgstr "Scarica RIS"
+msgstr "下载 RIS"
 
 msgid "Downloads the current bibliography as RIS for citation managers and import/export workflows."
-msgstr "Scarica la bibliografia corrente come RIS per gestori di citazioni e flussi di importazione/esportazione."
+msgstr "将当前参考书目下载为 RIS，用于引文管理器和导入/导出工作流。"
 
 msgid "Notification"
-msgstr "Notifica"
+msgstr "通知"
 
 msgid "Publication Type"
-msgstr "Tipo di pubblicazione"
+msgstr "出版物类型"
 
 msgid "Select a publication type"
-msgstr "Seleziona un tipo di pubblicazione"
+msgstr "选择出版物类型"
 
 msgid "Save"
-msgstr "Salva"
+msgstr "保存"
 
 msgid "Cancel"
-msgstr "Annulla"
+msgstr "取消"
 
 msgid "Post not found."
-msgstr "Articolo non trovato."
+msgstr "未找到文章。"
 
 msgid "Sorry, you are not allowed to read this bibliography."
-msgstr "Non sei autorizzato a leggere questa bibliografia."
+msgstr "抱歉，您无权查看此参考书目。"
 
 msgid "Bibliography block not found for the requested index."
-msgstr "Blocco bibliografia non trovato per l'indice richiesto."
+msgstr "未找到所请求索引的参考书目区块。"
 
 msgid "Post ID to inspect for bibliography blocks."
-msgstr "ID del contenuto da ispezionare per i blocchi bibliografia."
+msgstr "用于检查参考书目区块的文章 ID。"
 
 msgid "Zero-based bibliography block index within the post."
-msgstr "Indice del blocco bibliografia basato su zero all'interno del contenuto."
+msgstr "文章中从零开始的参考书目区块索引。"
 
 msgid "Response format: json, text, or csl-json."
-msgstr "Formato della risposta: json, text o csl-json."
+msgstr "响应格式：json、text 或 csl-json。"
