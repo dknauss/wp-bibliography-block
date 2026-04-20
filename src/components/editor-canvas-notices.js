@@ -36,7 +36,9 @@ export function EditorCanvasNotices({ currentNotice, noticeRef, onDismiss }) {
 			tabIndex={currentNotice ? -1 : undefined}
 			role={currentNotice ? 'region' : undefined}
 			aria-label={
-				currentNotice ? __('Notification', 'bibliography-block') : undefined
+				currentNotice
+					? __('Notification', 'bibliography-block')
+					: undefined
 			}
 		>
 			{noticeContent}

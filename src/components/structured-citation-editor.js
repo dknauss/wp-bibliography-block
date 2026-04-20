@@ -100,7 +100,10 @@ export function StructuredCitationEditor({
 						onKeyDown={handleKeyDown}
 					>
 						<option value="">
-							{__('Select a publication type', 'bibliography-block')}
+							{__(
+								'Select a publication type',
+								'bibliography-block'
+							)}
 						</option>
 						{typeOptions.map((option) => (
 							<option key={option.value} value={option.value}>
