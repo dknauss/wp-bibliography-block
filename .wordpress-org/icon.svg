@@ -3,7 +3,7 @@
   <rect width="256" height="256" fill="white"/>
 
   <!-- Shelf base -->
-  <rect x="44" y="200" width="168" height="8" rx="1" fill="#9B9EA3"/>
+  <rect x="44" y="200" width="168" height="8" rx="1" fill="#C4973E"/>
 
   <!-- Book 1 (left) — leaning inward toward the stack -->
   <g transform="translate(56, 52) rotate(4, 42, 148)">
