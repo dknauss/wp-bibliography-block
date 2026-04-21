@@ -19,7 +19,12 @@
 		"test:e2e": "playwright test",
 		"test:e2e:playground": "sh ./scripts/test-playground-e2e.sh",
 		"test:e2e:lifecycle": "sh ./scripts/test-lifecycle-e2e.sh",
-		"test:runtime:local": "sh ./scripts/runtime-matrix/smoke.sh"
+		"test:runtime:local": "sh ./scripts/runtime-matrix/smoke.sh",
+		"test:a11y": "node scripts/a11y-audit.js",
+		"assets:screenshots": "node scripts/capture-screenshots.js",
+		"assets:icons": "node scripts/generate-icons.js",
+		"assets:banners": "python3 scripts/generate_brand_assets.py",
+		"assets:banners:quick": "python3 scripts/generate_brand_assets.py --skip-render"
 	},
 	"jest": {
 		"testEnvironment": "jsdom",
