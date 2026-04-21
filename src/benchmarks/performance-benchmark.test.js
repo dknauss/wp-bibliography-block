@@ -13,7 +13,7 @@ import {
 
 const repoRoot = process.cwd();
 const outputDir = path.join(repoRoot, 'output', 'benchmarks');
-const fixturesDir = path.join(outputDir, 'fixtures');
+const fixturesDir = path.join(repoRoot, 'src', 'benchmarks', 'fixtures');
 const FIXTURE_NAMES = [
 	'import-freetext-10.txt',
 	'import-freetext-25.txt',
