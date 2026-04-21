@@ -1,0 +1,167 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Bibliography 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/dknauss/bibliography-builder/issues\n"
+"POT-Creation-Date: 2026-04-08 00:00+0000\n"
+"PO-Revision-Date: 2026-04-08 00:00+0000\n"
+"Last-Translator: Dan Knauss <dan@newlocalmedia.com>\n"
+"Language: bn_BD\n"
+"Language-Team: Bengali\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: bibliography-builder\n"
+
+msgid "Imported metadata may be incomplete. Verify before publishing."
+msgstr "আমদানি করা মেটাডেটা অসম্পূর্ণ হতে পারে। প্রকাশের আগে যাচাই করুন।"
+
+msgid "Add citations"
+msgstr "উদ্ধৃতি যোগ করুন"
+
+msgid "Paste / Import"
+msgstr "পেস্ট / আমদানি"
+
+msgid "Manual Entry"
+msgstr "ম্যানুয়াল এন্ট্রি"
+
+msgid "Add DOI(s), BibTeX entries, and citations in supported styles for books, articles, chapters, and webpages. Separate multiple formatted citations with a blank line."
+msgstr "বই, প্রবন্ধ, অধ্যায় এবং ওয়েবপেজের জন্য সমর্থিত শৈলীতে DOI, BibTeX এন্ট্রি এবং উদ্ধৃতি যোগ করুন। একাধিক বিন্যাসকৃত উদ্ধৃতিকে ফাঁকা লাইনে আলাদা করুন।"
+
+msgid "Resolving…"
+msgstr "প্রক্রিয়াকরণ…"
+
+msgid "Add"
+msgstr "যোগ করুন"
+
+msgid "Clear"
+msgstr "মুছুন"
+
+msgid "Author(s)"
+msgstr "লেখক"
+
+msgid "Title"
+msgstr "শিরোনাম"
+
+msgid "Container"
+msgstr "কনটেইনার"
+
+msgid "Publisher"
+msgstr "প্রকাশক"
+
+msgid "Year"
+msgstr "বছর"
+
+msgid "Pages"
+msgstr "পৃষ্ঠা"
+
+msgid "DOI"
+msgstr "DOI"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Hide citation form"
+msgstr "উদ্ধৃতি ফর্ম লুকান"
+
+msgid "Show citation form"
+msgstr "উদ্ধৃতি ফর্ম দেখান"
+
+msgid "Settings"
+msgstr "সেটিংস"
+
+msgid "source"
+msgstr "উৎস"
+
+msgid "sources"
+msgstr "উৎসসমূহ"
+
+msgid "Citation Style"
+msgstr "উদ্ধৃতি শৈলী"
+
+msgid "Changing styles reformats auto-generated citations and keeps manual overrides intact."
+msgstr "শৈলী পরিবর্তন করলে স্বয়ংক্রিয়ভাবে তৈরি উদ্ধৃতিগুলি পুনরায় বিন্যাসিত হয় এবং ম্যানুয়াল পরিবর্তন অপরিবর্তিত থাকে।"
+
+msgid "Visible Heading"
+msgstr "দৃশ্যমান শিরোনাম"
+
+msgid "Optional heading shown above the bibliography on the site front end when at least one citation exists."
+msgstr "অন্তত একটি উদ্ধৃতি থাকলে সাইটের ফ্রন্টএন্ডে গ্রন্থপঞ্জির উপরে প্রদর্শিত ঐচ্ছিক শিরোনাম।"
+
+msgid "Output JSON-LD"
+msgstr "JSON-LD আউটপুট"
+
+msgid "Helps search engines and other tools understand the bibliography."
+msgstr "এটি সার্চ ইঞ্জিন ও অন্যান্য টুলকে গ্রন্থপঞ্জি বুঝতে সাহায্য করে।"
+
+msgid "Output COinS"
+msgstr "COinS আউটপুট"
+
+msgid "Lets Zotero and similar tools detect citations on the page."
+msgstr "এটি Zotero ও অনুরূপ টুলকে পাতায় উদ্ধৃতি শনাক্ত করতে দেয়।"
+
+msgid "Output CSL-JSON"
+msgstr "CSL-JSON আউটপুট"
+
+msgid "Makes citation data reusable by scholarly tools and services."
+msgstr "এটি উদ্ধৃতি ডেটাকে একাডেমিক টুল ও সেবার জন্য পুনর্ব্যবহারযোগ্য করে তোলে।"
+
+msgid "Exports"
+msgstr "এক্সপোর্ট"
+
+msgid "Copy bibliography"
+msgstr "গ্রন্থপঞ্জি কপি করুন"
+
+msgid "Copies the current bibliography as plain text in the current order and style."
+msgstr "বর্তমান ক্রম ও শৈলীতে বর্তমান গ্রন্থপঞ্জিকে সাধারণ লেখ্যরূপে কপি করে।"
+
+msgid "Download CSL-JSON"
+msgstr "CSL-JSON ডাউনলোড করুন"
+
+msgid "Downloads the current bibliography as structured citation data."
+msgstr "বর্তমান গ্রন্থপঞ্জিকে কাঠামোবদ্ধ উদ্ধৃতি ডেটা হিসেবে ডাউনলোড করে।"
+
+msgid "Download BibTeX"
+msgstr "BibTeX ডাউনলোড করুন"
+
+msgid "Downloads the current bibliography as BibTeX for reference-manager and scholarly-writing workflows."
+msgstr "রেফারেন্স ম্যানেজার ও একাডেমিক লেখার কর্মপ্রবাহের জন্য বর্তমান গ্রন্থপঞ্জিকে BibTeX হিসেবে ডাউনলোড করে।"
+
+msgid "Download RIS"
+msgstr "RIS ডাউনলোড করুন"
+
+msgid "Downloads the current bibliography as RIS for citation managers and import/export workflows."
+msgstr "উদ্ধৃতি ম্যানেজার ও আমদানি/রপ্তানি কর্মপ্রবাহের জন্য বর্তমান গ্রন্থপঞ্জিকে RIS হিসেবে ডাউনলোড করে।"
+
+msgid "Notification"
+msgstr "বিজ্ঞপ্তি"
+
+msgid "Publication Type"
+msgstr "প্রকাশনার ধরন"
+
+msgid "Select a publication type"
+msgstr "একটি প্রকাশনার ধরন নির্বাচন করুন"
+
+msgid "Save"
+msgstr "সংরক্ষণ করুন"
+
+msgid "Cancel"
+msgstr "বাতিল করুন"
+
+msgid "Post not found."
+msgstr "পোস্ট পাওয়া যায়নি।"
+
+msgid "Sorry, you are not allowed to read this bibliography."
+msgstr "দুঃখিত, আপনি এই গ্রন্থপঞ্জি পড়ার অনুমতি পাননি।"
+
+msgid "Bibliography block not found for the requested index."
+msgstr "চাওয়া সূচকের জন্য গ্রন্থপঞ্জি ব্লক পাওয়া যায়নি।"
+
+msgid "Post ID to inspect for bibliography blocks."
+msgstr "গ্রন্থপঞ্জি ব্লক পরীক্ষা করার জন্য পোস্ট ID।"
+
+msgid "Zero-based bibliography block index within the post."
+msgstr "পোস্টের মধ্যে শূন্য-ভিত্তিক গ্রন্থপঞ্জি ব্লক সূচক।"
+
+msgid "Response format: json, text, or csl-json."
+msgstr "প্রতিক্রিয়া বিন্যাস: json, text, বা csl-json।"

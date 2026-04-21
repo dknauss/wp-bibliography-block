@@ -1,0 +1,167 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Bibliography 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/dknauss/bibliography-builder/issues\n"
+"POT-Creation-Date: 2026-04-08 00:00+0000\n"
+"PO-Revision-Date: 2026-04-08 00:00+0000\n"
+"Last-Translator: Dan Knauss <dan@newlocalmedia.com>\n"
+"Language: pt_BR\n"
+"Language-Team: Brazilian Portuguese\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Domain: bibliography-builder\n"
+
+msgid "Imported metadata may be incomplete. Verify before publishing."
+msgstr "Os metadados importados podem estar incompletos. Verifique-os antes de publicar."
+
+msgid "Add citations"
+msgstr "Adicionar citações"
+
+msgid "Paste / Import"
+msgstr "Colar / Importar"
+
+msgid "Manual Entry"
+msgstr "Entrada manual"
+
+msgid "Add DOI(s), BibTeX entries, and citations in supported styles for books, articles, chapters, and webpages. Separate multiple formatted citations with a blank line."
+msgstr "Adicione DOI, entradas BibTeX e citações em estilos compatíveis para livros, artigos, capítulos e páginas da web. Separe várias citações formatadas com uma linha em branco."
+
+msgid "Resolving…"
+msgstr "Processando…"
+
+msgid "Add"
+msgstr "Adicionar"
+
+msgid "Clear"
+msgstr "Limpar"
+
+msgid "Author(s)"
+msgstr "Autor(es)"
+
+msgid "Title"
+msgstr "Título"
+
+msgid "Container"
+msgstr "Contêiner"
+
+msgid "Publisher"
+msgstr "Editora"
+
+msgid "Year"
+msgstr "Ano"
+
+msgid "Pages"
+msgstr "Páginas"
+
+msgid "DOI"
+msgstr "DOI"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Hide citation form"
+msgstr "Ocultar formulário de citação"
+
+msgid "Show citation form"
+msgstr "Mostrar formulário de citação"
+
+msgid "Settings"
+msgstr "Configurações"
+
+msgid "source"
+msgstr "fonte"
+
+msgid "sources"
+msgstr "fontes"
+
+msgid "Citation Style"
+msgstr "Estilo de citação"
+
+msgid "Changing styles reformats auto-generated citations and keeps manual overrides intact."
+msgstr "Alterar estilos reformata citações geradas automaticamente e mantém as substituições manuais intactas."
+
+msgid "Visible Heading"
+msgstr "Cabeçalho visível"
+
+msgid "Optional heading shown above the bibliography on the site front end when at least one citation exists."
+msgstr "Cabeçalho opcional exibido acima da bibliografia no front-end do site quando existir pelo menos uma citação."
+
+msgid "Output JSON-LD"
+msgstr "Exibir JSON-LD"
+
+msgid "Helps search engines and other tools understand the bibliography."
+msgstr "Ajuda mecanismos de busca e outras ferramentas a entender a bibliografia."
+
+msgid "Output COinS"
+msgstr "Exibir COinS"
+
+msgid "Lets Zotero and similar tools detect citations on the page."
+msgstr "Permite que o Zotero e ferramentas semelhantes detectem citações na página."
+
+msgid "Output CSL-JSON"
+msgstr "Exibir CSL-JSON"
+
+msgid "Makes citation data reusable by scholarly tools and services."
+msgstr "Torna os dados de citação reutilizáveis por ferramentas e serviços acadêmicos."
+
+msgid "Exports"
+msgstr "Exportações"
+
+msgid "Copy bibliography"
+msgstr "Copiar bibliografia"
+
+msgid "Copies the current bibliography as plain text in the current order and style."
+msgstr "Copia a bibliografia atual como texto simples na ordem e no estilo atuais."
+
+msgid "Download CSL-JSON"
+msgstr "Baixar CSL-JSON"
+
+msgid "Downloads the current bibliography as structured citation data."
+msgstr "Baixa a bibliografia atual como dados estruturados de citação."
+
+msgid "Download BibTeX"
+msgstr "Baixar BibTeX"
+
+msgid "Downloads the current bibliography as BibTeX for reference-manager and scholarly-writing workflows."
+msgstr "Baixa a bibliografia atual como BibTeX para gerenciadores de referência e fluxos de escrita acadêmica."
+
+msgid "Download RIS"
+msgstr "Baixar RIS"
+
+msgid "Downloads the current bibliography as RIS for citation managers and import/export workflows."
+msgstr "Baixa a bibliografia atual como RIS para gerenciadores de citação e fluxos de importação/exportação."
+
+msgid "Notification"
+msgstr "Notificação"
+
+msgid "Publication Type"
+msgstr "Tipo de publicação"
+
+msgid "Select a publication type"
+msgstr "Selecione um tipo de publicação"
+
+msgid "Save"
+msgstr "Salvar"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Post not found."
+msgstr "Post não encontrado."
+
+msgid "Sorry, you are not allowed to read this bibliography."
+msgstr "Você não tem permissão para ler esta bibliografia."
+
+msgid "Bibliography block not found for the requested index."
+msgstr "Bloco de bibliografia não encontrado para o índice solicitado."
+
+msgid "Post ID to inspect for bibliography blocks."
+msgstr "ID do post a ser inspecionado para blocos de bibliografia."
+
+msgid "Zero-based bibliography block index within the post."
+msgstr "Índice do bloco de bibliografia dentro do post baseado em zero."
+
+msgid "Response format: json, text, or csl-json."
+msgstr "Formato da resposta: json, text ou csl-json."

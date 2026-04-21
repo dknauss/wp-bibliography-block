@@ -1,5 +1,5 @@
 {
-	"name": "bibliography",
+	"name": "bibliography-builder",
 	"version": "1.0.0",
 	"description": "A WordPress block plugin that transforms pasted scholarly citations (DOIs, BibTeX) into a semantically rich, auto-sorted bibliography list.",
 	"author": "Dan Knauss",

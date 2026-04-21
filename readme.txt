@@ -1,4 +1,4 @@
-=== Bibliography Block ===
+=== Bibliography Builder ===
 Contributors: dpknauss
 Donate link: https://www.paypal.com/paypalme/DanKnauss
 Tags: bibliography, citation, doi, bibtex, academic
@@ -27,7 +27,7 @@ Paste a DOI or BibTeX entry — get a formatted, auto-sorted bibliography in any
 
 == Installation ==
 
-1. Upload the plugin files to `/wp-content/plugins/bibliography/`, or install directly through the WordPress plugin screen.
+1. Upload the plugin files to `/wp-content/plugins/bibliography-builder/`, or install directly through the WordPress plugin screen.
 2. Activate the plugin through the 'Plugins' screen in WordPress.
 3. Add the "Bibliography" block to any post or page.
 4. Paste DOI(s), BibTeX entries, or supported citations for books, articles, chapters, and webpages.
@@ -82,7 +82,7 @@ PHP 7.4+ and WordPress 6.4+. The plugin has minimal PHP runtime (block registrat
 
 Source code, issue tracker, and contribution guidelines are on GitHub:
 
-[https://github.com/dknauss/wp-bibliography-block](https://github.com/dknauss/wp-bibliography-block)
+[https://github.com/dknauss/bibliography-builder](https://github.com/dknauss/bibliography-builder)
 
 Bug reports, feature requests, and pull requests are welcome. See CONTRIBUTING.md in the repository for development setup, coding standards, and the PR process.
 

@@ -1,0 +1,167 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Bibliography 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/dknauss/bibliography-builder/issues\n"
+"POT-Creation-Date: 2026-04-08 00:00+0000\n"
+"PO-Revision-Date: 2026-04-08 00:00+0000\n"
+"Last-Translator: Dan Knauss <dan@newlocalmedia.com>\n"
+"Language: nl_NL\n"
+"Language-Team: Dutch\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: bibliography-builder\n"
+
+msgid "Imported metadata may be incomplete. Verify before publishing."
+msgstr "Geïmporteerde metadata kunnen onvolledig zijn. Controleer ze vóór publicatie."
+
+msgid "Add citations"
+msgstr "Citaten toevoegen"
+
+msgid "Paste / Import"
+msgstr "Plakken / Importeren"
+
+msgid "Manual Entry"
+msgstr "Handmatig invoeren"
+
+msgid "Add DOI(s), BibTeX entries, and citations in supported styles for books, articles, chapters, and webpages. Separate multiple formatted citations with a blank line."
+msgstr "Voeg DOI's, BibTeX-vermeldingen en citaten toe in ondersteunde stijlen voor boeken, artikelen, hoofdstukken en webpagina's. Scheid meerdere opgemaakte citaten met een lege regel."
+
+msgid "Resolving…"
+msgstr "Bezig met verwerken…"
+
+msgid "Add"
+msgstr "Toevoegen"
+
+msgid "Clear"
+msgstr "Wissen"
+
+msgid "Author(s)"
+msgstr "Auteur(s)"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Container"
+msgstr "Container"
+
+msgid "Publisher"
+msgstr "Uitgever"
+
+msgid "Year"
+msgstr "Jaar"
+
+msgid "Pages"
+msgstr "Pagina's"
+
+msgid "DOI"
+msgstr "DOI"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Hide citation form"
+msgstr "Citaatformulier verbergen"
+
+msgid "Show citation form"
+msgstr "Citaatformulier tonen"
+
+msgid "Settings"
+msgstr "Instellingen"
+
+msgid "source"
+msgstr "bron"
+
+msgid "sources"
+msgstr "bronnen"
+
+msgid "Citation Style"
+msgstr "Citatiestijl"
+
+msgid "Changing styles reformats auto-generated citations and keeps manual overrides intact."
+msgstr "Het wijzigen van stijlen formatteert automatisch gegenereerde citaten opnieuw en laat handmatige overschrijvingen intact."
+
+msgid "Visible Heading"
+msgstr "Zichtbare kop"
+
+msgid "Optional heading shown above the bibliography on the site front end when at least one citation exists."
+msgstr "Optionele kop die boven de bibliografie op de voorkant van de site wordt getoond wanneer er ten minste één citaat is."
+
+msgid "Output JSON-LD"
+msgstr "JSON-LD uitvoeren"
+
+msgid "Helps search engines and other tools understand the bibliography."
+msgstr "Helpt zoekmachines en andere hulpmiddelen de bibliografie te begrijpen."
+
+msgid "Output COinS"
+msgstr "COinS uitvoeren"
+
+msgid "Lets Zotero and similar tools detect citations on the page."
+msgstr "Laat Zotero en vergelijkbare hulpmiddelen citaten op de pagina detecteren."
+
+msgid "Output CSL-JSON"
+msgstr "CSL-JSON uitvoeren"
+
+msgid "Makes citation data reusable by scholarly tools and services."
+msgstr "Maakt citaatgegevens herbruikbaar voor wetenschappelijke hulpmiddelen en diensten."
+
+msgid "Exports"
+msgstr "Exports"
+
+msgid "Copy bibliography"
+msgstr "Bibliografie kopiëren"
+
+msgid "Copies the current bibliography as plain text in the current order and style."
+msgstr "Kopieert de huidige bibliografie als platte tekst in de huidige volgorde en stijl."
+
+msgid "Download CSL-JSON"
+msgstr "CSL-JSON downloaden"
+
+msgid "Downloads the current bibliography as structured citation data."
+msgstr "Downloadt de huidige bibliografie als gestructureerde citaatgegevens."
+
+msgid "Download BibTeX"
+msgstr "BibTeX downloaden"
+
+msgid "Downloads the current bibliography as BibTeX for reference-manager and scholarly-writing workflows."
+msgstr "Downloadt de huidige bibliografie als BibTeX voor referentiebeheerders en wetenschappelijke schrijfworkflows."
+
+msgid "Download RIS"
+msgstr "RIS downloaden"
+
+msgid "Downloads the current bibliography as RIS for citation managers and import/export workflows."
+msgstr "Downloadt de huidige bibliografie als RIS voor citatiebeheerders en import-/exportworkflows."
+
+msgid "Notification"
+msgstr "Melding"
+
+msgid "Publication Type"
+msgstr "Publicatietype"
+
+msgid "Select a publication type"
+msgstr "Selecteer een publicatietype"
+
+msgid "Save"
+msgstr "Opslaan"
+
+msgid "Cancel"
+msgstr "Annuleren"
+
+msgid "Post not found."
+msgstr "Bericht niet gevonden."
+
+msgid "Sorry, you are not allowed to read this bibliography."
+msgstr "Je hebt helaas geen toestemming om deze bibliografie te lezen."
+
+msgid "Bibliography block not found for the requested index."
+msgstr "Bibliografieblok niet gevonden voor de gevraagde index."
+
+msgid "Post ID to inspect for bibliography blocks."
+msgstr "Bericht-ID om te controleren op bibliografieblokken."
+
+msgid "Zero-based bibliography block index within the post."
+msgstr "Op nul gebaseerde index van het bibliografieblok binnen het bericht."
+
+msgid "Response format: json, text, or csl-json."
+msgstr "Antwoordindeling: json, text of csl-json."

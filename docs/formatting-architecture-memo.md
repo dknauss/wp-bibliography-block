@@ -8,7 +8,7 @@ The plugin should continue to treat **CSL-JSON as the source of truth** and shou
 
 ## Why
 
--   Phase 3 in `/Users/danknauss/Developer/GitHub/wp-bibliography-block/SPEC.md` explicitly commits the project to multiple styles: APA, MLA, Chicago variants, Harvard, IEEE, and Vancouver.
+-   Phase 3 in `/Users/danknauss/Developer/GitHub/bibliography-builder/SPEC.md` explicitly commits the project to multiple styles: APA, MLA, Chicago variants, Harvard, IEEE, and Vancouver.
 -   A Chicago-only custom formatter would optimize the wrong axis. It would reduce one style’s formatting cost while creating a likely rewrite when multi-style support lands.
 -   The initial editor bundle is already small after async splitting. The remaining heavy code is deferred, so the immediate performance problem has been addressed without changing formatting semantics.
 -   The project’s strongest long-term invariant is already clear in the spec: **CSL-JSON is authoritative; formatted display text is derived**.

@@ -65,13 +65,13 @@ import {
 const WARNING_MESSAGES = {
 	'review-metadata-incomplete': __(
 		'Imported metadata may be incomplete. Verify before publishing.',
-		'bibliography'
+		'bibliography-builder'
 	),
 };
 
-const CITATION_FORM_LABEL = __('Add citations', 'bibliography');
-const PASTE_IMPORT_TAB_LABEL = __('Paste / Import', 'bibliography');
-const MANUAL_ENTRY_TAB_LABEL = __('Manual Entry', 'bibliography');
+const CITATION_FORM_LABEL = __('Add citations', 'bibliography-builder');
+const PASTE_IMPORT_TAB_LABEL = __('Paste / Import', 'bibliography-builder');
+const MANUAL_ENTRY_TAB_LABEL = __('Manual Entry', 'bibliography-builder');
 
 function pluralize(count, singular, plural = `${singular}s`) {
 	return `${count} ${count === 1 ? singular : plural}`;
@@ -640,7 +640,7 @@ export default function Edit({ attributes, setAttributes }) {
 							onKeyDown={handlePasteInputKeyDown}
 							placeholder={__(
 								'Add DOI(s), BibTeX entries, and citations in supported styles for books, articles, chapters, and webpages. Separate multiple formatted citations with a blank line.',
-								'bibliography'
+								'bibliography-builder'
 							)}
 							rows={4}
 							disabled={isLoading}
@@ -654,8 +654,8 @@ export default function Edit({ attributes, setAttributes }) {
 							disabled={isLoading || !inputValue.trim()}
 						>
 							{isLoading
-								? __('Resolving…', 'bibliography')
-								: __('Add', 'bibliography')}
+								? __('Resolving…', 'bibliography-builder')
+								: __('Add', 'bibliography-builder')}
 						</Button>
 					</div>
 				</>
@@ -669,9 +669,9 @@ export default function Edit({ attributes, setAttributes }) {
 					onFieldChange={handleManualFieldChange}
 					onSave={handleManualAdd}
 					onCancel={handleManualClear}
-					onCancelLabel={__('Clear', 'bibliography')}
+					onCancelLabel={__('Clear', 'bibliography-builder')}
 					showTypeSelector
-					submitLabel={__('Add', 'bibliography')}
+					submitLabel={__('Add', 'bibliography-builder')}
 					typeOptions={manualTypeOptions}
 					onTypeChange={(value) =>
 						handleManualFieldChange('type', value)
@@ -685,35 +685,35 @@ export default function Edit({ attributes, setAttributes }) {
 		() => [
 			{
 				key: 'authors',
-				label: __('Author(s)', 'bibliography'),
+				label: __('Author(s)', 'bibliography-builder'),
 			},
 			{
 				key: 'title',
-				label: __('Title', 'bibliography'),
+				label: __('Title', 'bibliography-builder'),
 			},
 			{
 				key: 'containerTitle',
-				label: __('Container', 'bibliography'),
+				label: __('Container', 'bibliography-builder'),
 			},
 			{
 				key: 'publisher',
-				label: __('Publisher', 'bibliography'),
+				label: __('Publisher', 'bibliography-builder'),
 			},
 			{
 				key: 'year',
-				label: __('Year', 'bibliography'),
+				label: __('Year', 'bibliography-builder'),
 			},
 			{
 				key: 'page',
-				label: __('Pages', 'bibliography'),
+				label: __('Pages', 'bibliography-builder'),
 			},
 			{
 				key: 'doi',
-				label: __('DOI', 'bibliography'),
+				label: __('DOI', 'bibliography-builder'),
 			},
 			{
 				key: 'url',
-				label: __('URL', 'bibliography'),
+				label: __('URL', 'bibliography-builder'),
 			},
 		],
 		[]
@@ -740,8 +740,14 @@ export default function Edit({ attributes, setAttributes }) {
 							icon={isFormOpen ? ChevronUpIcon : ChevronDownIcon}
 							label={
 								isFormOpen
-									? __('Hide citation form', 'bibliography')
-									: __('Show citation form', 'bibliography')
+									? __(
+											'Hide citation form',
+											'bibliography-builder'
+									  )
+									: __(
+											'Show citation form',
+											'bibliography-builder'
+									  )
 							}
 							onClick={() => setIsFormOpen((open) => !open)}
 						/>
@@ -752,28 +758,28 @@ export default function Edit({ attributes, setAttributes }) {
 				<PanelBody
 					title={
 						citations.length
-							? `${__('Settings', 'bibliography')} (${
+							? `${__('Settings', 'bibliography-builder')} (${
 									citations.length
 							  } ${
 									citations.length === 1
-										? __('source', 'bibliography')
-										: __('sources', 'bibliography')
+										? __('source', 'bibliography-builder')
+										: __('sources', 'bibliography-builder')
 							  })`
-							: __('Settings', 'bibliography')
+							: __('Settings', 'bibliography-builder')
 					}
 				>
 					<SelectControl
-						label={__('Citation Style', 'bibliography')}
+						label={__('Citation Style', 'bibliography-builder')}
 						value={citationStyle}
 						options={selectableStyles}
 						onChange={handleCitationStyleChange}
 						help={__(
 							'Changing styles reformats auto-generated citations and keeps manual overrides intact.',
-							'bibliography'
+							'bibliography-builder'
 						)}
 					/>
 					<TextControl
-						label={__('Visible Heading', 'bibliography')}
+						label={__('Visible Heading', 'bibliography-builder')}
 						value={headingText}
 						onChange={(value) =>
 							setAttributes({ headingText: value })
@@ -781,55 +787,55 @@ export default function Edit({ attributes, setAttributes }) {
 						placeholder={headingPlaceholder}
 						help={__(
 							'Optional heading shown above the bibliography on the site front end when at least one citation exists.',
-							'bibliography'
+							'bibliography-builder'
 						)}
 					/>
 					<ToggleControl
-						label={__('Output JSON-LD', 'bibliography')}
+						label={__('Output JSON-LD', 'bibliography-builder')}
 						checked={outputJsonLd}
 						onChange={(value) =>
 							setAttributes({ outputJsonLd: value })
 						}
 						help={__(
 							'Helps search engines and other tools understand the bibliography.',
-							'bibliography'
+							'bibliography-builder'
 						)}
 					/>
 					<ToggleControl
-						label={__('Output COinS', 'bibliography')}
+						label={__('Output COinS', 'bibliography-builder')}
 						checked={outputCoins}
 						onChange={(value) =>
 							setAttributes({ outputCoins: value })
 						}
 						help={__(
 							'Lets Zotero and similar tools detect citations on the page.',
-							'bibliography'
+							'bibliography-builder'
 						)}
 					/>
 					<ToggleControl
-						label={__('Output CSL-JSON', 'bibliography')}
+						label={__('Output CSL-JSON', 'bibliography-builder')}
 						checked={outputCslJson}
 						onChange={(value) =>
 							setAttributes({ outputCslJson: value })
 						}
 						help={__(
 							'Makes citation data reusable by scholarly tools and services.',
-							'bibliography'
+							'bibliography-builder'
 						)}
 					/>
 				</PanelBody>
-				<PanelBody title={__('Exports', 'bibliography')}>
+				<PanelBody title={__('Exports', 'bibliography-builder')}>
 					<Button
 						variant="secondary"
 						onClick={handleCopyBibliography}
 						disabled={!citations.length}
 					>
-						{__('Copy bibliography', 'bibliography')}
+						{__('Copy bibliography', 'bibliography-builder')}
 					</Button>
 					<p>
 						{__(
 							'Copies the current bibliography as plain text in the current order and style.',
-							'bibliography'
+							'bibliography-builder'
 						)}
 					</p>
 					<Button
@@ -837,12 +843,12 @@ export default function Edit({ attributes, setAttributes }) {
 						onClick={handleDownloadCslJson}
 						disabled={!citations.length}
 					>
-						{__('Download CSL-JSON', 'bibliography')}
+						{__('Download CSL-JSON', 'bibliography-builder')}
 					</Button>
 					<p>
 						{__(
 							'Downloads the current bibliography as structured citation data.',
-							'bibliography'
+							'bibliography-builder'
 						)}
 					</p>
 					<Button
@@ -850,12 +856,12 @@ export default function Edit({ attributes, setAttributes }) {
 						onClick={handleDownloadBibtex}
 						disabled={!citations.length}
 					>
-						{__('Download BibTeX', 'bibliography')}
+						{__('Download BibTeX', 'bibliography-builder')}
 					</Button>
 					<p>
 						{__(
 							'Downloads the current bibliography as BibTeX for reference-manager and scholarly-writing workflows.',
-							'bibliography'
+							'bibliography-builder'
 						)}
 					</p>
 					<Button
@@ -863,12 +869,12 @@ export default function Edit({ attributes, setAttributes }) {
 						onClick={handleDownloadRis}
 						disabled={!citations.length}
 					>
-						{__('Download RIS', 'bibliography')}
+						{__('Download RIS', 'bibliography-builder')}
 					</Button>
 					<p>
 						{__(
 							'Downloads the current bibliography as RIS for citation managers and import/export workflows.',
-							'bibliography'
+							'bibliography-builder'
 						)}
 					</p>
 				</PanelBody>

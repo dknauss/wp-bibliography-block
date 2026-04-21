@@ -1,0 +1,165 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Bibliography 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/dknauss/bibliography-builder/issues\n"
+"POT-Creation-Date: 2026-04-08 00:00+0000\n"
+"PO-Revision-Date: 2026-04-08 00:00+0000\n"
+"Last-Translator: Dan Knauss <dan@newlocalmedia.com>\n"
+"Language-Team: Bibliography contributors\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: bibliography-builder\n"
+
+msgid "Imported metadata may be incomplete. Verify before publishing."
+msgstr ""
+
+msgid "Add citations"
+msgstr ""
+
+msgid "Paste / Import"
+msgstr ""
+
+msgid "Manual Entry"
+msgstr ""
+
+msgid "Add DOI(s), BibTeX entries, and citations in supported styles for books, articles, chapters, and webpages. Separate multiple formatted citations with a blank line."
+msgstr ""
+
+msgid "Resolving…"
+msgstr ""
+
+msgid "Add"
+msgstr ""
+
+msgid "Clear"
+msgstr ""
+
+msgid "Author(s)"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "Container"
+msgstr ""
+
+msgid "Publisher"
+msgstr ""
+
+msgid "Year"
+msgstr ""
+
+msgid "Pages"
+msgstr ""
+
+msgid "DOI"
+msgstr ""
+
+msgid "URL"
+msgstr ""
+
+msgid "Hide citation form"
+msgstr ""
+
+msgid "Show citation form"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "source"
+msgstr ""
+
+msgid "sources"
+msgstr ""
+
+msgid "Citation Style"
+msgstr ""
+
+msgid "Changing styles reformats auto-generated citations and keeps manual overrides intact."
+msgstr ""
+
+msgid "Visible Heading"
+msgstr ""
+
+msgid "Optional heading shown above the bibliography on the site front end when at least one citation exists."
+msgstr ""
+
+msgid "Output JSON-LD"
+msgstr ""
+
+msgid "Helps search engines and other tools understand the bibliography."
+msgstr ""
+
+msgid "Output COinS"
+msgstr ""
+
+msgid "Lets Zotero and similar tools detect citations on the page."
+msgstr ""
+
+msgid "Output CSL-JSON"
+msgstr ""
+
+msgid "Makes citation data reusable by scholarly tools and services."
+msgstr ""
+
+msgid "Exports"
+msgstr ""
+
+msgid "Copy bibliography"
+msgstr ""
+
+msgid "Copies the current bibliography as plain text in the current order and style."
+msgstr ""
+
+msgid "Download CSL-JSON"
+msgstr ""
+
+msgid "Downloads the current bibliography as structured citation data."
+msgstr ""
+
+msgid "Download BibTeX"
+msgstr ""
+
+msgid "Downloads the current bibliography as BibTeX for reference-manager and scholarly-writing workflows."
+msgstr ""
+
+msgid "Download RIS"
+msgstr ""
+
+msgid "Downloads the current bibliography as RIS for citation managers and import/export workflows."
+msgstr ""
+
+msgid "Notification"
+msgstr ""
+
+msgid "Publication Type"
+msgstr ""
+
+msgid "Select a publication type"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Post not found."
+msgstr ""
+
+msgid "Sorry, you are not allowed to read this bibliography."
+msgstr ""
+
+msgid "Bibliography block not found for the requested index."
+msgstr ""
+
+msgid "Post ID to inspect for bibliography blocks."
+msgstr ""
+
+msgid "Zero-based bibliography block index within the post."
+msgstr ""
+
+msgid "Response format: json, text, or csl-json."
+msgstr ""

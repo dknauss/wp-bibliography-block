@@ -1,4 +1,4 @@
-# Contributing to Scholarly Bibliography Block
+# Contributing to Bibliography Builder
 
 Thank you for your interest in contributing! This document explains how to get set up and submit changes.
 
@@ -8,8 +8,8 @@ Thank you for your interest in contributing! This document explains how to get s
 
 2. **Clone and install:**
    ```bash
-   git clone https://github.com/dknauss/wp-bibliography-block.git
-   cd wp-bibliography-block
+   git clone https://github.com/dknauss/bibliography-builder.git
+   cd bibliography-builder
    npm install
    ```
 
@@ -53,7 +53,7 @@ Tests live alongside the source in `src/` or in a `__tests__/` directory. When a
 
 ## Reporting Bugs
 
-Use the [bug report issue template](https://github.com/dknauss/wp-bibliography-block/issues/new?template=01-bug-report.yml). Include steps to reproduce, expected behavior, and your WordPress/browser versions.
+Use the [bug report issue template](https://github.com/dknauss/bibliography-builder/issues/new?template=01-bug-report.yml). Include steps to reproduce, expected behavior, and your WordPress/browser versions.
 
 ## Security Issues
 

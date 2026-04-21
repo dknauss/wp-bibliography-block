@@ -52,9 +52,9 @@ Expected:
 From the repository root:
 
 ```bash
-inkscape /Users/danknauss/Developer/GitHub/wp-bibliography-block/.wordpress-org/source/banner-1544x500.svg \
+inkscape /Users/danknauss/Developer/GitHub/bibliography-builder/.wordpress-org/source/banner-1544x500.svg \
   --export-type=png \
-  --export-filename=/Users/danknauss/Developer/GitHub/wp-bibliography-block/.wordpress-org/banner-1544x500.png
+  --export-filename=/Users/danknauss/Developer/GitHub/bibliography-builder/.wordpress-org/banner-1544x500.png
 ```
 
 Then confirm dimensions:
@@ -62,7 +62,7 @@ Then confirm dimensions:
 ```bash
 python3 - <<'PY'
 from PIL import Image
-im = Image.open('/Users/danknauss/Developer/GitHub/wp-bibliography-block/.wordpress-org/banner-1544x500.png')
+im = Image.open('/Users/danknauss/Developer/GitHub/bibliography-builder/.wordpress-org/banner-1544x500.png')
 print(im.size)
 PY
 ```
@@ -75,10 +75,10 @@ Expected:
 
 ## Source files used here
 
-- `/Users/danknauss/Developer/GitHub/wp-bibliography-block/.wordpress-org/source/banner-concept.svg`
-- `/Users/danknauss/Developer/GitHub/wp-bibliography-block/.wordpress-org/source/banner-1544x500.svg`
-- `/Users/danknauss/Developer/GitHub/wp-bibliography-block/.wordpress-org/source/banner-772x250.svg`
-- `/Users/danknauss/Developer/GitHub/wp-bibliography-block/.wordpress-org/icon.svg`
+- `/Users/danknauss/Developer/GitHub/bibliography-builder/.wordpress-org/source/banner-concept.svg`
+- `/Users/danknauss/Developer/GitHub/bibliography-builder/.wordpress-org/source/banner-1544x500.svg`
+- `/Users/danknauss/Developer/GitHub/bibliography-builder/.wordpress-org/source/banner-772x250.svg`
+- `/Users/danknauss/Developer/GitHub/bibliography-builder/.wordpress-org/icon.svg`
 
 ## Notes
 

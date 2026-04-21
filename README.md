@@ -1,13 +1,13 @@
-# A Bibliography Block for WordPress
+# Bibliography Builder for WordPress
 
 [![License: GPL v2+](https://img.shields.io/badge/License-GPLv2%2B-blue.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
-[![WordPress tested](https://img.shields.io/badge/WordPress-6.4%E2%80%93latest-21759b.svg?logo=wordpress&logoColor=white)](https://github.com/dknauss/wp-bibliography-block/actions/workflows/runtime-matrix.yml)
-[![PHP tested](https://img.shields.io/badge/PHP-7.4%E2%80%938.4-777bb4.svg?logo=php&logoColor=white)](https://github.com/dknauss/wp-bibliography-block/actions/workflows/runtime-matrix.yml)
-[![CI](https://github.com/dknauss/wp-bibliography-block/actions/workflows/ci.yml/badge.svg)](https://github.com/dknauss/wp-bibliography-block/actions/workflows/ci.yml)
-[![Runtime matrix](https://github.com/dknauss/wp-bibliography-block/actions/workflows/runtime-matrix.yml/badge.svg)](https://github.com/dknauss/wp-bibliography-block/actions/workflows/runtime-matrix.yml)
-[![CodeQL](https://github.com/dknauss/wp-bibliography-block/actions/workflows/codeql.yml/badge.svg)](https://github.com/dknauss/wp-bibliography-block/actions/workflows/codeql.yml)
-[![Codecov](https://codecov.io/gh/dknauss/wp-bibliography-block/branch/main/graph/badge.svg)](https://codecov.io/gh/dknauss/wp-bibliography-block)
-[![WordPress Playground](https://img.shields.io/badge/WordPress%20Playground-Try%20it-3858e9.svg?logo=wordpress&logoColor=white)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/dknauss/wp-bibliography-block/main/playground/blueprint.json)
+[![WordPress tested](https://img.shields.io/badge/WordPress-6.4%E2%80%93latest-21759b.svg?logo=wordpress&logoColor=white)](https://github.com/dknauss/bibliography-builder/actions/workflows/runtime-matrix.yml)
+[![PHP tested](https://img.shields.io/badge/PHP-7.4%E2%80%938.4-777bb4.svg?logo=php&logoColor=white)](https://github.com/dknauss/bibliography-builder/actions/workflows/runtime-matrix.yml)
+[![CI](https://github.com/dknauss/bibliography-builder/actions/workflows/ci.yml/badge.svg)](https://github.com/dknauss/bibliography-builder/actions/workflows/ci.yml)
+[![Runtime matrix](https://github.com/dknauss/bibliography-builder/actions/workflows/runtime-matrix.yml/badge.svg)](https://github.com/dknauss/bibliography-builder/actions/workflows/runtime-matrix.yml)
+[![CodeQL](https://github.com/dknauss/bibliography-builder/actions/workflows/codeql.yml/badge.svg)](https://github.com/dknauss/bibliography-builder/actions/workflows/codeql.yml)
+[![Codecov](https://codecov.io/gh/dknauss/bibliography-builder/branch/main/graph/badge.svg)](https://codecov.io/gh/dknauss/bibliography-builder)
+[![WordPress Playground](https://img.shields.io/badge/WordPress%20Playground-Try%20it-3858e9.svg?logo=wordpress&logoColor=white)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/dknauss/bibliography-builder/main/playground/blueprint.json)
 
 The only all-in-one bibliography block for the WordPress editor that transforms pasted scholarly references — DOI numbers/URLs, BibTeX entries, and supported formatted citations — into a semantically rich, auto-sorted bibliography with static saved output. Export your work as CSL-JSON, BibTeX, and RIS.
 
@@ -17,11 +17,11 @@ Just write out your citations or paste DOIs and BibTeX code, up to 50 at a time.
 
 ## Try it in WordPress Playground
 
-Launch a disposable WordPress instance with the plugin preinstalled: [Try the Bibliography Block in WordPress Playground](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/dknauss/wp-bibliography-block/main/playground/blueprint.json). Playground installs the plugin from the latest GitHub Release zip artifact.
+Launch a disposable WordPress instance with the plugin preinstalled: [Try the Bibliography Builder in WordPress Playground](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/dknauss/bibliography-builder/main/playground/blueprint.json). Playground installs the plugin from the latest GitHub Release zip artifact.
 
 ![](.wordpress-org/banner-1544x500.png)
 
-WordPress.org branding assets, including the bookshelf icon and banner source files, live in `/Users/danknauss/Developer/GitHub/wp-bibliography-block/.wordpress-org/` and `/Users/danknauss/Developer/GitHub/wp-bibliography-block/.wordpress-org/source/`.
+WordPress.org branding assets, including the bookshelf icon and banner source files, live in `/Users/danknauss/Developer/GitHub/bibliography-builder/.wordpress-org/` and `/Users/danknauss/Developer/GitHub/bibliography-builder/.wordpress-org/source/`.
 
 ## Screenshots
 
@@ -35,7 +35,7 @@ WordPress.org branding assets, including the bookshelf icon and banner source fi
 
 ## Installation
 
-1. Upload the plugin files to `/wp-content/plugins/bibliography/`, or install directly through the WordPress plugin screen.
+1. Upload the plugin files to `/wp-content/plugins/bibliography-builder/`, or install directly through the WordPress plugin screen.
 2. Activate the plugin through the **Plugins** screen in WordPress.
 3. Add the **Bibliography** block to any post or page.
 4. Paste DOI(s), BibTeX entries, or supported citations.

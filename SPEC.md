@@ -1,4 +1,4 @@
-# Scholarly Bibliography Block — Plugin Specification
+# Bibliography Builder — Plugin Specification
 
 ## Overview
 
@@ -974,12 +974,12 @@ The editor UI now uses standard Gutenberg icons, but it does so through a small 
 In this project, direct barrel imports from `@wordpress/icons` previously triggered webpack resolution failures around the package's ESM modules and `react/jsx-runtime`, which in turn could break block registration in the editor. The current implementation avoids that failure mode by:
 
 1. Importing only the specific icon modules needed from `@wordpress/icons/build-module/library/*.mjs`
-2. Wrapping those icon elements in local React components in `/Users/danknauss/Developer/GitHub/wp-bibliography-block/src/lib/wp-icons.js`
+2. Wrapping those icon elements in local React components in `/Users/danknauss/Developer/GitHub/bibliography-builder/src/lib/wp-icons.js`
 3. Adding a webpack `resolve.alias` for `react/jsx-runtime` and `react/jsx-dev-runtime`
 
 This gives the block standard Gutenberg iconography without relying on a fragile `wp.icons` runtime externalization path.
 
-If a future dependency upgrade makes direct `@wordpress/icons` imports reliable again, the wrapper module can be simplified or removed. Until then, `/Users/danknauss/Developer/GitHub/wp-bibliography-block/src/lib/wp-icons.js` is the supported integration point for editor icons.
+If a future dependency upgrade makes direct `@wordpress/icons` imports reliable again, the wrapper module can be simplified or removed. Until then, `/Users/danknauss/Developer/GitHub/bibliography-builder/src/lib/wp-icons.js` is the supported integration point for editor icons.
 
 ### Why static save over dynamic rendering?
 
