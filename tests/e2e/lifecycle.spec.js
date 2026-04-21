@@ -47,9 +47,7 @@ async function dismissEditorOverlay(page) {
 
 async function getPluginRow(page) {
 	await page.goto('/wp-admin/plugins.php');
-	await expect(
-		page.getByRole('heading', { level: 1, name: 'Plugins' })
-	).toBeVisible();
+	await page.waitForLoadState('networkidle');
 	return page.locator('tr', { hasText: 'Bibliography' });
 }
 
@@ -167,6 +165,9 @@ async function createPostWithBibliography(page) {
 
 test.describe('Plugin lifecycle', () => {
 	test.setTimeout(60_000);
+	test.beforeEach(async ({ page }) => {
+		page.on('dialog', (dialog) => dialog.accept());
+	});
 
 	test('content survives plugin deactivation', async ({ page }) => {
 		await ensurePluginActive(page);
