@@ -175,7 +175,7 @@ async function safeCheck(desc, fn) {
 		await page.keyboard.press('Enter');
 		await page.waitForTimeout(5000); // DOI resolution
 		// Check if a citation appeared
-		const entries = editorFrame.locator('.scholarly-bibliography-entry');
+		const entries = editorFrame.locator('.bibliography-builder-entry');
 		return (await entries.count()) > 0;
 	});
 
@@ -219,7 +219,7 @@ async function safeCheck(desc, fn) {
 
 	console.log('\n=== 4. Citation Entry Keyboard Interaction ===');
 
-	const entry = editorFrame.locator('.scholarly-bibliography-entry').first();
+	const entry = editorFrame.locator('.bibliography-builder-entry').first();
 
 	await safeCheck('Citation entry is focusable (tabindex)', async () => {
 		const tabindex = await entry.getAttribute('tabindex');
@@ -228,7 +228,7 @@ async function safeCheck(desc, fn) {
 
 	await safeCheck('Entry trigger button has accessible label', async () => {
 		const trigger = entry
-			.locator('.scholarly-bibliography-entry-trigger')
+			.locator('.bibliography-builder-entry-trigger')
 			.first();
 		if (await trigger.isVisible().catch(() => false)) {
 			const label = await trigger.getAttribute('aria-label');
@@ -241,13 +241,13 @@ async function safeCheck(desc, fn) {
 	await safeCheck('Action buttons visible on entry focus', async () => {
 		await entry.focus();
 		await page.waitForTimeout(500);
-		const actions = entry.locator('.scholarly-bibliography-action-button');
+		const actions = entry.locator('.bibliography-builder-action-button');
 		return (await actions.count()) > 0;
 	});
 
 	// Check delete button accessibility
 	const deleteBtn = entry
-		.locator('.scholarly-bibliography-action-button-delete')
+		.locator('.bibliography-builder-action-button-delete')
 		.first();
 	if (await deleteBtn.isVisible().catch(() => false)) {
 		await safeCheck('Delete button has accessible label', async () => {
@@ -260,15 +260,13 @@ async function safeCheck(desc, fn) {
 
 	await safeCheck('Bibliography list uses correct role', async () => {
 		const list = editorFrame.locator(
-			'[role="doc-bibliography"], .scholarly-bibliography-list'
+			'[role="doc-bibliography"], .bibliography-builder-list'
 		);
 		return (await list.count()) > 0;
 	});
 
 	await safeCheck('Block has appropriate ARIA on list', async () => {
-		const list = editorFrame
-			.locator('.scholarly-bibliography-list')
-			.first();
+		const list = editorFrame.locator('.bibliography-builder-list').first();
 		const tag = await list.evaluate((el) => el.tagName.toLowerCase());
 		return tag === 'ul' || tag === 'ol';
 	});

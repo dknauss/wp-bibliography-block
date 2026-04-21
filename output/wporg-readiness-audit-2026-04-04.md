@@ -1,4 +1,4 @@
-# Scholarly Bibliography audit — security, performance, and WordPress.org readiness
+# Bibliography Builder audit — security, performance, and WordPress.org readiness
 
 Date: 2026-04-04
 Repo: `/Users/danknauss/Developer/GitHub/wp-bibliography-block`
@@ -26,7 +26,7 @@ Main remaining concerns are not critical security bugs; they are mostly:
 ### Tests
 
 - `npm test -- --runInBand --silent` → **15/15 suites passed, 174/174 tests passed**
-- `php -l scholarly-bibliography.php` → **no syntax errors**
+- `php -l bibliography-builder.php` → **no syntax errors**
 
 ### Xdebug status
 
@@ -126,7 +126,7 @@ Not a security issue, but it weakens semantic quality for search/AI consumers.
 
 #### S3. Resolved — submission metadata no longer blocks readiness
 Files:
-- `scholarly-bibliography.php`
+- `bibliography-builder.php`
 - `readme.txt`
 
 The plugin header and readme metadata are now populated. This was a submission-readiness gap, not a security vulnerability, and it has been addressed.
@@ -210,7 +210,7 @@ Key observations from the captured profiles:
 - Plugin-specific PHP cost is tiny by comparison and is almost entirely concentrated in:
   - `/internal/symlinks/Users/danknauss/Developer/GitHub/wp-bibliography-block/build/index.asset.php`
 - The main plugin file:
-  - `/internal/symlinks/Users/danknauss/Developer/GitHub/wp-bibliography-block/scholarly-bibliography.php`
+  - `/internal/symlinks/Users/danknauss/Developer/GitHub/wp-bibliography-block/bibliography-builder.php`
   contributes only negligible self time
 
 Interpretation:
@@ -237,7 +237,7 @@ Interpretation:
 
 #### W1. Submission metadata is now filled in
 Files:
-- `scholarly-bibliography.php`
+- `bibliography-builder.php`
 - `readme.txt`
 
 Current state:

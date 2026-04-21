@@ -6,7 +6,7 @@
 	findUnusedCode="false"
 >
 	<projectFiles>
-		<file name="scholarly-bibliography.php" />
+		<file name="bibliography-builder.php" />
 		<ignoreFiles>
 			<directory name="tests" />
 		</ignoreFiles>

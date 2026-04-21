@@ -4,38 +4,38 @@ if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', __DIR__ . '/../../' );
 }
 
-$GLOBALS['scholarly_bibliography_test_posts']           = array();
-$GLOBALS['scholarly_bibliography_test_parsed_blocks']   = array();
-$GLOBALS['scholarly_bibliography_test_current_user_id'] = 0;
-$GLOBALS['scholarly_bibliography_test_user_caps']       = array();
-$GLOBALS['scholarly_bibliography_test_rest_routes']     = array();
+$GLOBALS['bibliography_builder_test_posts']           = array();
+$GLOBALS['bibliography_builder_test_parsed_blocks']   = array();
+$GLOBALS['bibliography_builder_test_current_user_id'] = 0;
+$GLOBALS['bibliography_builder_test_user_caps']       = array();
+$GLOBALS['bibliography_builder_test_rest_routes']     = array();
 
-function scholarly_bibliography_test_reset_state() {
-	$GLOBALS['scholarly_bibliography_test_posts']           = array();
-	$GLOBALS['scholarly_bibliography_test_parsed_blocks']   = array();
-	$GLOBALS['scholarly_bibliography_test_current_user_id'] = 0;
-	$GLOBALS['scholarly_bibliography_test_user_caps']       = array();
-	$GLOBALS['scholarly_bibliography_test_rest_routes']     = array();
+function bibliography_builder_test_reset_state() {
+	$GLOBALS['bibliography_builder_test_posts']           = array();
+	$GLOBALS['bibliography_builder_test_parsed_blocks']   = array();
+	$GLOBALS['bibliography_builder_test_current_user_id'] = 0;
+	$GLOBALS['bibliography_builder_test_user_caps']       = array();
+	$GLOBALS['bibliography_builder_test_rest_routes']     = array();
 }
 
-function scholarly_bibliography_test_set_post( $post_id, $status, $content ) {
-	$GLOBALS['scholarly_bibliography_test_posts'][ $post_id ] = (object) array(
+function bibliography_builder_test_set_post( $post_id, $status, $content ) {
+	$GLOBALS['bibliography_builder_test_posts'][ $post_id ] = (object) array(
 		'ID'           => $post_id,
 		'post_status'  => $status,
 		'post_content' => $content,
 	);
 }
 
-function scholarly_bibliography_test_set_parsed_blocks( $content, $blocks ) {
-	$GLOBALS['scholarly_bibliography_test_parsed_blocks'][ $content ] = $blocks;
+function bibliography_builder_test_set_parsed_blocks( $content, $blocks ) {
+	$GLOBALS['bibliography_builder_test_parsed_blocks'][ $content ] = $blocks;
 }
 
-function scholarly_bibliography_test_grant_cap( $user_id, $capability, $object_id ) {
-	$GLOBALS['scholarly_bibliography_test_user_caps'][ $user_id ][ $capability ][ $object_id ] = true;
+function bibliography_builder_test_grant_cap( $user_id, $capability, $object_id ) {
+	$GLOBALS['bibliography_builder_test_user_caps'][ $user_id ][ $capability ][ $object_id ] = true;
 }
 
-function scholarly_bibliography_test_set_current_user( $user_id ) {
-	$GLOBALS['scholarly_bibliography_test_current_user_id'] = $user_id;
+function bibliography_builder_test_set_current_user( $user_id ) {
+	$GLOBALS['bibliography_builder_test_current_user_id'] = $user_id;
 }
 
 function add_action() {}
@@ -45,7 +45,7 @@ function add_filter() {}
 function register_block_type() {}
 
 function register_rest_route( $namespace, $route, $args ) {
-	$GLOBALS['scholarly_bibliography_test_rest_routes'][] = array(
+	$GLOBALS['bibliography_builder_test_rest_routes'][] = array(
 		'namespace' => $namespace,
 		'route'     => $route,
 		'args'      => $args,
@@ -53,11 +53,11 @@ function register_rest_route( $namespace, $route, $args ) {
 }
 
 function parse_blocks( $content ) {
-	return $GLOBALS['scholarly_bibliography_test_parsed_blocks'][ $content ] ?? array();
+	return $GLOBALS['bibliography_builder_test_parsed_blocks'][ $content ] ?? array();
 }
 
 function get_post( $post_id ) {
-	return $GLOBALS['scholarly_bibliography_test_posts'][ $post_id ] ?? null;
+	return $GLOBALS['bibliography_builder_test_posts'][ $post_id ] ?? null;
 }
 
 function get_post_status( $post ) {
@@ -65,8 +65,8 @@ function get_post_status( $post ) {
 }
 
 function current_user_can( $capability, $object_id = 0 ) {
-	$user_id = $GLOBALS['scholarly_bibliography_test_current_user_id'];
-	return ! empty( $GLOBALS['scholarly_bibliography_test_user_caps'][ $user_id ][ $capability ][ $object_id ] );
+	$user_id = $GLOBALS['bibliography_builder_test_current_user_id'];
+	return ! empty( $GLOBALS['bibliography_builder_test_user_caps'][ $user_id ][ $capability ][ $object_id ] );
 }
 
 function absint( $value ) {
@@ -196,4 +196,4 @@ class WP_REST_Server {
 	}
 }
 
-require_once dirname( __DIR__, 2 ) . '/scholarly-bibliography.php';
+require_once dirname( __DIR__, 2 ) . '/bibliography-builder.php';

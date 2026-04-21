@@ -32,12 +32,12 @@ npm run package:release
 
 That command creates:
 
-- staging directory: `/Users/danknauss/Developer/GitHub/wp-bibliography-block/output/release/scholarly-bibliography`
-- zip archive: `/Users/danknauss/Developer/GitHub/wp-bibliography-block/output/release/scholarly-bibliography.zip`
+- staging directory: `/Users/danknauss/Developer/GitHub/wp-bibliography-block/output/release/bibliography-builder`
+- zip archive: `/Users/danknauss/Developer/GitHub/wp-bibliography-block/output/release/bibliography-builder.zip`
 
 The staged release contains only runtime/release files:
 
-- `scholarly-bibliography.php`
+- `bibliography-builder.php`
 - `block.json`
 - `readme.txt`
 - `LICENSE`
@@ -69,7 +69,7 @@ To access the CLI subcommand, the local `plugin-check` plugin was temporarily ac
 Command used:
 
 ```bash
-wp plugin check /Users/danknauss/Developer/GitHub/wp-bibliography-block/output/release/scholarly-bibliography --path=/Users/danknauss/Studio/single-instance --format=json
+wp plugin check /Users/danknauss/Developer/GitHub/wp-bibliography-block/output/release/bibliography-builder --path=/Users/danknauss/Studio/single-instance --format=json
 ```
 
 Result:

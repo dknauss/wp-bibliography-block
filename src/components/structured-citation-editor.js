@@ -84,11 +84,11 @@ export function StructuredCitationEditor({
 
 	return (
 		<div
-			className="scholarly-bibliography-structured-edit"
+			className="bibliography-builder-structured-edit"
 			onKeyDownCapture={handleKeyDown}
 		>
 			{showTypeSelector && (
-				<div className="scholarly-bibliography-structured-field">
+				<div className="bibliography-builder-structured-field">
 					<label htmlFor={getStructuredFieldId(citation.id, 'type')}>
 						{__('Publication Type', 'bibliography-builder')}
 					</label>
@@ -116,7 +116,7 @@ export function StructuredCitationEditor({
 			{fieldDefinitions.map(({ key, label }, index) => (
 				<div
 					key={key}
-					className="scholarly-bibliography-structured-field"
+					className="bibliography-builder-structured-field"
 				>
 					<label htmlFor={getStructuredFieldId(citation.id, key)}>
 						{label}
@@ -137,21 +137,21 @@ export function StructuredCitationEditor({
 					/>
 				</div>
 			))}
-			<div className="scholarly-bibliography-structured-actions">
+			<div className="bibliography-builder-structured-actions">
 				<Button
 					variant="primary"
-					className="scholarly-bibliography-form-button"
+					className="bibliography-builder-form-button"
 					onClick={onSave}
 				>
-					<ConfirmIcon className="scholarly-bibliography-action-icon" />
+					<ConfirmIcon className="bibliography-builder-action-icon" />
 					{submitLabel || __('Save', 'bibliography-builder')}
 				</Button>
 				<Button
 					variant="secondary"
-					className="scholarly-bibliography-form-button"
+					className="bibliography-builder-form-button"
 					onClick={onCancel}
 				>
-					<CancelIcon className="scholarly-bibliography-action-icon" />
+					<CancelIcon className="bibliography-builder-action-icon" />
 					{onCancelLabel || __('Cancel', 'bibliography-builder')}
 				</Button>
 			</div>

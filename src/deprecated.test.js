@@ -7,7 +7,7 @@ jest.mock(
 	() => ({
 		useBlockProps: {
 			save: () => ({
-				className: 'wp-block-scholarly-bibliography',
+				className: 'wp-block-bibliography-builder-bibliography',
 			}),
 		},
 	}),

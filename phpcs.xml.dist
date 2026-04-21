@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<ruleset name="Scholarly Bibliography">
-	<description>WordPress Coding Standards for Scholarly Bibliography plugin</description>
+<ruleset name="Bibliography Builder">
+	<description>WordPress Coding Standards for Bibliography Builder plugin</description>
 
 	<!-- Files to check -->
-	<file>scholarly-bibliography.php</file>
+	<file>bibliography-builder.php</file>
 
 	<!-- Exclude vendor, node_modules, and tests -->
 	<exclude-pattern>vendor/*</exclude-pattern>
@@ -34,7 +34,7 @@
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
 			<property name="prefixes" type="array">
-				<element value="scholarly_bibliography"/>
+				<element value="bibliography_builder"/>
 			</property>
 		</properties>
 	</rule>

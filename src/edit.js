@@ -136,9 +136,9 @@ export default function Edit({ attributes, setAttributes }) {
 	const headingPlaceholder = getHeadingPlaceholder(citationStyle);
 	const listStyleDefinition = getStyleDefinition(citationStyle);
 	const ListTag = getListSemantics(citationStyle);
-	const listClassName = `scholarly-bibliography-list scholarly-bibliography-list-${
+	const listClassName = `bibliography-builder-list bibliography-builder-list-${
 		listStyleDefinition.listType === 'ol' ? 'numeric' : 'unordered'
-	} scholarly-bibliography-list-${citationStyle}`;
+	} bibliography-builder-list-${citationStyle}`;
 	const [inputValue, setInputValue] = useState('');
 	const [isLoading, setIsLoading] = useState(false);
 	const [isFormOpen, setIsFormOpen] = useState(true);
@@ -607,14 +607,14 @@ export default function Edit({ attributes, setAttributes }) {
 
 	const getEntryClassName = (citation) => {
 		if (structuredEditingId === citation.id) {
-			return 'scholarly-bibliography-entry is-structured-editing';
+			return 'bibliography-builder-entry is-structured-editing';
 		}
 
 		if (editingId === citation.id) {
-			return 'scholarly-bibliography-entry is-inline-editing';
+			return 'bibliography-builder-entry is-inline-editing';
 		}
 
-		return 'scholarly-bibliography-entry';
+		return 'bibliography-builder-entry';
 	};
 
 	const renderAddForm = () => (
@@ -622,18 +622,18 @@ export default function Edit({ attributes, setAttributes }) {
 			{activeAddMode === 'paste' ? (
 				<>
 					<BaseControl
-						id="scholarly-bibliography-paste-input"
+						id="bibliography-builder-paste-input"
 						label={CITATION_FORM_LABEL}
 						hideLabelFromVision
-						className="scholarly-bibliography-textarea"
+						className="bibliography-builder-textarea"
 					>
 						{/* Keep this as a native uncontrolled textarea so browser undo/redo
 							behaves normally before submission. */}
 						<textarea
 							ref={pasteZoneRef}
-							id="scholarly-bibliography-paste-input"
+							id="bibliography-builder-paste-input"
 							aria-label={CITATION_FORM_LABEL}
-							className="scholarly-bibliography-native-textarea"
+							className="bibliography-builder-native-textarea"
 							defaultValue={inputValue}
 							onChange={handleInputChange}
 							onFocus={handleInputFocus}
@@ -646,10 +646,10 @@ export default function Edit({ attributes, setAttributes }) {
 							disabled={isLoading}
 						/>
 					</BaseControl>
-					<div className="scholarly-bibliography-form-actions">
+					<div className="bibliography-builder-form-actions">
 						<Button
 							variant="primary"
-							className="scholarly-bibliography-parse-button"
+							className="bibliography-builder-parse-button"
 							onClick={handleParse}
 							disabled={isLoading || !inputValue.trim()}
 						>
@@ -882,13 +882,13 @@ export default function Edit({ attributes, setAttributes }) {
 
 			{/* Heading */}
 			{headingText ? (
-				<p className="scholarly-bibliography-heading scholarly-bibliography-heading-preview">
+				<p className="bibliography-builder-heading bibliography-builder-heading-preview">
 					{headingText}
 				</p>
 			) : null}
 
 			{/* Add form */}
-			<div className="scholarly-bibliography-paste-zone">
+			<div className="bibliography-builder-paste-zone">
 				{sortedCitations.length === 0 ? (
 					<Placeholder
 						label={CITATION_FORM_LABEL}
@@ -900,7 +900,7 @@ export default function Edit({ attributes, setAttributes }) {
 								onDismiss={clearNotice}
 							/>
 						}
-						className="scholarly-bibliography-placeholder"
+						className="bibliography-builder-placeholder"
 					>
 						{renderAddForm()}
 					</Placeholder>

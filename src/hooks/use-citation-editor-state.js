@@ -98,7 +98,7 @@ export function useCitationEditorState({
 
 	const getStructuredFieldId = useCallback(
 		(citationId, fieldKey) =>
-			`scholarly-bibliography-${citationId}-${fieldKey}`,
+			`bibliography-builder-${citationId}-${fieldKey}`,
 		[]
 	);
 

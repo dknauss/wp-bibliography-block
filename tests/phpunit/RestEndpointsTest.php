@@ -8,17 +8,17 @@ final class RestEndpointsTest extends TestCase {
 
 	protected function setUp(): void {
 		parent::setUp();
-		scholarly_bibliography_test_reset_state();
+		bibliography_builder_test_reset_state();
 
-		$block_content = '<!-- wp:scholarly/bibliography {} /-->';
+		$block_content = '<!-- wp:bibliography-builder/bibliography {} /-->';
 
-		scholarly_bibliography_test_set_post( $this->published_post_id, 'publish', $block_content );
-		scholarly_bibliography_test_set_post( $this->draft_post_id, 'draft', $block_content );
-		scholarly_bibliography_test_set_parsed_blocks(
+		bibliography_builder_test_set_post( $this->published_post_id, 'publish', $block_content );
+		bibliography_builder_test_set_post( $this->draft_post_id, 'draft', $block_content );
+		bibliography_builder_test_set_parsed_blocks(
 			$block_content,
 			array(
 				array(
-					'blockName' => 'scholarly/bibliography',
+					'blockName' => 'bibliography-builder/bibliography',
 					'attrs'     => array(
 						'citationStyle' => 'chicago-notes-bibliography',
 						'headingText'   => 'References',
@@ -49,8 +49,8 @@ final class RestEndpointsTest extends TestCase {
 	}
 
 	public function test_rest_routes_are_registered(): void {
-		scholarly_bibliography_register_rest_routes();
-		$routes = $GLOBALS['scholarly_bibliography_test_rest_routes'];
+		bibliography_builder_register_rest_routes();
+		$routes = $GLOBALS['bibliography_builder_test_rest_routes'];
 
 		$this->assertCount( 2, $routes );
 		$this->assertSame( 'bibliography/v1', $routes[0]['namespace'] );
@@ -62,28 +62,28 @@ final class RestEndpointsTest extends TestCase {
 		$request            = new WP_REST_Request( 'GET', '/bibliography/v1/posts/101/bibliographies' );
 		$request['post_id'] = $this->published_post_id;
 
-		$this->assertTrue( scholarly_bibliography_rest_permissions_check( $request ) );
+		$this->assertTrue( bibliography_builder_rest_permissions_check( $request ) );
 	}
 
 	public function test_draft_posts_require_edit_capability(): void {
 		$request            = new WP_REST_Request( 'GET', '/bibliography/v1/posts/102/bibliographies' );
 		$request['post_id'] = $this->draft_post_id;
 
-		$forbidden = scholarly_bibliography_rest_permissions_check( $request );
+		$forbidden = bibliography_builder_rest_permissions_check( $request );
 		$this->assertInstanceOf( WP_Error::class, $forbidden );
 		$this->assertSame( 403, $forbidden->get_error_data()['status'] );
 
-		scholarly_bibliography_test_grant_cap( 7, 'edit_post', $this->draft_post_id );
-		scholarly_bibliography_test_set_current_user( 7 );
+		bibliography_builder_test_grant_cap( 7, 'edit_post', $this->draft_post_id );
+		bibliography_builder_test_set_current_user( 7 );
 
-		$this->assertTrue( scholarly_bibliography_rest_permissions_check( $request ) );
+		$this->assertTrue( bibliography_builder_rest_permissions_check( $request ) );
 	}
 
 	public function test_collection_endpoint_returns_bibliography_data(): void {
 		$request            = new WP_REST_Request( 'GET', '/bibliography/v1/posts/101/bibliographies' );
 		$request['post_id'] = $this->published_post_id;
 
-		$response = scholarly_bibliography_rest_get_bibliographies( $request );
+		$response = bibliography_builder_rest_get_bibliographies( $request );
 		$data     = $response->get_data();
 
 		$this->assertSame( $this->published_post_id, $data['postId'] );
@@ -97,16 +97,16 @@ final class RestEndpointsTest extends TestCase {
 		$request['post_id'] = $this->published_post_id;
 		$request['index']   = 0;
 
-		$json = scholarly_bibliography_rest_get_bibliography( $request );
+		$json = bibliography_builder_rest_get_bibliography( $request );
 		$this->assertSame( 0, $json->get_data()['index'] );
 
 		$request['format'] = 'text';
-		$text              = scholarly_bibliography_rest_get_bibliography( $request );
+		$text              = bibliography_builder_rest_get_bibliography( $request );
 		$this->assertSame( "Alpha citation.\n", $text->get_data() );
 		$this->assertSame( 'text/plain; charset=utf-8', $text->get_headers()['Content-Type'] );
 
 		$request['format'] = 'csl-json';
-		$csl_json          = scholarly_bibliography_rest_get_bibliography( $request );
+		$csl_json          = bibliography_builder_rest_get_bibliography( $request );
 		$this->assertSame( 'Alpha Book', $csl_json->get_data()[0]['title'] );
 		$this->assertSame(
 			'application/vnd.citationstyles.csl+json; charset=utf-8',
@@ -119,7 +119,7 @@ final class RestEndpointsTest extends TestCase {
 		$request['post_id'] = $this->published_post_id;
 		$request['index']   = 99;
 
-		$response = scholarly_bibliography_rest_get_bibliography( $request );
+		$response = bibliography_builder_rest_get_bibliography( $request );
 
 		$this->assertInstanceOf( WP_Error::class, $response );
 		$this->assertSame( 404, $response->get_error_data()['status'] );
@@ -127,14 +127,14 @@ final class RestEndpointsTest extends TestCase {
 
 	public function test_outputJsonLd_defaults_to_true_when_absent_from_attrs(): void {
 		$post_id = 201;
-		$block_content = '<!-- wp:scholarly/bibliography {} /-->';
+		$block_content = '<!-- wp:bibliography-builder/bibliography {} /-->';
 
-		scholarly_bibliography_test_set_post( $post_id, 'publish', $block_content );
-		scholarly_bibliography_test_set_parsed_blocks(
+		bibliography_builder_test_set_post( $post_id, 'publish', $block_content );
+		bibliography_builder_test_set_parsed_blocks(
 			$block_content,
 			array(
 				array(
-					'blockName' => 'scholarly/bibliography',
+					'blockName' => 'bibliography-builder/bibliography',
 					'attrs'     => array(
 						// outputJsonLd intentionally absent — block.json default is true.
 						'citations' => array(),
@@ -146,7 +146,7 @@ final class RestEndpointsTest extends TestCase {
 		$request            = new WP_REST_Request( 'GET', '/bibliography/v1/posts/201/bibliographies' );
 		$request['post_id'] = $post_id;
 
-		$response = scholarly_bibliography_rest_get_bibliographies( $request );
+		$response = bibliography_builder_rest_get_bibliographies( $request );
 		$data     = $response->get_data();
 
 		$this->assertTrue(
@@ -163,7 +163,7 @@ final class RestEndpointsTest extends TestCase {
 		$server = new WP_REST_Server();
 
 		ob_start();
-		$served = scholarly_bibliography_rest_pre_serve_request( false, $response, $request, $server );
+		$served = bibliography_builder_rest_pre_serve_request( false, $response, $request, $server );
 		$output = ob_get_clean();
 
 		$this->assertTrue( $served );

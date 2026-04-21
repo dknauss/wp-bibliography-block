@@ -1,4 +1,4 @@
-# Scholarly Bibliography Block
+# Bibliography Builder Block
 
 WordPress block plugin: DOI/BibTeX → semantically rich, auto-sorted bibliography.
 

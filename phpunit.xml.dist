@@ -5,13 +5,13 @@
 	cacheResult="false"
 >
 	<testsuites>
-		<testsuite name="scholarly-bibliography-phpunit">
+		<testsuite name="bibliography-builder-phpunit">
 			<directory>tests/phpunit</directory>
 		</testsuite>
 	</testsuites>
 	<coverage>
 		<include>
-			<file>scholarly-bibliography.php</file>
+			<file>bibliography-builder.php</file>
 		</include>
 	</coverage>
 </phpunit>

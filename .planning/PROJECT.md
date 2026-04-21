@@ -2,7 +2,7 @@
 
 ## Name
 
-Scholarly Bibliography Block
+Bibliography Builder Block
 
 ## Summary
 

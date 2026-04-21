@@ -1,4 +1,4 @@
-# Scholarly Bibliography performance fix list
+# Bibliography Builder performance fix list
 
 Date: 2026-04-04
 Repo: `/Users/danknauss/Developer/GitHub/wp-bibliography-block`
@@ -43,7 +43,7 @@ Recommended actions:
 **Effort:** Low
 
 Primary targets:
-- `/Users/danknauss/Developer/GitHub/wp-bibliography-block/scholarly-bibliography.php`
+- `/Users/danknauss/Developer/GitHub/wp-bibliography-block/bibliography-builder.php`
 - `/Users/danknauss/Developer/GitHub/wp-bibliography-block/build/index.asset.php`
 
 Why:

@@ -32,8 +32,8 @@ ROOT   = Path(__file__).resolve().parent.parent
 ASSETS = ROOT / ".wordpress-org"
 SOURCE = ASSETS / "source"
 
-SVG_MASTER = SOURCE / "bibliography-block-banner.svg"
-REFERENCE  = SOURCE / "bibliography-block-banner-reference-source-1920x560.png"
+SVG_MASTER = SOURCE / "bibliography-builder-banner.svg"
+REFERENCE  = SOURCE / "bibliography-builder-banner-reference-source-1920x560.png"
 
 # Inkscape: prefer Homebrew path, fall back to PATH
 _INKSCAPE_HOMEBREW = "/opt/homebrew/bin/inkscape"

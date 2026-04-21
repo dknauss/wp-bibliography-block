@@ -11,7 +11,7 @@ mkdir -p "$RELEASE_ROOT"
 rm -rf "$STAGING_DIR" "$ZIP_PATH"
 mkdir -p "$STAGING_DIR"
 
-cp "$ROOT_DIR/scholarly-bibliography.php" "$STAGING_DIR/"
+cp "$ROOT_DIR/bibliography-builder.php" "$STAGING_DIR/"
 cp "$ROOT_DIR/block.json" "$STAGING_DIR/"
 cp "$ROOT_DIR/readme.txt" "$STAGING_DIR/"
 cp "$ROOT_DIR/LICENSE" "$STAGING_DIR/"

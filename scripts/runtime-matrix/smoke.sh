@@ -212,7 +212,7 @@ ensure_wp_config_sqlite() {
 bootstrap_mysql_site() {
 	ensure_wp_version
 	ensure_wp_config_mysql
-	wp_exec "wp core is-installed --allow-root --path=/var/www/html || wp core install --allow-root --path=/var/www/html --url=$SITE_URL --title='Scholarly Bibliography Smoke' --admin_user=admin --admin_password=password --admin_email=admin@example.com"
+	wp_exec "wp core is-installed --allow-root --path=/var/www/html || wp core install --allow-root --path=/var/www/html --url=$SITE_URL --title='Bibliography Builder Smoke' --admin_user=admin --admin_password=password --admin_email=admin@example.com"
 }
 
 bootstrap_sqlite_site() {
@@ -221,7 +221,7 @@ bootstrap_sqlite_site() {
 	wp_exec "wp plugin install ${SQLITE_PLUGIN_SLUG} --force --allow-root --path=/var/www/html"
 	wp_exec 'wp eval '\''require_once WP_PLUGIN_DIR . "/sqlite-database-integration/load.php"; sqlite_plugin_copy_db_file(); echo file_exists( WP_CONTENT_DIR . "/db.php" ) ? "db-dropin-installed" : "db-dropin-missing";'\'' --allow-root --path=/var/www/html' > "$ARTIFACT_DIR/sqlite-activation.txt"
 	grep -q 'db-dropin-installed' "$ARTIFACT_DIR/sqlite-activation.txt"
-	wp_exec "wp core is-installed --allow-root --path=/var/www/html || wp core install --allow-root --path=/var/www/html --url=$SITE_URL --title='Scholarly Bibliography Smoke (SQLite)' --admin_user=admin --admin_password=password --admin_email=admin@example.com"
+	wp_exec "wp core is-installed --allow-root --path=/var/www/html || wp core install --allow-root --path=/var/www/html --url=$SITE_URL --title='Bibliography Builder Smoke (SQLite)' --admin_user=admin --admin_password=password --admin_email=admin@example.com"
 	wp_exec "wp plugin activate ${SQLITE_PLUGIN_SLUG} --allow-root --path=/var/www/html"
 	wp_exec 'wp eval '\''echo defined( "DB_ENGINE" ) ? DB_ENGINE : "undefined";'\'' --allow-root --path=/var/www/html' > "$ARTIFACT_DIR/sqlite-db-engine-after-install.txt"
 	grep -q '^sqlite$' "$ARTIFACT_DIR/sqlite-db-engine-after-install.txt"
@@ -239,9 +239,9 @@ fi
 wp_exec 'wp plugin activate bibliography --allow-root --path=/var/www/html'
 
 BLOCK_CONTENT=$(cat <<'BLOCKEOF'
-<!-- wp:scholarly/bibliography {"citationStyle":"chicago-notes-bibliography","headingText":"References","outputJsonLd":true,"outputCoins":false,"outputCslJson":false,"citations":[{"id":"alpha-1","formattedText":"Alpha citation.","csl":{"type":"book","title":"Alpha Book","author":[{"family":"Alpha","given":"Ada"}],"issued":{"date-parts":[[2024]]}}}]} -->
-<div class="wp-block-scholarly-bibliography"><p class="scholarly-bibliography-heading">References</p><ul class="scholarly-bibliography-list scholarly-bibliography-list-unordered scholarly-bibliography-list-chicago-notes-bibliography"><li id="scholarly-bibliography-alpha-1" class="scholarly-bibliography-entry"><cite class="scholarly-bibliography-entry-text">Alpha citation.</cite></li></ul></div>
-<!-- /wp:scholarly/bibliography -->
+<!-- wp:bibliography-builder/bibliography {"citationStyle":"chicago-notes-bibliography","headingText":"References","outputJsonLd":true,"outputCoins":false,"outputCslJson":false,"citations":[{"id":"alpha-1","formattedText":"Alpha citation.","csl":{"type":"book","title":"Alpha Book","author":[{"family":"Alpha","given":"Ada"}],"issued":{"date-parts":[[2024]]}}}]} -->
+<div class="wp-block-bibliography-builder-bibliography"><p class="bibliography-builder-heading">References</p><ul class="bibliography-builder-list bibliography-builder-list-unordered bibliography-builder-list-chicago-notes-bibliography"><li id="bibliography-builder-alpha-1" class="bibliography-builder-entry"><cite class="bibliography-builder-entry-text">Alpha citation.</cite></li></ul></div>
+<!-- /wp:bibliography-builder/bibliography -->
 BLOCKEOF
 )
 
@@ -253,7 +253,7 @@ capture_http rest-collection "$SITE_URL/?rest_route=/bibliography/v1/posts/$POST
 capture_http rest-text "$SITE_URL/?rest_route=/bibliography/v1/posts/$POST_ID/bibliographies/0&format=text"
 capture_http rest-csl-json "$SITE_URL/?rest_route=/bibliography/v1/posts/$POST_ID/bibliographies/0&format=csl-json"
 
-grep -q 'scholarly-bibliography-entry-text' "$ARTIFACT_RESPONSE_DIR/frontend.body"
+grep -q 'bibliography-builder-entry-text' "$ARTIFACT_RESPONSE_DIR/frontend.body"
 grep -q '"entryCount":1' "$ARTIFACT_RESPONSE_DIR/rest-collection.body"
 grep -q '^Alpha citation\.$' "$ARTIFACT_RESPONSE_DIR/rest-text.body"
 grep -q '"title":"Alpha Book"' "$ARTIFACT_RESPONSE_DIR/rest-csl-json.body"

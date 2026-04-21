@@ -8,7 +8,7 @@ export function EditorCanvasNotices({ currentNotice, noticeRef, onDismiss }) {
 		noticeContent = (
 			<Snackbar
 				onRemove={onDismiss}
-				className="scholarly-bibliography-inline-snackbar"
+				className="bibliography-builder-inline-snackbar"
 			>
 				{currentNotice.message}
 			</Snackbar>
@@ -18,7 +18,7 @@ export function EditorCanvasNotices({ currentNotice, noticeRef, onDismiss }) {
 			<Notice
 				status={currentNotice.status}
 				onRemove={onDismiss}
-				className="scholarly-bibliography-inline-notice"
+				className="bibliography-builder-inline-notice"
 				isDismissible
 				politeness="polite"
 			>
@@ -30,7 +30,7 @@ export function EditorCanvasNotices({ currentNotice, noticeRef, onDismiss }) {
 	return (
 		<div
 			ref={noticeRef}
-			className={`scholarly-bibliography-editor-notices${
+			className={`bibliography-builder-editor-notices${
 				currentNotice ? ' has-notice' : ''
 			}`}
 			tabIndex={currentNotice ? -1 : undefined}

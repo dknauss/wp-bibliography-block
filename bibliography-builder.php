@@ -14,7 +14,7 @@
  * Text Domain:       bibliography-builder
  * Domain Path:       /languages
  *
- * @package ScholarlyBibliography
+ * @package BibliographyBuilder
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -28,9 +28,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @param array $results Accumulator.
  * @return array
  */
-function scholarly_bibliography_collect_blocks( $blocks, $results = array() ) {
+function bibliography_builder_collect_blocks( $blocks, $results = array() ) {
 	foreach ( $blocks as $block ) {
-		if ( ! empty( $block['blockName'] ) && 'scholarly/bibliography' === $block['blockName'] ) {
+		if ( ! empty( $block['blockName'] ) && 'bibliography-builder/bibliography' === $block['blockName'] ) {
 			$attrs = isset( $block['attrs'] ) && is_array( $block['attrs'] ) ? $block['attrs'] : array();
 
 			$results[] = array(
@@ -53,7 +53,7 @@ function scholarly_bibliography_collect_blocks( $blocks, $results = array() ) {
 		}
 
 		if ( ! empty( $block['innerBlocks'] ) && is_array( $block['innerBlocks'] ) ) {
-			$results = scholarly_bibliography_collect_blocks( $block['innerBlocks'], $results );
+			$results = bibliography_builder_collect_blocks( $block['innerBlocks'], $results );
 		}
 	}
 
@@ -66,7 +66,7 @@ function scholarly_bibliography_collect_blocks( $blocks, $results = array() ) {
  * @param array $bibliographies Raw bibliography arrays.
  * @return array
  */
-function scholarly_bibliography_prepare_bibliographies( $bibliographies ) {
+function bibliography_builder_prepare_bibliographies( $bibliographies ) {
 	return array_values(
 		array_map(
 			static function ( $bibliography, $index ) {
@@ -87,11 +87,11 @@ function scholarly_bibliography_prepare_bibliographies( $bibliographies ) {
  * @param WP_Post $post Post object.
  * @return array
  */
-function scholarly_bibliography_get_bibliographies_for_post( $post ) {
+function bibliography_builder_get_bibliographies_for_post( $post ) {
 	$parsed_blocks  = parse_blocks( (string) $post->post_content );
-	$bibliographies = scholarly_bibliography_collect_blocks( $parsed_blocks );
+	$bibliographies = bibliography_builder_collect_blocks( $parsed_blocks );
 
-	return scholarly_bibliography_prepare_bibliographies( $bibliographies );
+	return bibliography_builder_prepare_bibliographies( $bibliographies );
 }
 
 /**
@@ -100,7 +100,7 @@ function scholarly_bibliography_get_bibliographies_for_post( $post ) {
  * @param array $citation Citation record.
  * @return string
  */
-function scholarly_bibliography_get_citation_display_text( $citation ) {
+function bibliography_builder_get_citation_display_text( $citation ) {
 	if ( ! empty( $citation['displayOverride'] ) && is_string( $citation['displayOverride'] ) ) {
 		return $citation['displayOverride'];
 	}
@@ -122,11 +122,11 @@ function scholarly_bibliography_get_citation_display_text( $citation ) {
  * @param array $bibliography Bibliography record.
  * @return string
  */
-function scholarly_bibliography_build_plain_text( $bibliography ) {
+function bibliography_builder_build_plain_text( $bibliography ) {
 	$lines = array();
 
 	foreach ( $bibliography['citations'] as $citation ) {
-		$lines[] = wp_strip_all_tags( scholarly_bibliography_get_citation_display_text( $citation ), false );
+		$lines[] = wp_strip_all_tags( bibliography_builder_get_citation_display_text( $citation ), false );
 	}
 
 	return implode( "\n", $lines ) . "\n";
@@ -138,7 +138,7 @@ function scholarly_bibliography_build_plain_text( $bibliography ) {
  * @param array $bibliography Bibliography record.
  * @return array
  */
-function scholarly_bibliography_build_csl_json( $bibliography ) {
+function bibliography_builder_build_csl_json( $bibliography ) {
 	return array_values(
 		array_map(
 			static function ( $citation ) {
@@ -155,7 +155,7 @@ function scholarly_bibliography_build_csl_json( $bibliography ) {
  * @param WP_Post $post Post object.
  * @return bool
  */
-function scholarly_bibliography_can_read_post( $post ) {
+function bibliography_builder_can_read_post( $post ) {
 	$status = get_post_status( $post );
 
 	if ( 'publish' === $status ) {
@@ -171,24 +171,24 @@ function scholarly_bibliography_can_read_post( $post ) {
  * @param WP_REST_Request $request REST request.
  * @return true|WP_Error
  */
-function scholarly_bibliography_rest_permissions_check( WP_REST_Request $request ) {
+function bibliography_builder_rest_permissions_check( WP_REST_Request $request ) {
 	$post_id = absint( $request['post_id'] );
 	$post    = get_post( $post_id );
 
 	if ( ! $post ) {
 		return new WP_Error(
-			'scholarly_bibliography_post_not_found',
+			'bibliography_builder_post_not_found',
 			__( 'Post not found.', 'bibliography-builder' ),
 			array( 'status' => 404 )
 		);
 	}
 
-	if ( scholarly_bibliography_can_read_post( $post ) ) {
+	if ( bibliography_builder_can_read_post( $post ) ) {
 		return true;
 	}
 
 	return new WP_Error(
-		'scholarly_bibliography_forbidden',
+		'bibliography_builder_forbidden',
 		__( 'Sorry, you are not allowed to read this bibliography.', 'bibliography-builder' ),
 		array( 'status' => 403 )
 	);
@@ -200,10 +200,10 @@ function scholarly_bibliography_rest_permissions_check( WP_REST_Request $request
  * @param WP_REST_Request $request REST request.
  * @return WP_REST_Response
  */
-function scholarly_bibliography_rest_get_bibliographies( WP_REST_Request $request ) {
+function bibliography_builder_rest_get_bibliographies( WP_REST_Request $request ) {
 	$post_id        = absint( $request['post_id'] );
 	$post           = get_post( $post_id );
-	$bibliographies = scholarly_bibliography_get_bibliographies_for_post( $post );
+	$bibliographies = bibliography_builder_get_bibliographies_for_post( $post );
 
 	return rest_ensure_response(
 		array(
@@ -219,16 +219,16 @@ function scholarly_bibliography_rest_get_bibliographies( WP_REST_Request $reques
  * @param WP_REST_Request $request REST request.
  * @return WP_REST_Response|WP_Error
  */
-function scholarly_bibliography_rest_get_bibliography( WP_REST_Request $request ) {
+function bibliography_builder_rest_get_bibliography( WP_REST_Request $request ) {
 	$post_id        = absint( $request['post_id'] );
 	$index          = absint( $request['index'] );
 	$format         = isset( $request['format'] ) ? (string) $request['format'] : 'json';
 	$post           = get_post( $post_id );
-	$bibliographies = scholarly_bibliography_get_bibliographies_for_post( $post );
+	$bibliographies = bibliography_builder_get_bibliographies_for_post( $post );
 
 	if ( ! isset( $bibliographies[ $index ] ) ) {
 		return new WP_Error(
-			'scholarly_bibliography_not_found',
+			'bibliography_builder_not_found',
 			__( 'Bibliography block not found for the requested index.', 'bibliography-builder' ),
 			array( 'status' => 404 )
 		);
@@ -237,14 +237,14 @@ function scholarly_bibliography_rest_get_bibliography( WP_REST_Request $request 
 	$bibliography = $bibliographies[ $index ];
 
 	if ( 'text' === $format ) {
-		$response = new WP_REST_Response( scholarly_bibliography_build_plain_text( $bibliography ) );
+		$response = new WP_REST_Response( bibliography_builder_build_plain_text( $bibliography ) );
 		$response->header( 'Content-Type', 'text/plain; charset=utf-8' );
 
 		return $response;
 	}
 
 	if ( 'csl-json' === $format ) {
-		$response = rest_ensure_response( scholarly_bibliography_build_csl_json( $bibliography ) );
+		$response = rest_ensure_response( bibliography_builder_build_csl_json( $bibliography ) );
 		$response->header( 'Content-Type', 'application/vnd.citationstyles.csl+json; charset=utf-8' );
 
 		return $response;
@@ -256,7 +256,7 @@ function scholarly_bibliography_rest_get_bibliography( WP_REST_Request $request 
 /**
  * Register REST routes.
  */
-function scholarly_bibliography_register_rest_routes() {
+function bibliography_builder_register_rest_routes() {
 	$common_args = array(
 		'post_id' => array(
 			'description'       => __( 'Post ID to inspect for bibliography blocks.', 'bibliography-builder' ),
@@ -273,8 +273,8 @@ function scholarly_bibliography_register_rest_routes() {
 		'/posts/(?P<post_id>\d+)/bibliographies',
 		array(
 			'methods'             => WP_REST_Server::READABLE,
-			'callback'            => 'scholarly_bibliography_rest_get_bibliographies',
-			'permission_callback' => 'scholarly_bibliography_rest_permissions_check',
+			'callback'            => 'bibliography_builder_rest_get_bibliographies',
+			'permission_callback' => 'bibliography_builder_rest_permissions_check',
 			'args'                => $common_args,
 		)
 	);
@@ -284,8 +284,8 @@ function scholarly_bibliography_register_rest_routes() {
 		'/posts/(?P<post_id>\d+)/bibliographies/(?P<index>\d+)',
 		array(
 			'methods'             => WP_REST_Server::READABLE,
-			'callback'            => 'scholarly_bibliography_rest_get_bibliography',
-			'permission_callback' => 'scholarly_bibliography_rest_permissions_check',
+			'callback'            => 'bibliography_builder_rest_get_bibliography',
+			'permission_callback' => 'bibliography_builder_rest_permissions_check',
 			'args'                => array_merge(
 				$common_args,
 				array(
@@ -334,7 +334,7 @@ function scholarly_bibliography_register_rest_routes() {
  * @param WP_REST_Server   $server  Server instance.
  * @return bool
  */
-function scholarly_bibliography_rest_pre_serve_request( $served, $result, $request, $server ) {
+function bibliography_builder_rest_pre_serve_request( $served, $result, $request, $server ) {
 	if ( $served ) {
 		return $served;
 	}
@@ -367,9 +367,9 @@ function scholarly_bibliography_rest_pre_serve_request( $served, $result, $reque
 /**
  * Register the block.
  */
-function scholarly_bibliography_block_init() {
+function bibliography_builder_block_init() {
 	register_block_type( __DIR__ );
 }
-add_action( 'init', 'scholarly_bibliography_block_init' );
-add_action( 'rest_api_init', 'scholarly_bibliography_register_rest_routes' );
-add_filter( 'rest_pre_serve_request', 'scholarly_bibliography_rest_pre_serve_request', 10, 4 );
+add_action( 'init', 'bibliography_builder_block_init' );
+add_action( 'rest_api_init', 'bibliography_builder_register_rest_routes' );
+add_filter( 'rest_pre_serve_request', 'bibliography_builder_rest_pre_serve_request', 10, 4 );

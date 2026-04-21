@@ -52,7 +52,7 @@ jest.mock(
 
 		return {
 			useBlockProps: () => ({
-				className: 'wp-block-scholarly-bibliography',
+				className: 'wp-block-bibliography-builder-bibliography',
 			}),
 			InspectorControls: ({ children }) =>
 				ReactLocal.createElement(ReactLocal.Fragment, null, children),
@@ -688,7 +688,7 @@ describe('Edit focus management', () => {
 
 		const notice = await screen.findByRole('status');
 		const blockRoot = document.querySelector(
-			'.wp-block-scholarly-bibliography'
+			'.wp-block-bibliography-builder-bibliography'
 		);
 
 		expect(blockRoot).toContainElement(notice);
@@ -957,7 +957,7 @@ describe('Edit focus management', () => {
 			expect(
 				screen
 					.getByRole('status')
-					.closest('.scholarly-bibliography-editor-notices')
+					.closest('.bibliography-builder-editor-notices')
 			).toHaveFocus();
 		});
 	});
@@ -1221,7 +1221,7 @@ describe('Edit focus management', () => {
 			expect(
 				screen
 					.getByRole('status')
-					.closest('.scholarly-bibliography-editor-notices')
+					.closest('.bibliography-builder-editor-notices')
 			).toHaveFocus();
 		});
 	});

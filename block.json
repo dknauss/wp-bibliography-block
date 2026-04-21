@@ -1,16 +1,16 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "scholarly/bibliography",
+	"name": "bibliography-builder/bibliography",
 	"version": "1.0.0",
 	"title": "Bibliography",
 	"category": "text",
 	"icon": "book-alt",
 	"description": "A scholarly bibliography block. Add DOI(s), BibTeX entries, and supported citations to build a semantically rich, auto-sorted reference list.",
 	"selectors": {
-		"root": ".wp-block-scholarly-bibliography",
+		"root": ".wp-block-bibliography-builder-bibliography",
 		"typography": {
-			"root": ".wp-block-scholarly-bibliography .scholarly-bibliography-entry-text, .wp-block-scholarly-bibliography .scholarly-bibliography-heading"
+			"root": ".wp-block-bibliography-builder-bibliography .bibliography-builder-entry-text, .wp-block-bibliography-builder-bibliography .bibliography-builder-heading"
 		}
 	},
 	"keywords": [

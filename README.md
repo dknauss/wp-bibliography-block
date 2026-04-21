@@ -185,7 +185,7 @@ SQLite runtime smoke remains a planned follow-up while the CI bootstrap path is 
 
 ```text
 bibliography/
-├── scholarly-bibliography.php    # Plugin bootstrap
+├── bibliography-builder.php    # Plugin bootstrap
 ├── block.json                    # Block metadata & attributes
 ├── src/
 │   ├── index.js                  # Block registration

@@ -81,7 +81,7 @@ describe('EditorCanvasNotices', () => {
 
 		expect(screen.queryByRole('status')).not.toBeInTheDocument();
 		expect(
-			document.querySelector('.scholarly-bibliography-editor-notices')
+			document.querySelector('.bibliography-builder-editor-notices')
 		).not.toHaveAttribute('tabindex');
 	});
 
@@ -105,13 +105,13 @@ describe('EditorCanvasNotices', () => {
 		expect(
 			screen
 				.getByText('Notice text')
-				.closest('.scholarly-bibliography-inline-notice')
+				.closest('.bibliography-builder-inline-notice')
 		).toHaveClass('components-notice', 'is-info');
 		expect(
 			screen.getByRole('button', { name: 'Dismiss' })
 		).toBeInTheDocument();
 		expect(
-			document.querySelector('.scholarly-bibliography-editor-notices')
+			document.querySelector('.bibliography-builder-editor-notices')
 		).toHaveAttribute('tabindex', '-1');
 	});
 
@@ -135,7 +135,7 @@ describe('EditorCanvasNotices', () => {
 		expect(
 			screen
 				.getByText('Added 1 citation.')
-				.closest('.scholarly-bibliography-inline-snackbar')
+				.closest('.bibliography-builder-inline-snackbar')
 		).toHaveClass('components-snackbar');
 	});
 });

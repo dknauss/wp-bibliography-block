@@ -39,9 +39,9 @@ export function renderBibliographySave(
 	const cslArray = renderedCitations.map((c) => c.csl);
 	const styleDefinition = getStyleDefinition(citationStyle);
 	const ListTag = getListSemantics(citationStyle);
-	const listClassName = `scholarly-bibliography-list scholarly-bibliography-list-${
+	const listClassName = `bibliography-builder-list bibliography-builder-list-${
 		styleDefinition.listType === 'ol' ? 'numeric' : 'unordered'
-	} scholarly-bibliography-list-${citationStyle}`;
+	} bibliography-builder-list-${citationStyle}`;
 	const HeadingTag = headingTag;
 	const EntryTag = entryTag;
 
@@ -52,7 +52,7 @@ export function renderBibliographySave(
 			aria-label={ariaLabel || headingText || 'Bibliography'}
 		>
 			{headingText ? (
-				<HeadingTag className="scholarly-bibliography-heading">
+				<HeadingTag className="bibliography-builder-heading">
 					{headingText}
 				</HeadingTag>
 			) : null}
@@ -70,7 +70,7 @@ export function renderBibliographySave(
 							id={`ref-${citation.id}`}
 							lang={citation.csl.language || undefined}
 						>
-							<EntryTag className="scholarly-bibliography-entry-text">
+							<EntryTag className="bibliography-builder-entry-text">
 								{displaySegments.map((segment, index) => {
 									const content = linkVisibleUrls
 										? splitTextIntoLinkParts(

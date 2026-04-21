@@ -5,7 +5,7 @@
 A standalone WordPress block plugin that transforms pasted scholarly citations (DOIs, BibTeX entries) into a semantically rich, auto-sorted bibliography list. No shortcodes. Static HTML output that survives plugin deactivation.
 
 **Plugin slug:** `bibliography`
-**Block namespace:** `scholarly/bibliography`
+**Block namespace:** `bibliography-builder/bibliography`
 **License:** GPL-2.0-or-later
 
 ---
@@ -246,7 +246,7 @@ The `save()` function produces the following HTML structure. All content is bake
 
 ```html
 <section
-	class="wp-block-scholarly-bibliography"
+	class="wp-block-bibliography-builder-bibliography"
 	role="doc-bibliography"
 	aria-label="Bibliography"
 >
@@ -356,19 +356,19 @@ The COinS `title` attribute encodes:
 Chicago-style bibliographies use a **hanging indent** format:
 
 ```css
-.wp-block-scholarly-bibliography ul {
+.wp-block-bibliography-builder-bibliography ul {
 	list-style: none;
 	padding-left: 0;
 }
 
-.wp-block-scholarly-bibliography li {
+.wp-block-bibliography-builder-bibliography li {
 	padding-left: 2em;
 	text-indent: -2em;
 	margin-bottom: 0.75em;
 }
 
 /* Hide COinS spans visually */
-.wp-block-scholarly-bibliography .Z3988 {
+.wp-block-bibliography-builder-bibliography .Z3988 {
 	display: none;
 }
 ```
@@ -381,7 +381,7 @@ The plugin provides minimal, opinionated base styles. Theme authors can override
 
 ```
 bibliography/
-├── scholarly-bibliography.php    # Plugin bootstrap + REST API endpoints
+├── bibliography-builder.php    # Plugin bootstrap + REST API endpoints
 ├── block.json                    # Block metadata & attributes
 ├── src/
 │   ├── index.js                  # Block registration
@@ -418,7 +418,7 @@ bibliography/
 
 With static save and no Highwire meta tags in MVP, the PHP side is minimal:
 
--   `scholarly-bibliography.php` — standard plugin header, calls `register_block_type()` pointing at `block.json`, enqueues editor and frontend assets.
+-   `bibliography-builder.php` — standard plugin header, calls `register_block_type()` pointing at `block.json`, enqueues editor and frontend assets.
 -   No custom database tables.
 -   Read-only REST API endpoints at `/wp-json/bibliography/v1/posts/<post_id>/bibliographies` and `/wp-json/bibliography/v1/posts/<post_id>/bibliographies/<index>` for programmatic bibliography access.
 -   No `render_callback`.
@@ -583,7 +583,7 @@ This prevents prototype pollution and unexpected object shapes from propagating 
 
 ### WordPress-Specific Considerations
 
--   **Block attributes are stored in post content as an HTML comment.** The `citations` array (including all CSL-JSON) is serialized into the `<!-- wp:scholarly/bibliography {...} -->` comment. This means the full data payload is in the database and in the HTML source. Ensure no sensitive data leaks into this structure beyond what's intended for public output.
+-   **Block attributes are stored in post content as an HTML comment.** The `citations` array (including all CSL-JSON) is serialized into the `<!-- wp:bibliography-builder/bibliography {...} -->` comment. This means the full data payload is in the database and in the HTML source. Ensure no sensitive data leaks into this structure beyond what's intended for public output.
 -   **User capability check:** only users with `edit_posts` capability can insert or modify blocks. The block editor enforces this natively, and the current read-only REST endpoint independently verifies access: published posts are readable publicly, while non-public posts require `current_user_can( "edit_post", $post_id )`.
 -   **Nonce verification:** not needed for the current read-only GET REST endpoint. Required if future phases add mutating AJAX/REST actions or other server-side processing.
 
@@ -1006,7 +1006,7 @@ CrossRef's public API is free and keyless. However, they offer a "polite pool" w
 ```javascript
 Cite.plugins.config.get('@doi').setApiUrl('https://api.crossref.org/works/', {
 	headers: {
-		'User-Agent': 'ScholarlyBibliography/1.0 (mailto:contact@example.com)',
+		'User-Agent': 'BibliographyBuilder/1.0 (mailto:contact@example.com)',
 	},
 });
 ```

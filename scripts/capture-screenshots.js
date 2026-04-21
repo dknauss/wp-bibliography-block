@@ -212,7 +212,7 @@ async function ensurePluginActive(page) {
 
 	// Hover over a citation entry to reveal the action icons.
 	const entryTrigger = editorFrame
-		.locator('.scholarly-bibliography-entry-trigger')
+		.locator('.bibliography-builder-entry-trigger')
 		.first();
 	if (await entryTrigger.isVisible().catch(() => false)) {
 		await entryTrigger.hover();

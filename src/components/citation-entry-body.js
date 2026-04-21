@@ -49,15 +49,15 @@ export function CitationEntryBody({
 		return (
 			<>
 				<label
-					htmlFor={`scholarly-bibliography-edit-${citation.id}`}
-					className="scholarly-bibliography-edit-label"
+					htmlFor={`bibliography-builder-edit-${citation.id}`}
+					className="bibliography-builder-edit-label"
 				>
 					{`Editing: ${getEntryLabel(citation)}`}
 				</label>
 				<input
-					id={`scholarly-bibliography-edit-${citation.id}`}
+					id={`bibliography-builder-edit-${citation.id}`}
 					type="text"
-					className="scholarly-bibliography-edit-input"
+					className="bibliography-builder-edit-input"
 					value={editText}
 					onChange={(event) => onEditTextChange(event.target.value)}
 					onKeyDown={handleEditKeyDown}
@@ -72,12 +72,12 @@ export function CitationEntryBody({
 		<>
 			<button
 				type="button"
-				className="scholarly-bibliography-entry-trigger"
+				className="bibliography-builder-entry-trigger"
 				onClick={handleEntryActivate}
 				aria-label={`Edit ${getEntryLabel(citation)}`}
 			>
-				<div className="scholarly-bibliography-entry-main">
-					<span className="scholarly-bibliography-entry-text">
+				<div className="bibliography-builder-entry-main">
+					<span className="bibliography-builder-entry-text">
 						{getDisplaySegments(citation).map((segment, index) =>
 							segment.italic ? (
 								<i key={`${citation.id}-${index}`}>
@@ -91,72 +91,72 @@ export function CitationEntryBody({
 					{citationWarnings.map((warningMessage) => (
 						<span
 							key={`${citation.id}-${warningMessage}`}
-							className="scholarly-bibliography-entry-warning"
+							className="bibliography-builder-entry-warning"
 						>
 							{warningMessage}
 						</span>
 					))}
 				</div>
 			</button>
-			<span className="scholarly-bibliography-actions">
+			<span className="bibliography-builder-actions">
 				{isStructuredEditable && (
 					<Button
 						label={`Edit fields for ${getEntryLabel(citation)}`}
 						showTooltip
-						className="scholarly-bibliography-action-button"
+						className="bibliography-builder-action-button"
 						onClick={(event) => {
 							event.stopPropagation();
 							handleStructuredEditStart(citation.id);
 						}}
 					>
-						<StructuredEditIcon className="scholarly-bibliography-action-icon" />
+						<StructuredEditIcon className="bibliography-builder-action-icon" />
 					</Button>
 				)}
 				<Button
 					label={`Copy citation: ${getEntryLabel(citation)}`}
 					showTooltip
-					className="scholarly-bibliography-action-button"
+					className="bibliography-builder-action-button"
 					onClick={(event) => {
 						event.stopPropagation();
 						handleCopyCitation(citation);
 					}}
 				>
-					<CopyIcon className="scholarly-bibliography-action-icon" />
+					<CopyIcon className="bibliography-builder-action-icon" />
 				</Button>
 				<Button
 					label={`Edit citation: ${getEntryLabel(citation)}`}
 					showTooltip
-					className="scholarly-bibliography-action-button"
+					className="bibliography-builder-action-button"
 					onClick={(event) => {
 						event.stopPropagation();
 						handleEditStart(citation.id);
 					}}
 				>
-					<EditIcon className="scholarly-bibliography-action-icon" />
+					<EditIcon className="bibliography-builder-action-icon" />
 				</Button>
 				{isStructuredEditable && citation.displayOverride && (
 					<Button
 						label="Reset edits"
 						showTooltip
-						className="scholarly-bibliography-action-button"
+						className="bibliography-builder-action-button"
 						onClick={(event) => {
 							event.stopPropagation();
 							handleResetAutoFormat(citation.id);
 						}}
 					>
-						<ResetIcon className="scholarly-bibliography-action-icon" />
+						<ResetIcon className="bibliography-builder-action-icon" />
 					</Button>
 				)}
 				<Button
 					label={`Delete citation: ${getEntryLabel(citation)}`}
 					showTooltip
-					className="scholarly-bibliography-action-button scholarly-bibliography-action-button-delete"
+					className="bibliography-builder-action-button bibliography-builder-action-button-delete"
 					onClick={(event) => {
 						event.stopPropagation();
 						handleDelete(citation.id);
 					}}
 				>
-					<DeleteIcon className="scholarly-bibliography-action-icon" />
+					<DeleteIcon className="bibliography-builder-action-icon" />
 				</Button>
 			</span>
 		</>

@@ -6,7 +6,7 @@ jest.mock(
 	() => ({
 		useBlockProps: {
 			save: () => ({
-				className: 'wp-block-scholarly-bibliography',
+				className: 'wp-block-bibliography-builder-bibliography',
 			}),
 		},
 	}),
@@ -60,7 +60,7 @@ describe('save', () => {
 		);
 
 		expect(markup).toContain(
-			'<p class="scholarly-bibliography-heading">Bibliography</p>'
+			'<p class="bibliography-builder-heading">Bibliography</p>'
 		);
 	});
 
@@ -76,7 +76,7 @@ describe('save', () => {
 			);
 
 			expect(markup).toContain(
-				'<ul class="scholarly-bibliography-list scholarly-bibliography-list-unordered'
+				'<ul class="bibliography-builder-list bibliography-builder-list-unordered'
 			);
 			expect(markup).not.toContain('<ol>');
 		}
@@ -93,7 +93,7 @@ describe('save', () => {
 		);
 
 		expect(markup).toContain(
-			'<ul class="scholarly-bibliography-list scholarly-bibliography-list-unordered'
+			'<ul class="bibliography-builder-list bibliography-builder-list-unordered'
 		);
 		expect(markup).not.toContain('<ol>');
 	});
@@ -144,7 +144,7 @@ describe('save', () => {
 			);
 
 			expect(markup).toContain(
-				`<ol class="scholarly-bibliography-list scholarly-bibliography-list-numeric scholarly-bibliography-list-${style}">`
+				`<ol class="bibliography-builder-list bibliography-builder-list-numeric bibliography-builder-list-${style}">`
 			);
 			expect(markup).not.toContain('<ul>');
 		}
@@ -268,7 +268,7 @@ describe('save', () => {
 		);
 
 		expect(markup).toContain(
-			'<cite class="scholarly-bibliography-entry-text">Manual citation override</cite>'
+			'<cite class="bibliography-builder-entry-text">Manual citation override</cite>'
 		);
 		expect(markup).not.toContain('Auto formatted citation');
 	});
@@ -513,7 +513,7 @@ describe('save', () => {
 		);
 
 		expect(markup).toContain(
-			'<ul class="scholarly-bibliography-list scholarly-bibliography-list-unordered'
+			'<ul class="bibliography-builder-list bibliography-builder-list-unordered'
 		);
 		expect(markup).toContain('Smith, A. (2024) <i>Manual citation</i>.');
 	});
@@ -548,7 +548,7 @@ describe('save', () => {
 		);
 		expect(markup).toContain('class="Z3988"');
 		expect(markup).toContain(
-			'<ol class="scholarly-bibliography-list scholarly-bibliography-list-numeric scholarly-bibliography-list-ieee">'
+			'<ol class="bibliography-builder-list bibliography-builder-list-numeric bibliography-builder-list-ieee">'
 		);
 	});
 });

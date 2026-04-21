@@ -1,6 +1,6 @@
 # Release Readiness Checklist
 
-Pre-release checklist for the Scholarly Bibliography block.
+Pre-release checklist for the Bibliography Builder block.
 
 ## Build and test
 

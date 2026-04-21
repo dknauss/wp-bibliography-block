@@ -4,7 +4,7 @@ title: Maintain WordPress.org review-response readiness
 area: release
 files:
   - /Users/danknauss/Developer/GitHub/wp-bibliography-block/readme.txt
-  - /Users/danknauss/Developer/GitHub/wp-bibliography-block/scholarly-bibliography.php
+  - /Users/danknauss/Developer/GitHub/wp-bibliography-block/bibliography-builder.php
   - /Users/danknauss/Developer/GitHub/wp-bibliography-block/output/release/
 ---
 
