@@ -9,9 +9,9 @@
 			<directory>tests/phpunit</directory>
 		</testsuite>
 	</testsuites>
-	<coverage>
+	<source>
 		<include>
 			<file>bibliography-builder.php</file>
 		</include>
-	</coverage>
+	</source>
 </phpunit>

@@ -12,7 +12,7 @@
 	},
 	"scripts": {
 		"test:php": "phpunit",
-		"test:php:coverage": "phpunit --coverage-filter bibliography-builder.php --coverage-clover build/logs/phpunit-clover.xml",
+		"test:php:coverage": "phpunit --coverage-clover build/logs/phpunit-clover.xml",
 		"analyze:php": "psalm --no-progress",
 		"lint:php": "phpcs --standard=phpcs.xml.dist",
 		"lint:php:fix": "phpcbf --standard=phpcs.xml.dist"
