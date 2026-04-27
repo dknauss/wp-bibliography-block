@@ -48,7 +48,11 @@ async function dismissEditorOverlay(page) {
 async function getPluginRow(page) {
 	await page.goto('/wp-admin/plugins.php');
 	await page.waitForLoadState('networkidle');
-	return page.locator('tr', { hasText: 'Bibliography' });
+	return page
+		.locator(
+			'tr[data-slug="bibliography-builder"], tr[data-plugin="bibliography-builder/bibliography-builder.php"]'
+		)
+		.first();
 }
 
 async function ensurePluginActive(page) {
@@ -59,7 +63,7 @@ async function ensurePluginActive(page) {
 	if (await activateLink.count()) {
 		await activateLink.click();
 		await page.waitForLoadState('networkidle');
-		pluginRow = page.locator('tr', { hasText: 'Bibliography' });
+			pluginRow = await getPluginRow(page);
 	}
 
 	await expect(
@@ -76,7 +80,7 @@ async function deactivatePlugin(page) {
 	await deactivateLink.click();
 	await page.waitForLoadState('networkidle');
 
-	const updatedRow = page.locator('tr', { hasText: 'Bibliography' });
+	const updatedRow = await getPluginRow(page);
 	await expect(
 		updatedRow.getByRole('link', { name: /^Activate/i })
 	).toBeVisible({ timeout: 10_000 });
@@ -320,7 +324,7 @@ test.describe('Plugin delete', () => {
 		expect(body).not.toContain('Fatal error');
 		expect(body).not.toContain('There has been a critical error');
 
-		const remainingRow = page.locator('tr', { hasText: 'Bibliography' });
+		const remainingRow = await getPluginRow(page);
 		await expect(remainingRow).toHaveCount(0, { timeout: 10_000 });
 	});
 });

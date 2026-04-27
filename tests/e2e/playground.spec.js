@@ -9,7 +9,13 @@ async function ensurePluginActivated(page) {
 
 	const pluginRow = page.locator('tr', {
 		hasText: 'Bibliography',
-	});
+	}).or(
+		page
+			.locator(
+				'tr[data-slug="bibliography-builder"], tr[data-plugin="bibliography-builder/bibliography-builder.php"]'
+			)
+			.first()
+	);
 
 	await expect(pluginRow).toBeVisible();
 
@@ -29,7 +35,13 @@ async function ensurePluginActivated(page) {
 test('plugin is active in WordPress Playground', async ({ page }) => {
 	await ensurePluginActivated(page);
 
-	await expect(page.locator('tr', { hasText: 'Bibliography' })).toBeVisible();
+	await expect(
+		page
+			.locator(
+				'tr[data-slug="bibliography-builder"], tr[data-plugin="bibliography-builder/bibliography-builder.php"]'
+			)
+			.first()
+	).toBeVisible();
 });
 
 async function dismissEditorOverlay(page) {
