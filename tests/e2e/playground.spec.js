@@ -1,13 +1,8 @@
 /* eslint-disable jest/no-done-callback */
 const { test, expect } = require('@playwright/test');
 
-async function ensurePluginActivated(page) {
-	await page.goto('/wp-admin/plugins.php');
-	await expect(
-		page.getByRole('heading', { level: 1, name: 'Plugins' })
-	).toBeVisible();
-
-	const pluginRow = page
+function getPluginRow(page) {
+	return page
 		.locator(
 			'tr[data-slug="bibliography-builder"], tr[data-plugin="bibliography-builder/bibliography-builder.php"]'
 		)
@@ -17,6 +12,15 @@ async function ensurePluginActivated(page) {
 				hasText: 'Bibliography',
 			})
 		);
+}
+
+async function ensurePluginActivated(page) {
+	await page.goto('/wp-admin/plugins.php');
+	await expect(
+		page.getByRole('heading', { level: 1, name: 'Plugins' })
+	).toBeVisible();
+
+	const pluginRow = getPluginRow(page);
 
 	await expect(pluginRow).toBeVisible();
 
@@ -36,13 +40,7 @@ async function ensurePluginActivated(page) {
 test('plugin is active in WordPress Playground', async ({ page }) => {
 	await ensurePluginActivated(page);
 
-	await expect(
-		page
-			.locator(
-				'tr[data-slug="bibliography-builder"], tr[data-plugin="bibliography-builder/bibliography-builder.php"]'
-			)
-			.first()
-	).toBeVisible();
+	await expect(getPluginRow(page)).toBeVisible();
 });
 
 async function dismissEditorOverlay(page) {
