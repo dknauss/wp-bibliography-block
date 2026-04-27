@@ -98,8 +98,6 @@ if [ "$DB_ENGINE" = "mysql" ]; then
       MARIADB_USER: wordpress
       MARIADB_PASSWORD: wordpress
       MARIADB_ROOT_PASSWORD: rootpass
-    ports:
-      - "${DB_PORT}:3306"
     healthcheck:
       test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
       interval: 5s
