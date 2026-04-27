@@ -11,7 +11,7 @@
  * Author URI:        https://dan.knauss.ca/
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       bibliography-builder
+ * Text Domain:       bibliography
  * Domain Path:       /languages
  *
  * @package BibliographyBuilder
@@ -178,7 +178,7 @@ function bibliography_builder_rest_permissions_check( WP_REST_Request $request )
 	if ( ! $post ) {
 		return new WP_Error(
 			'bibliography_builder_post_not_found',
-			__( 'Post not found.', 'bibliography-builder' ),
+			__( 'Post not found.', 'bibliography' ),
 			array( 'status' => 404 )
 		);
 	}
@@ -189,7 +189,7 @@ function bibliography_builder_rest_permissions_check( WP_REST_Request $request )
 
 	return new WP_Error(
 		'bibliography_builder_forbidden',
-		__( 'Sorry, you are not allowed to read this bibliography.', 'bibliography-builder' ),
+		__( 'Sorry, you are not allowed to read this bibliography.', 'bibliography' ),
 		array( 'status' => 403 )
 	);
 }
@@ -229,7 +229,7 @@ function bibliography_builder_rest_get_bibliography( WP_REST_Request $request ) 
 	if ( ! isset( $bibliographies[ $index ] ) ) {
 		return new WP_Error(
 			'bibliography_builder_not_found',
-			__( 'Bibliography block not found for the requested index.', 'bibliography-builder' ),
+			__( 'Bibliography block not found for the requested index.', 'bibliography' ),
 			array( 'status' => 404 )
 		);
 	}
@@ -259,7 +259,7 @@ function bibliography_builder_rest_get_bibliography( WP_REST_Request $request ) 
 function bibliography_builder_register_rest_routes() {
 	$common_args = array(
 		'post_id' => array(
-			'description'       => __( 'Post ID to inspect for bibliography blocks.', 'bibliography-builder' ),
+			'description'       => __( 'Post ID to inspect for bibliography blocks.', 'bibliography' ),
 			'type'              => 'integer',
 			'sanitize_callback' => 'absint',
 			'validate_callback' => static function ( $value ) {
@@ -292,7 +292,7 @@ function bibliography_builder_register_rest_routes() {
 					'index'  => array(
 						'description'       => __(
 							'Zero-based bibliography block index within the post.',
-							'bibliography-builder'
+							'bibliography'
 						),
 						'type'              => 'integer',
 						'sanitize_callback' => 'absint',
@@ -303,7 +303,7 @@ function bibliography_builder_register_rest_routes() {
 					'format' => array(
 						'description'       => __(
 							'Response format: json, text, or csl-json.',
-							'bibliography-builder'
+							'bibliography'
 						),
 						'type'              => 'string',
 						'default'           => 'json',

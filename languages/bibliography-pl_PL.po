@@ -5,161 +5,163 @@ msgstr ""
 "POT-Creation-Date: 2026-04-08 00:00+0000\n"
 "PO-Revision-Date: 2026-04-08 00:00+0000\n"
 "Last-Translator: Dan Knauss <dan@newlocalmedia.com>\n"
-"Language-Team: Bibliography contributors\n"
+"Language: pl_PL\n"
+"Language-Team: Polish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Domain: bibliography-builder\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Domain: bibliography\n"
 
 msgid "Imported metadata may be incomplete. Verify before publishing."
-msgstr ""
+msgstr "Zaimportowane metadane mogą być niepełne. Zweryfikuj je przed publikacją."
 
 msgid "Add citations"
-msgstr ""
+msgstr "Dodaj cytowania"
 
 msgid "Paste / Import"
-msgstr ""
+msgstr "Wklej / importuj"
 
 msgid "Manual Entry"
-msgstr ""
+msgstr "Wprowadzanie ręczne"
 
 msgid "Add DOI(s), BibTeX entries, and citations in supported styles for books, articles, chapters, and webpages. Separate multiple formatted citations with a blank line."
-msgstr ""
+msgstr "Dodaj DOI, wpisy BibTeX i cytowania w obsługiwanych stylach dla książek, artykułów, rozdziałów i stron internetowych. Oddziel wiele sformatowanych cytowań pustą linią."
 
 msgid "Resolving…"
-msgstr ""
+msgstr "Przetwarzanie…"
 
 msgid "Add"
-msgstr ""
+msgstr "Dodaj"
 
 msgid "Clear"
-msgstr ""
+msgstr "Wyczyść"
 
 msgid "Author(s)"
-msgstr ""
+msgstr "Autor(zy)"
 
 msgid "Title"
-msgstr ""
+msgstr "Tytuł"
 
 msgid "Container"
-msgstr ""
+msgstr "Kontener"
 
 msgid "Publisher"
-msgstr ""
+msgstr "Wydawca"
 
 msgid "Year"
-msgstr ""
+msgstr "Rok"
 
 msgid "Pages"
-msgstr ""
+msgstr "Strony"
 
 msgid "DOI"
-msgstr ""
+msgstr "DOI"
 
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 msgid "Hide citation form"
-msgstr ""
+msgstr "Ukryj formularz cytowania"
 
 msgid "Show citation form"
-msgstr ""
+msgstr "Pokaż formularz cytowania"
 
 msgid "Settings"
-msgstr ""
+msgstr "Ustawienia"
 
 msgid "source"
-msgstr ""
+msgstr "źródło"
 
 msgid "sources"
-msgstr ""
+msgstr "źródła"
 
 msgid "Citation Style"
-msgstr ""
+msgstr "Styl cytowania"
 
 msgid "Changing styles reformats auto-generated citations and keeps manual overrides intact."
-msgstr ""
+msgstr "Zmiana stylu ponownie formatuje cytowania generowane automatycznie i zachowuje ręczne nadpisania."
 
 msgid "Visible Heading"
-msgstr ""
+msgstr "Widoczny nagłówek"
 
 msgid "Optional heading shown above the bibliography on the site front end when at least one citation exists."
-msgstr ""
+msgstr "Opcjonalny nagłówek wyświetlany nad bibliografią w publicznej części witryny, gdy istnieje co najmniej jedno cytowanie."
 
 msgid "Output JSON-LD"
-msgstr ""
+msgstr "Wyświetl JSON-LD"
 
 msgid "Helps search engines and other tools understand the bibliography."
-msgstr ""
+msgstr "Pomaga wyszukiwarkom i innym narzędziom zrozumieć bibliografię."
 
 msgid "Output COinS"
-msgstr ""
+msgstr "Wyświetl COinS"
 
 msgid "Lets Zotero and similar tools detect citations on the page."
-msgstr ""
+msgstr "Pozwala Zotero i podobnym narzędziom wykrywać cytowania na stronie."
 
 msgid "Output CSL-JSON"
-msgstr ""
+msgstr "Wyświetl CSL-JSON"
 
 msgid "Makes citation data reusable by scholarly tools and services."
-msgstr ""
+msgstr "Umożliwia ponowne wykorzystanie danych cytowań przez narzędzia i usługi naukowe."
 
 msgid "Exports"
-msgstr ""
+msgstr "Eksporty"
 
 msgid "Copy bibliography"
-msgstr ""
+msgstr "Kopiuj bibliografię"
 
 msgid "Copies the current bibliography as plain text in the current order and style."
-msgstr ""
+msgstr "Kopiuje bieżącą bibliografię jako zwykły tekst w bieżącej kolejności i stylu."
 
 msgid "Download CSL-JSON"
-msgstr ""
+msgstr "Pobierz CSL-JSON"
 
 msgid "Downloads the current bibliography as structured citation data."
-msgstr ""
+msgstr "Pobiera bieżącą bibliografię jako uporządkowane dane cytowań."
 
 msgid "Download BibTeX"
-msgstr ""
+msgstr "Pobierz BibTeX"
 
 msgid "Downloads the current bibliography as BibTeX for reference-manager and scholarly-writing workflows."
-msgstr ""
+msgstr "Pobiera bieżącą bibliografię jako BibTeX do menedżerów bibliografii i akademickich przepływów pracy."
 
 msgid "Download RIS"
-msgstr ""
+msgstr "Pobierz RIS"
 
 msgid "Downloads the current bibliography as RIS for citation managers and import/export workflows."
-msgstr ""
+msgstr "Pobiera bieżącą bibliografię jako RIS dla menedżerów cytowań i procesów importu/eksportu."
 
 msgid "Notification"
-msgstr ""
+msgstr "Powiadomienie"
 
 msgid "Publication Type"
-msgstr ""
+msgstr "Typ publikacji"
 
 msgid "Select a publication type"
-msgstr ""
+msgstr "Wybierz typ publikacji"
 
 msgid "Save"
-msgstr ""
+msgstr "Zapisz"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Anuluj"
 
 msgid "Post not found."
-msgstr ""
+msgstr "Nie znaleziono wpisu."
 
 msgid "Sorry, you are not allowed to read this bibliography."
-msgstr ""
+msgstr "Niestety nie masz uprawnień do odczytu tej bibliografii."
 
 msgid "Bibliography block not found for the requested index."
-msgstr ""
+msgstr "Nie znaleziono bloku bibliografii dla żądanego indeksu."
 
 msgid "Post ID to inspect for bibliography blocks."
-msgstr ""
+msgstr "ID wpisu do sprawdzenia pod kątem bloków bibliografii."
 
 msgid "Zero-based bibliography block index within the post."
-msgstr ""
+msgstr "Indeks bloku bibliografii w wpisie oparty na zerze."
 
 msgid "Response format: json, text, or csl-json."
-msgstr ""
+msgstr "Format odpowiedzi: json, text lub csl-json."

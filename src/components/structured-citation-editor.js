@@ -6,35 +6,35 @@ import { __ } from '@wordpress/i18n';
 export const STRUCTURED_FIELD_DEFINITIONS = [
 	{
 		key: 'authors',
-		label: __('Author(s)', 'bibliography-builder'),
+		label: __('Author(s)', 'bibliography'),
 	},
 	{
 		key: 'title',
-		label: __('Title', 'bibliography-builder'),
+		label: __('Title', 'bibliography'),
 	},
 	{
 		key: 'containerTitle',
-		label: __('Container', 'bibliography-builder'),
+		label: __('Container', 'bibliography'),
 	},
 	{
 		key: 'publisher',
-		label: __('Publisher', 'bibliography-builder'),
+		label: __('Publisher', 'bibliography'),
 	},
 	{
 		key: 'year',
-		label: __('Year', 'bibliography-builder'),
+		label: __('Year', 'bibliography'),
 	},
 	{
 		key: 'page',
-		label: __('Pages', 'bibliography-builder'),
+		label: __('Pages', 'bibliography'),
 	},
 	{
 		key: 'doi',
-		label: __('DOI', 'bibliography-builder'),
+		label: __('DOI', 'bibliography'),
 	},
 	{
 		key: 'url',
-		label: __('URL', 'bibliography-builder'),
+		label: __('URL', 'bibliography'),
 	},
 ];
 
@@ -90,7 +90,7 @@ export function StructuredCitationEditor({
 			{showTypeSelector && (
 				<div className="bibliography-builder-structured-field">
 					<label htmlFor={getStructuredFieldId(citation.id, 'type')}>
-						{__('Publication Type', 'bibliography-builder')}
+						{__('Publication Type', 'bibliography')}
 					</label>
 					<select
 						id={getStructuredFieldId(citation.id, 'type')}
@@ -102,7 +102,7 @@ export function StructuredCitationEditor({
 						<option value="">
 							{__(
 								'Select a publication type',
-								'bibliography-builder'
+								'bibliography'
 							)}
 						</option>
 						{typeOptions.map((option) => (
@@ -144,7 +144,7 @@ export function StructuredCitationEditor({
 					onClick={onSave}
 				>
 					<ConfirmIcon className="bibliography-builder-action-icon" />
-					{submitLabel || __('Save', 'bibliography-builder')}
+					{submitLabel || __('Save', 'bibliography')}
 				</Button>
 				<Button
 					variant="secondary"
@@ -152,7 +152,7 @@ export function StructuredCitationEditor({
 					onClick={onCancel}
 				>
 					<CancelIcon className="bibliography-builder-action-icon" />
-					{onCancelLabel || __('Cancel', 'bibliography-builder')}
+					{onCancelLabel || __('Cancel', 'bibliography')}
 				</Button>
 			</div>
 		</div>

@@ -37,7 +37,7 @@ export function EditorCanvasNotices({ currentNotice, noticeRef, onDismiss }) {
 			role={currentNotice ? 'region' : undefined}
 			aria-label={
 				currentNotice
-					? __('Notification', 'bibliography-builder')
+					? __('Notification', 'bibliography')
 					: undefined
 			}
 		>

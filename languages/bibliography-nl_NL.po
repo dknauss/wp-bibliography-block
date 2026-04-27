@@ -5,55 +5,55 @@ msgstr ""
 "POT-Creation-Date: 2026-04-08 00:00+0000\n"
 "PO-Revision-Date: 2026-04-08 00:00+0000\n"
 "Last-Translator: Dan Knauss <dan@newlocalmedia.com>\n"
-"Language: pt_BR\n"
-"Language-Team: Brazilian Portuguese\n"
+"Language: nl_NL\n"
+"Language-Team: Dutch\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Domain: bibliography-builder\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: bibliography\n"
 
 msgid "Imported metadata may be incomplete. Verify before publishing."
-msgstr "Os metadados importados podem estar incompletos. Verifique-os antes de publicar."
+msgstr "Geïmporteerde metadata kunnen onvolledig zijn. Controleer ze vóór publicatie."
 
 msgid "Add citations"
-msgstr "Adicionar citações"
+msgstr "Citaten toevoegen"
 
 msgid "Paste / Import"
-msgstr "Colar / Importar"
+msgstr "Plakken / Importeren"
 
 msgid "Manual Entry"
-msgstr "Entrada manual"
+msgstr "Handmatig invoeren"
 
 msgid "Add DOI(s), BibTeX entries, and citations in supported styles for books, articles, chapters, and webpages. Separate multiple formatted citations with a blank line."
-msgstr "Adicione DOI, entradas BibTeX e citações em estilos compatíveis para livros, artigos, capítulos e páginas da web. Separe várias citações formatadas com uma linha em branco."
+msgstr "Voeg DOI's, BibTeX-vermeldingen en citaten toe in ondersteunde stijlen voor boeken, artikelen, hoofdstukken en webpagina's. Scheid meerdere opgemaakte citaten met een lege regel."
 
 msgid "Resolving…"
-msgstr "Processando…"
+msgstr "Bezig met verwerken…"
 
 msgid "Add"
-msgstr "Adicionar"
+msgstr "Toevoegen"
 
 msgid "Clear"
-msgstr "Limpar"
+msgstr "Wissen"
 
 msgid "Author(s)"
-msgstr "Autor(es)"
+msgstr "Auteur(s)"
 
 msgid "Title"
-msgstr "Título"
+msgstr "Titel"
 
 msgid "Container"
-msgstr "Contêiner"
+msgstr "Container"
 
 msgid "Publisher"
-msgstr "Editora"
+msgstr "Uitgever"
 
 msgid "Year"
-msgstr "Ano"
+msgstr "Jaar"
 
 msgid "Pages"
-msgstr "Páginas"
+msgstr "Pagina's"
 
 msgid "DOI"
 msgstr "DOI"
@@ -62,106 +62,106 @@ msgid "URL"
 msgstr "URL"
 
 msgid "Hide citation form"
-msgstr "Ocultar formulário de citação"
+msgstr "Citaatformulier verbergen"
 
 msgid "Show citation form"
-msgstr "Mostrar formulário de citação"
+msgstr "Citaatformulier tonen"
 
 msgid "Settings"
-msgstr "Configurações"
+msgstr "Instellingen"
 
 msgid "source"
-msgstr "fonte"
+msgstr "bron"
 
 msgid "sources"
-msgstr "fontes"
+msgstr "bronnen"
 
 msgid "Citation Style"
-msgstr "Estilo de citação"
+msgstr "Citatiestijl"
 
 msgid "Changing styles reformats auto-generated citations and keeps manual overrides intact."
-msgstr "Alterar estilos reformata citações geradas automaticamente e mantém as substituições manuais intactas."
+msgstr "Het wijzigen van stijlen formatteert automatisch gegenereerde citaten opnieuw en laat handmatige overschrijvingen intact."
 
 msgid "Visible Heading"
-msgstr "Cabeçalho visível"
+msgstr "Zichtbare kop"
 
 msgid "Optional heading shown above the bibliography on the site front end when at least one citation exists."
-msgstr "Cabeçalho opcional exibido acima da bibliografia no front-end do site quando existir pelo menos uma citação."
+msgstr "Optionele kop die boven de bibliografie op de voorkant van de site wordt getoond wanneer er ten minste één citaat is."
 
 msgid "Output JSON-LD"
-msgstr "Exibir JSON-LD"
+msgstr "JSON-LD uitvoeren"
 
 msgid "Helps search engines and other tools understand the bibliography."
-msgstr "Ajuda mecanismos de busca e outras ferramentas a entender a bibliografia."
+msgstr "Helpt zoekmachines en andere hulpmiddelen de bibliografie te begrijpen."
 
 msgid "Output COinS"
-msgstr "Exibir COinS"
+msgstr "COinS uitvoeren"
 
 msgid "Lets Zotero and similar tools detect citations on the page."
-msgstr "Permite que o Zotero e ferramentas semelhantes detectem citações na página."
+msgstr "Laat Zotero en vergelijkbare hulpmiddelen citaten op de pagina detecteren."
 
 msgid "Output CSL-JSON"
-msgstr "Exibir CSL-JSON"
+msgstr "CSL-JSON uitvoeren"
 
 msgid "Makes citation data reusable by scholarly tools and services."
-msgstr "Torna os dados de citação reutilizáveis por ferramentas e serviços acadêmicos."
+msgstr "Maakt citaatgegevens herbruikbaar voor wetenschappelijke hulpmiddelen en diensten."
 
 msgid "Exports"
-msgstr "Exportações"
+msgstr "Exports"
 
 msgid "Copy bibliography"
-msgstr "Copiar bibliografia"
+msgstr "Bibliografie kopiëren"
 
 msgid "Copies the current bibliography as plain text in the current order and style."
-msgstr "Copia a bibliografia atual como texto simples na ordem e no estilo atuais."
+msgstr "Kopieert de huidige bibliografie als platte tekst in de huidige volgorde en stijl."
 
 msgid "Download CSL-JSON"
-msgstr "Baixar CSL-JSON"
+msgstr "CSL-JSON downloaden"
 
 msgid "Downloads the current bibliography as structured citation data."
-msgstr "Baixa a bibliografia atual como dados estruturados de citação."
+msgstr "Downloadt de huidige bibliografie als gestructureerde citaatgegevens."
 
 msgid "Download BibTeX"
-msgstr "Baixar BibTeX"
+msgstr "BibTeX downloaden"
 
 msgid "Downloads the current bibliography as BibTeX for reference-manager and scholarly-writing workflows."
-msgstr "Baixa a bibliografia atual como BibTeX para gerenciadores de referência e fluxos de escrita acadêmica."
+msgstr "Downloadt de huidige bibliografie als BibTeX voor referentiebeheerders en wetenschappelijke schrijfworkflows."
 
 msgid "Download RIS"
-msgstr "Baixar RIS"
+msgstr "RIS downloaden"
 
 msgid "Downloads the current bibliography as RIS for citation managers and import/export workflows."
-msgstr "Baixa a bibliografia atual como RIS para gerenciadores de citação e fluxos de importação/exportação."
+msgstr "Downloadt de huidige bibliografie als RIS voor citatiebeheerders en import-/exportworkflows."
 
 msgid "Notification"
-msgstr "Notificação"
+msgstr "Melding"
 
 msgid "Publication Type"
-msgstr "Tipo de publicação"
+msgstr "Publicatietype"
 
 msgid "Select a publication type"
-msgstr "Selecione um tipo de publicação"
+msgstr "Selecteer een publicatietype"
 
 msgid "Save"
-msgstr "Salvar"
+msgstr "Opslaan"
 
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "Annuleren"
 
 msgid "Post not found."
-msgstr "Post não encontrado."
+msgstr "Bericht niet gevonden."
 
 msgid "Sorry, you are not allowed to read this bibliography."
-msgstr "Você não tem permissão para ler esta bibliografia."
+msgstr "Je hebt helaas geen toestemming om deze bibliografie te lezen."
 
 msgid "Bibliography block not found for the requested index."
-msgstr "Bloco de bibliografia não encontrado para o índice solicitado."
+msgstr "Bibliografieblok niet gevonden voor de gevraagde index."
 
 msgid "Post ID to inspect for bibliography blocks."
-msgstr "ID do post a ser inspecionado para blocos de bibliografia."
+msgstr "Bericht-ID om te controleren op bibliografieblokken."
 
 msgid "Zero-based bibliography block index within the post."
-msgstr "Índice do bloco de bibliografia dentro do post baseado em zero."
+msgstr "Op nul gebaseerde index van het bibliografieblok binnen het bericht."
 
 msgid "Response format: json, text, or csl-json."
-msgstr "Formato da resposta: json, text ou csl-json."
+msgstr "Antwoordindeling: json, text of csl-json."
