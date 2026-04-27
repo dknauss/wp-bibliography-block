@@ -1,4 +1,4 @@
-# Bibliography Builder for WordPress
+# Borges: The Bibliography Builder Block for WordPress
 
 [![License: GPL v2+](https://img.shields.io/badge/License-GPLv2%2B-blue.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
 [![WordPress tested](https://img.shields.io/badge/WordPress-6.4%E2%80%93latest-21759b.svg?logo=wordpress&logoColor=white)](https://github.com/dknauss/Bibliography-Builder/actions/workflows/runtime-matrix.yml)
@@ -9,7 +9,7 @@
 [![Codecov](https://codecov.io/gh/dknauss/Bibliography-Builder/branch/main/graph/badge.svg)](https://codecov.io/gh/dknauss/Bibliography-Builder)
 [![WordPress Playground](https://img.shields.io/badge/WordPress%20Playground-Try%20it-3858e9.svg?logo=wordpress&logoColor=white)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/dknauss/Bibliography-Builder/main/playground/blueprint.json)
 
-The only all-in-one bibliography block for the WordPress editor that transforms pasted scholarly references — DOI numbers/URLs, BibTeX entries, and supported formatted citations — into a semantically rich, auto-sorted bibliography with static saved output. Export your work as CSL-JSON, BibTeX, and RIS.
+Borges is the only all-in-one bibliography block for the WordPress editor that transforms pasted scholarly references — DOI numbers/URLs, BibTeX entries, and supported formatted citations — into a semantically rich, auto-sorted bibliography with static saved output. Export your work as CSL-JSON, BibTeX, and RIS.
 
 No shortcodes. No database storage. Static HTML output survives plugin deactivation.
 
@@ -21,7 +21,15 @@ Launch a disposable WordPress instance with the plugin preinstalled: [Try the Bi
 
 ![](.wordpress-org/banner-1544x500.png)
 
-WordPress.org branding assets live in [.wordpress-org](./.wordpress-org/), and editable source files live in [.wordpress-org/source](./.wordpress-org/source/).
+## Why Borges?
+
+Jorge Luis Borges spent decades as a librarian — director of the National Public Library of Argentina — and his fiction is obsessed with catalogs, indexes, labyrinths of knowledge, and the idea that a library is a universe. His famous short story, "The Library of Babel," imagines an infinite library containing every possible book. "The Garden of Forking Paths" is essentially a hypertext before hypertext existed.
+
+A bibliography builder that turns citations into structured, portable semantic HTML and exports to Zotero fits squarely in that tradition: organizing knowledge, making it navigable, ensuring it outlasts any single system.
+
+The name is also a small in-joke for readers — if you get it, you get it.
+
+The plugin's WordPress.org branding assets live in [.wordpress-org](./.wordpress-org/), and editable source files live in [.wordpress-org/source](./.wordpress-org/source/).
 
 ## Screenshots
 
