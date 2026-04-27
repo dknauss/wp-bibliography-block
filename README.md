@@ -1,4 +1,4 @@
-# Bibliography Builder for WordPress
+# Borges Bibliography Builder for WordPress
 
 [![License: GPL v2+](https://img.shields.io/badge/License-GPLv2%2B-blue.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
 [![WordPress tested](https://img.shields.io/badge/WordPress-6.4%E2%80%93latest-21759b.svg?logo=wordpress&logoColor=white)](https://github.com/dknauss/Bibliography-Builder/actions/workflows/runtime-matrix.yml)
@@ -17,7 +17,7 @@ Just write out your citations or paste DOIs and BibTeX code, up to 50 at a time.
 
 ## Try it in WordPress Playground
 
-Launch a disposable WordPress instance with the plugin preinstalled: [Try the Bibliography Builder in WordPress Playground](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/dknauss/Bibliography-Builder/main/playground/blueprint.json). Playground installs the plugin from the latest GitHub Release zip artifact.
+Launch a disposable WordPress instance with the plugin preinstalled: [Try the Borges Bibliography Builder in WordPress Playground](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/dknauss/Bibliography-Builder/main/playground/blueprint.json). Playground installs the plugin from the latest GitHub Release zip artifact.
 
 ![](.wordpress-org/banner-1544x500.png)
 

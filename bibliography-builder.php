@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Bibliography Builder
+ * Plugin Name:       Borges Bibliography Builder
  * Plugin URI:        https://github.com/dknauss/bibliography-builder/
  * Description:       Paste a DOI or BibTeX entry to build a formatted, auto-sorted bibliography in any style.
  * Version:           1.0.0
