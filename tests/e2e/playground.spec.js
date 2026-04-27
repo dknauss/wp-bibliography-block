@@ -7,15 +7,16 @@ async function ensurePluginActivated(page) {
 		page.getByRole('heading', { level: 1, name: 'Plugins' })
 	).toBeVisible();
 
-	const pluginRow = page.locator('tr', {
-		hasText: 'Bibliography',
-	}).or(
-		page
-			.locator(
-				'tr[data-slug="bibliography-builder"], tr[data-plugin="bibliography-builder/bibliography-builder.php"]'
-			)
-			.first()
-	);
+	const pluginRow = page
+		.locator(
+			'tr[data-slug="bibliography-builder"], tr[data-plugin="bibliography-builder/bibliography-builder.php"]'
+		)
+		.first()
+		.or(
+			page.locator('tr', {
+				hasText: 'Bibliography',
+			})
+		);
 
 	await expect(pluginRow).toBeVisible();
 

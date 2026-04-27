@@ -63,7 +63,7 @@ async function ensurePluginActive(page) {
 	if (await activateLink.count()) {
 		await activateLink.click();
 		await page.waitForLoadState('networkidle');
-			pluginRow = await getPluginRow(page);
+		pluginRow = await getPluginRow(page);
 	}
 
 	await expect(
