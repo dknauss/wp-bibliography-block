@@ -5,37 +5,37 @@ msgstr ""
 "POT-Creation-Date: 2026-04-08 00:00+0000\n"
 "PO-Revision-Date: 2026-04-08 00:00+0000\n"
 "Last-Translator: Dan Knauss <dan@newlocalmedia.com>\n"
-"Language: es_ES\n"
-"Language-Team: Spanish\n"
+"Language: pt_BR\n"
+"Language-Team: Brazilian Portuguese\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Domain: bibliography\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Domain: borges-bibliography-builder\n"
 
 msgid "Imported metadata may be incomplete. Verify before publishing."
-msgstr "Los metadatos importados pueden estar incompletos. Verifícalos antes de publicar."
+msgstr "Os metadados importados podem estar incompletos. Verifique-os antes de publicar."
 
 msgid "Add citations"
-msgstr "Añadir citas"
+msgstr "Adicionar citações"
 
 msgid "Paste / Import"
-msgstr "Pegar / Importar"
+msgstr "Colar / Importar"
 
 msgid "Manual Entry"
 msgstr "Entrada manual"
 
 msgid "Add DOI(s), BibTeX entries, and citations in supported styles for books, articles, chapters, and webpages. Separate multiple formatted citations with a blank line."
-msgstr "Añade DOI, entradas BibTeX y citas en estilos compatibles para libros, artículos, capítulos y páginas web. Separa varias citas formateadas con una línea en blanco."
+msgstr "Adicione DOI, entradas BibTeX e citações em estilos compatíveis para livros, artigos, capítulos e páginas da web. Separe várias citações formatadas com uma linha em branco."
 
 msgid "Resolving…"
-msgstr "Resolviendo…"
+msgstr "Processando…"
 
 msgid "Add"
-msgstr "Añadir"
+msgstr "Adicionar"
 
 msgid "Clear"
-msgstr "Borrar"
+msgstr "Limpar"
 
 msgid "Author(s)"
 msgstr "Autor(es)"
@@ -44,13 +44,13 @@ msgid "Title"
 msgstr "Título"
 
 msgid "Container"
-msgstr "Contenedor"
+msgstr "Contêiner"
 
 msgid "Publisher"
-msgstr "Editorial"
+msgstr "Editora"
 
 msgid "Year"
-msgstr "Año"
+msgstr "Ano"
 
 msgid "Pages"
 msgstr "Páginas"
@@ -62,106 +62,106 @@ msgid "URL"
 msgstr "URL"
 
 msgid "Hide citation form"
-msgstr "Ocultar formulario de citas"
+msgstr "Ocultar formulário de citação"
 
 msgid "Show citation form"
-msgstr "Mostrar formulario de citas"
+msgstr "Mostrar formulário de citação"
 
 msgid "Settings"
-msgstr "Ajustes"
+msgstr "Configurações"
 
 msgid "source"
-msgstr "fuente"
+msgstr "fonte"
 
 msgid "sources"
-msgstr "fuentes"
+msgstr "fontes"
 
 msgid "Citation Style"
-msgstr "Estilo de cita"
+msgstr "Estilo de citação"
 
 msgid "Changing styles reformats auto-generated citations and keeps manual overrides intact."
-msgstr "Cambiar de estilo vuelve a formatear las citas generadas automáticamente y mantiene intactas las modificaciones manuales."
+msgstr "Alterar estilos reformata citações geradas automaticamente e mantém as substituições manuais intactas."
 
 msgid "Visible Heading"
-msgstr "Encabezado visible"
+msgstr "Cabeçalho visível"
 
 msgid "Optional heading shown above the bibliography on the site front end when at least one citation exists."
-msgstr "Encabezado opcional que se muestra encima de la bibliografía en la parte pública del sitio cuando existe al menos una cita."
+msgstr "Cabeçalho opcional exibido acima da bibliografia no front-end do site quando existir pelo menos uma citação."
 
 msgid "Output JSON-LD"
-msgstr "Mostrar JSON-LD"
+msgstr "Exibir JSON-LD"
 
 msgid "Helps search engines and other tools understand the bibliography."
-msgstr "Ayuda a los motores de búsqueda y otras herramientas a comprender la bibliografía."
+msgstr "Ajuda mecanismos de busca e outras ferramentas a entender a bibliografia."
 
 msgid "Output COinS"
-msgstr "Mostrar COinS"
+msgstr "Exibir COinS"
 
 msgid "Lets Zotero and similar tools detect citations on the page."
-msgstr "Permite que Zotero y herramientas similares detecten citas en la página."
+msgstr "Permite que o Zotero e ferramentas semelhantes detectem citações na página."
 
 msgid "Output CSL-JSON"
-msgstr "Mostrar CSL-JSON"
+msgstr "Exibir CSL-JSON"
 
 msgid "Makes citation data reusable by scholarly tools and services."
-msgstr "Hace que los datos de citación sean reutilizables por herramientas y servicios académicos."
+msgstr "Torna os dados de citação reutilizáveis por ferramentas e serviços acadêmicos."
 
 msgid "Exports"
-msgstr "Exportaciones"
+msgstr "Exportações"
 
 msgid "Copy bibliography"
-msgstr "Copiar bibliografía"
+msgstr "Copiar bibliografia"
 
 msgid "Copies the current bibliography as plain text in the current order and style."
-msgstr "Copia la bibliografía actual como texto sin formato en el orden y estilo actuales."
+msgstr "Copia a bibliografia atual como texto simples na ordem e no estilo atuais."
 
 msgid "Download CSL-JSON"
-msgstr "Descargar CSL-JSON"
+msgstr "Baixar CSL-JSON"
 
 msgid "Downloads the current bibliography as structured citation data."
-msgstr "Descarga la bibliografía actual como datos de citación estructurados."
+msgstr "Baixa a bibliografia atual como dados estruturados de citação."
 
 msgid "Download BibTeX"
-msgstr "Descargar BibTeX"
+msgstr "Baixar BibTeX"
 
 msgid "Downloads the current bibliography as BibTeX for reference-manager and scholarly-writing workflows."
-msgstr "Descarga la bibliografía actual como BibTeX para gestores de referencias y flujos de escritura académica."
+msgstr "Baixa a bibliografia atual como BibTeX para gerenciadores de referência e fluxos de escrita acadêmica."
 
 msgid "Download RIS"
-msgstr "Descargar RIS"
+msgstr "Baixar RIS"
 
 msgid "Downloads the current bibliography as RIS for citation managers and import/export workflows."
-msgstr "Descarga la bibliografía actual como RIS para gestores de citas y flujos de importación/exportación."
+msgstr "Baixa a bibliografia atual como RIS para gerenciadores de citação e fluxos de importação/exportação."
 
 msgid "Notification"
-msgstr "Notificación"
+msgstr "Notificação"
 
 msgid "Publication Type"
-msgstr "Tipo de publicación"
+msgstr "Tipo de publicação"
 
 msgid "Select a publication type"
-msgstr "Selecciona un tipo de publicación"
+msgstr "Selecione um tipo de publicação"
 
 msgid "Save"
-msgstr "Guardar"
+msgstr "Salvar"
 
 msgid "Cancel"
 msgstr "Cancelar"
 
 msgid "Post not found."
-msgstr "No se ha encontrado la entrada."
+msgstr "Post não encontrado."
 
 msgid "Sorry, you are not allowed to read this bibliography."
-msgstr "Lo siento, no tienes permisos para leer esta bibliografía."
+msgstr "Você não tem permissão para ler esta bibliografia."
 
 msgid "Bibliography block not found for the requested index."
-msgstr "No se ha encontrado un bloque de bibliografía para el índice solicitado."
+msgstr "Bloco de bibliografia não encontrado para o índice solicitado."
 
 msgid "Post ID to inspect for bibliography blocks."
-msgstr "ID de la entrada que se debe inspeccionar para buscar bloques de bibliografía."
+msgstr "ID do post a ser inspecionado para blocos de bibliografia."
 
 msgid "Zero-based bibliography block index within the post."
-msgstr "Índice basado en cero del bloque de bibliografía dentro de la entrada."
+msgstr "Índice do bloco de bibliografia dentro do post baseado em zero."
 
 msgid "Response format: json, text, or csl-json."
-msgstr "Formato de respuesta: json, text o csl-json."
+msgstr "Formato da resposta: json, text ou csl-json."

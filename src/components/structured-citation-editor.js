@@ -6,35 +6,35 @@ import { __ } from '@wordpress/i18n';
 export const STRUCTURED_FIELD_DEFINITIONS = [
 	{
 		key: 'authors',
-		label: __('Author(s)', 'bibliography'),
+		label: __('Author(s)', 'borges-bibliography-builder'),
 	},
 	{
 		key: 'title',
-		label: __('Title', 'bibliography'),
+		label: __('Title', 'borges-bibliography-builder'),
 	},
 	{
 		key: 'containerTitle',
-		label: __('Container', 'bibliography'),
+		label: __('Container', 'borges-bibliography-builder'),
 	},
 	{
 		key: 'publisher',
-		label: __('Publisher', 'bibliography'),
+		label: __('Publisher', 'borges-bibliography-builder'),
 	},
 	{
 		key: 'year',
-		label: __('Year', 'bibliography'),
+		label: __('Year', 'borges-bibliography-builder'),
 	},
 	{
 		key: 'page',
-		label: __('Pages', 'bibliography'),
+		label: __('Pages', 'borges-bibliography-builder'),
 	},
 	{
 		key: 'doi',
-		label: __('DOI', 'bibliography'),
+		label: __('DOI', 'borges-bibliography-builder'),
 	},
 	{
 		key: 'url',
-		label: __('URL', 'bibliography'),
+		label: __('URL', 'borges-bibliography-builder'),
 	},
 ];
 
@@ -90,7 +90,7 @@ export function StructuredCitationEditor({
 			{showTypeSelector && (
 				<div className="bibliography-builder-structured-field">
 					<label htmlFor={getStructuredFieldId(citation.id, 'type')}>
-						{__('Publication Type', 'bibliography')}
+						{__('Publication Type', 'borges-bibliography-builder')}
 					</label>
 					<select
 						id={getStructuredFieldId(citation.id, 'type')}
@@ -100,7 +100,10 @@ export function StructuredCitationEditor({
 						onKeyDown={handleKeyDown}
 					>
 						<option value="">
-							{__('Select a publication type', 'bibliography')}
+							{__(
+								'Select a publication type',
+								'borges-bibliography-builder'
+							)}
 						</option>
 						{typeOptions.map((option) => (
 							<option key={option.value} value={option.value}>
@@ -141,7 +144,7 @@ export function StructuredCitationEditor({
 					onClick={onSave}
 				>
 					<ConfirmIcon className="bibliography-builder-action-icon" />
-					{submitLabel || __('Save', 'bibliography')}
+					{submitLabel || __('Save', 'borges-bibliography-builder')}
 				</Button>
 				<Button
 					variant="secondary"
@@ -149,7 +152,8 @@ export function StructuredCitationEditor({
 					onClick={onCancel}
 				>
 					<CancelIcon className="bibliography-builder-action-icon" />
-					{onCancelLabel || __('Cancel', 'bibliography')}
+					{onCancelLabel ||
+						__('Cancel', 'borges-bibliography-builder')}
 				</Button>
 			</div>
 		</div>

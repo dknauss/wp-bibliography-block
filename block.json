@@ -33,7 +33,7 @@
 			"fontSize": true
 		}
 	},
-	"textdomain": "bibliography",
+	"textdomain": "borges-bibliography-builder",
 	"editorScript": "file:./build/index.js",
 	"editorStyle": "file:./build/index.css",
 	"style": "file:./build/style-index.css",

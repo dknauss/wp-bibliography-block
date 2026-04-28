@@ -5,161 +5,163 @@ msgstr ""
 "POT-Creation-Date: 2026-04-08 00:00+0000\n"
 "PO-Revision-Date: 2026-04-08 00:00+0000\n"
 "Last-Translator: Dan Knauss <dan@newlocalmedia.com>\n"
-"Language-Team: Bibliography contributors\n"
+"Language: hr\n"
+"Language-Team: Croatian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Domain: bibliography\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Domain: borges-bibliography-builder\n"
 
 msgid "Imported metadata may be incomplete. Verify before publishing."
-msgstr ""
+msgstr "Uvezeni metapodaci mogu biti nepotpuni. Provjerite ih prije objave."
 
 msgid "Add citations"
-msgstr ""
+msgstr "Dodaj citate"
 
 msgid "Paste / Import"
-msgstr ""
+msgstr "Zalijepi / Uvezi"
 
 msgid "Manual Entry"
-msgstr ""
+msgstr "Ručni unos"
 
 msgid "Add DOI(s), BibTeX entries, and citations in supported styles for books, articles, chapters, and webpages. Separate multiple formatted citations with a blank line."
-msgstr ""
+msgstr "Dodajte DOI-je, BibTeX unose i citate u podržanim stilovima za knjige, članke, poglavlja i web-stranice. Više formatiranih citata odvojite praznim redom."
 
 msgid "Resolving…"
-msgstr ""
+msgstr "Obrada…"
 
 msgid "Add"
-msgstr ""
+msgstr "Dodaj"
 
 msgid "Clear"
-msgstr ""
+msgstr "Očisti"
 
 msgid "Author(s)"
-msgstr ""
+msgstr "Autor(i)"
 
 msgid "Title"
-msgstr ""
+msgstr "Naslov"
 
 msgid "Container"
-msgstr ""
+msgstr "Kontejner"
 
 msgid "Publisher"
-msgstr ""
+msgstr "Izdavač"
 
 msgid "Year"
-msgstr ""
+msgstr "Godina"
 
 msgid "Pages"
-msgstr ""
+msgstr "Stranice"
 
 msgid "DOI"
-msgstr ""
+msgstr "DOI"
 
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 msgid "Hide citation form"
-msgstr ""
+msgstr "Sakrij obrazac citata"
 
 msgid "Show citation form"
-msgstr ""
+msgstr "Prikaži obrazac citata"
 
 msgid "Settings"
-msgstr ""
+msgstr "Postavke"
 
 msgid "source"
-msgstr ""
+msgstr "izvor"
 
 msgid "sources"
-msgstr ""
+msgstr "izvori"
 
 msgid "Citation Style"
-msgstr ""
+msgstr "Stil citiranja"
 
 msgid "Changing styles reformats auto-generated citations and keeps manual overrides intact."
-msgstr ""
+msgstr "Promjena stila ponovno formatira automatski generirane citate i zadržava ručna prepisivanja."
 
 msgid "Visible Heading"
-msgstr ""
+msgstr "Vidljivi naslov"
 
 msgid "Optional heading shown above the bibliography on the site front end when at least one citation exists."
-msgstr ""
+msgstr "Neobavezni naslov prikazan iznad bibliografije na javnom dijelu stranice kada postoji barem jedan citat."
 
 msgid "Output JSON-LD"
-msgstr ""
+msgstr "Prikaži JSON-LD"
 
 msgid "Helps search engines and other tools understand the bibliography."
-msgstr ""
+msgstr "Pomaže tražilicama i drugim alatima da razumiju bibliografiju."
 
 msgid "Output COinS"
-msgstr ""
+msgstr "Prikaži COinS"
 
 msgid "Lets Zotero and similar tools detect citations on the page."
-msgstr ""
+msgstr "Omogućuje Zotero-u i sličnim alatima otkrivanje citata na stranici."
 
 msgid "Output CSL-JSON"
-msgstr ""
+msgstr "Prikaži CSL-JSON"
 
 msgid "Makes citation data reusable by scholarly tools and services."
-msgstr ""
+msgstr "Omogućuje ponovnu uporabu podataka o citiranju u akademskim alatima i uslugama."
 
 msgid "Exports"
-msgstr ""
+msgstr "Izvoz"
 
 msgid "Copy bibliography"
-msgstr ""
+msgstr "Kopiraj bibliografiju"
 
 msgid "Copies the current bibliography as plain text in the current order and style."
-msgstr ""
+msgstr "Kopira trenutačnu bibliografiju kao običan tekst u trenutačnom redoslijedu i stilu."
 
 msgid "Download CSL-JSON"
-msgstr ""
+msgstr "Preuzmi CSL-JSON"
 
 msgid "Downloads the current bibliography as structured citation data."
-msgstr ""
+msgstr "Preuzima trenutačnu bibliografiju kao strukturirane podatke o citiranju."
 
 msgid "Download BibTeX"
-msgstr ""
+msgstr "Preuzmi BibTeX"
 
 msgid "Downloads the current bibliography as BibTeX for reference-manager and scholarly-writing workflows."
-msgstr ""
+msgstr "Preuzima trenutačnu bibliografiju kao BibTeX za upravitelje referenci i akademske tijekove pisanja."
 
 msgid "Download RIS"
-msgstr ""
+msgstr "Preuzmi RIS"
 
 msgid "Downloads the current bibliography as RIS for citation managers and import/export workflows."
-msgstr ""
+msgstr "Preuzima trenutačnu bibliografiju kao RIS za upravitelje citata i tijekove uvoza/izvoza."
 
 msgid "Notification"
-msgstr ""
+msgstr "Obavijest"
 
 msgid "Publication Type"
-msgstr ""
+msgstr "Vrsta publikacije"
 
 msgid "Select a publication type"
-msgstr ""
+msgstr "Odaberite vrstu publikacije"
 
 msgid "Save"
-msgstr ""
+msgstr "Spremi"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Odustani"
 
 msgid "Post not found."
-msgstr ""
+msgstr "Objava nije pronađena."
 
 msgid "Sorry, you are not allowed to read this bibliography."
-msgstr ""
+msgstr "Nemate dopuštenje za čitanje ove bibliografije."
 
 msgid "Bibliography block not found for the requested index."
-msgstr ""
+msgstr "Blok bibliografije nije pronađen za traženi indeks."
 
 msgid "Post ID to inspect for bibliography blocks."
-msgstr ""
+msgstr "ID objave za provjeru blokova bibliografije."
 
 msgid "Zero-based bibliography block index within the post."
-msgstr ""
+msgstr "Indeks bloka bibliografije unutar objave koji počinje od nule."
 
 msgid "Response format: json, text, or csl-json."
-msgstr ""
+msgstr "Format odgovora: json, text ili csl-json."

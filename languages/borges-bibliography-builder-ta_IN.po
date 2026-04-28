@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Domain: bibliography\n"
+"X-Domain: borges-bibliography-builder\n"
 
 msgid "Imported metadata may be incomplete. Verify before publishing."
 msgstr "இறக்குமதி செய்யப்பட்ட மெட்டாடேட்டா முழுமையற்றதாக இருக்கலாம். வெளியிடுவதற்கு முன் சரிபார்க்கவும்."

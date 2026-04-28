@@ -5,55 +5,55 @@ msgstr ""
 "POT-Creation-Date: 2026-04-08 00:00+0000\n"
 "PO-Revision-Date: 2026-04-08 00:00+0000\n"
 "Last-Translator: Dan Knauss <dan@newlocalmedia.com>\n"
-"Language: pl_PL\n"
-"Language-Team: Polish\n"
+"Language: sv_SE\n"
+"Language-Team: Swedish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Domain: bibliography\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: borges-bibliography-builder\n"
 
 msgid "Imported metadata may be incomplete. Verify before publishing."
-msgstr "Zaimportowane metadane mogą być niepełne. Zweryfikuj je przed publikacją."
+msgstr "Importerad metadata kan vara ofullständig. Kontrollera innan publicering."
 
 msgid "Add citations"
-msgstr "Dodaj cytowania"
+msgstr "Lägg till källhänvisningar"
 
 msgid "Paste / Import"
-msgstr "Wklej / importuj"
+msgstr "Klistra in / importera"
 
 msgid "Manual Entry"
-msgstr "Wprowadzanie ręczne"
+msgstr "Manuell inmatning"
 
 msgid "Add DOI(s), BibTeX entries, and citations in supported styles for books, articles, chapters, and webpages. Separate multiple formatted citations with a blank line."
-msgstr "Dodaj DOI, wpisy BibTeX i cytowania w obsługiwanych stylach dla książek, artykułów, rozdziałów i stron internetowych. Oddziel wiele sformatowanych cytowań pustą linią."
+msgstr "Lägg till DOI:er, BibTeX-poster och källhänvisningar i stödda stilar för böcker, artiklar, kapitel och webbsidor. Separera flera formaterade hänvisningar med en tom rad."
 
 msgid "Resolving…"
-msgstr "Przetwarzanie…"
+msgstr "Bearbetar…"
 
 msgid "Add"
-msgstr "Dodaj"
+msgstr "Lägg till"
 
 msgid "Clear"
-msgstr "Wyczyść"
+msgstr "Rensa"
 
 msgid "Author(s)"
-msgstr "Autor(zy)"
+msgstr "Författare"
 
 msgid "Title"
-msgstr "Tytuł"
+msgstr "Titel"
 
 msgid "Container"
-msgstr "Kontener"
+msgstr "Behållare"
 
 msgid "Publisher"
-msgstr "Wydawca"
+msgstr "Utgivare"
 
 msgid "Year"
-msgstr "Rok"
+msgstr "År"
 
 msgid "Pages"
-msgstr "Strony"
+msgstr "Sidor"
 
 msgid "DOI"
 msgstr "DOI"
@@ -62,106 +62,106 @@ msgid "URL"
 msgstr "URL"
 
 msgid "Hide citation form"
-msgstr "Ukryj formularz cytowania"
+msgstr "Dölj citeringsformulär"
 
 msgid "Show citation form"
-msgstr "Pokaż formularz cytowania"
+msgstr "Visa citeringsformulär"
 
 msgid "Settings"
-msgstr "Ustawienia"
+msgstr "Inställningar"
 
 msgid "source"
-msgstr "źródło"
+msgstr "källa"
 
 msgid "sources"
-msgstr "źródła"
+msgstr "källor"
 
 msgid "Citation Style"
-msgstr "Styl cytowania"
+msgstr "Citeringsstil"
 
 msgid "Changing styles reformats auto-generated citations and keeps manual overrides intact."
-msgstr "Zmiana stylu ponownie formatuje cytowania generowane automatycznie i zachowuje ręczne nadpisania."
+msgstr "Att byta stil omformaterar automatiskt genererade källhänvisningar och behåller manuella överskrivningar."
 
 msgid "Visible Heading"
-msgstr "Widoczny nagłówek"
+msgstr "Synlig rubrik"
 
 msgid "Optional heading shown above the bibliography on the site front end when at least one citation exists."
-msgstr "Opcjonalny nagłówek wyświetlany nad bibliografią w publicznej części witryny, gdy istnieje co najmniej jedno cytowanie."
+msgstr "Valfri rubrik som visas ovanför bibliografin på webbplatsens framsida när minst en källhänvisning finns."
 
 msgid "Output JSON-LD"
-msgstr "Wyświetl JSON-LD"
+msgstr "Visa JSON-LD"
 
 msgid "Helps search engines and other tools understand the bibliography."
-msgstr "Pomaga wyszukiwarkom i innym narzędziom zrozumieć bibliografię."
+msgstr "Hjälper sökmotorer och andra verktyg att förstå bibliografin."
 
 msgid "Output COinS"
-msgstr "Wyświetl COinS"
+msgstr "Visa COinS"
 
 msgid "Lets Zotero and similar tools detect citations on the page."
-msgstr "Pozwala Zotero i podobnym narzędziom wykrywać cytowania na stronie."
+msgstr "Låter Zotero och liknande verktyg upptäcka källhänvisningar på sidan."
 
 msgid "Output CSL-JSON"
-msgstr "Wyświetl CSL-JSON"
+msgstr "Visa CSL-JSON"
 
 msgid "Makes citation data reusable by scholarly tools and services."
-msgstr "Umożliwia ponowne wykorzystanie danych cytowań przez narzędzia i usługi naukowe."
+msgstr "Gör citeringsdata återanvändbara för akademiska verktyg och tjänster."
 
 msgid "Exports"
-msgstr "Eksporty"
+msgstr "Exporter"
 
 msgid "Copy bibliography"
-msgstr "Kopiuj bibliografię"
+msgstr "Kopiera bibliografi"
 
 msgid "Copies the current bibliography as plain text in the current order and style."
-msgstr "Kopiuje bieżącą bibliografię jako zwykły tekst w bieżącej kolejności i stylu."
+msgstr "Kopierar den aktuella bibliografin som oformaterad text i aktuell ordning och stil."
 
 msgid "Download CSL-JSON"
-msgstr "Pobierz CSL-JSON"
+msgstr "Ladda ner CSL-JSON"
 
 msgid "Downloads the current bibliography as structured citation data."
-msgstr "Pobiera bieżącą bibliografię jako uporządkowane dane cytowań."
+msgstr "Laddar ner den aktuella bibliografin som strukturerade citeringsdata."
 
 msgid "Download BibTeX"
-msgstr "Pobierz BibTeX"
+msgstr "Ladda ner BibTeX"
 
 msgid "Downloads the current bibliography as BibTeX for reference-manager and scholarly-writing workflows."
-msgstr "Pobiera bieżącą bibliografię jako BibTeX do menedżerów bibliografii i akademickich przepływów pracy."
+msgstr "Laddar ner den aktuella bibliografin som BibTeX för referenshanterare och akademiska skrivflöden."
 
 msgid "Download RIS"
-msgstr "Pobierz RIS"
+msgstr "Ladda ner RIS"
 
 msgid "Downloads the current bibliography as RIS for citation managers and import/export workflows."
-msgstr "Pobiera bieżącą bibliografię jako RIS dla menedżerów cytowań i procesów importu/eksportu."
+msgstr "Laddar ner den aktuella bibliografin som RIS för citeringshanterare och import-/exportflöden."
 
 msgid "Notification"
-msgstr "Powiadomienie"
+msgstr "Avisering"
 
 msgid "Publication Type"
-msgstr "Typ publikacji"
+msgstr "Publikationstyp"
 
 msgid "Select a publication type"
-msgstr "Wybierz typ publikacji"
+msgstr "Välj en publikationstyp"
 
 msgid "Save"
-msgstr "Zapisz"
+msgstr "Spara"
 
 msgid "Cancel"
-msgstr "Anuluj"
+msgstr "Avbryt"
 
 msgid "Post not found."
-msgstr "Nie znaleziono wpisu."
+msgstr "Inlägg hittades inte."
 
 msgid "Sorry, you are not allowed to read this bibliography."
-msgstr "Niestety nie masz uprawnień do odczytu tej bibliografii."
+msgstr "Du har tyvärr inte behörighet att läsa denna bibliografi."
 
 msgid "Bibliography block not found for the requested index."
-msgstr "Nie znaleziono bloku bibliografii dla żądanego indeksu."
+msgstr "Bibliografiblock hittades inte för det begärda indexet."
 
 msgid "Post ID to inspect for bibliography blocks."
-msgstr "ID wpisu do sprawdzenia pod kątem bloków bibliografii."
+msgstr "Inläggs-ID att granska för bibliografiblock."
 
 msgid "Zero-based bibliography block index within the post."
-msgstr "Indeks bloku bibliografii w wpisie oparty na zerze."
+msgstr "Nollbaserat index för bibliografiblock inom inlägget."
 
 msgid "Response format: json, text, or csl-json."
-msgstr "Format odpowiedzi: json, text lub csl-json."
+msgstr "Svarsformat: json, text eller csl-json."
