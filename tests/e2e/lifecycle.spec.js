@@ -46,16 +46,43 @@ async function dismissEditorOverlay(page) {
 }
 
 async function getPluginRow(page) {
-	await page.goto('/wp-admin/plugins.php');
-	await page.waitForLoadState('networkidle');
+	let loaded = false;
+	for (let attempt = 0; attempt < 3; attempt += 1) {
+		await page.goto('/wp-admin/plugins.php');
+		await page.waitForLoadState('networkidle');
+
+		const pageText = await page.locator('body').textContent();
+		if (pageText && !pageText.includes('Internal Server Error')) {
+			loaded = true;
+			break;
+		}
+
+		await page.waitForTimeout(1000);
+	}
+
+	if (!loaded) {
+		throw new Error(
+			'Plugins screen returned Internal Server Error repeatedly.'
+		);
+	}
+
 	return page
 		.locator(
-			'tr[data-slug="bibliography-builder"], tr[data-plugin="bibliography-builder/bibliography-builder.php"]'
+			[
+				'tr[data-slug="borges-bibliography-builder"]',
+				'tr[data-slug="bibliography-builder"]',
+				'tr[data-slug="Bibliography-Builder"]',
+				'tr[data-plugin="borges-bibliography-builder/bibliography-builder.php"]',
+				'tr[data-plugin="bibliography-builder/bibliography-builder.php"]',
+				'tr[data-plugin="Bibliography-Builder/bibliography-builder.php"]',
+				'tr[data-plugin$="/bibliography-builder.php"]',
+			].join(', ')
 		)
 		.first()
 		.or(
 			page.locator('tr', {
-				hasText: 'Bibliography',
+				hasText:
+					/Borges Bibliography Builder|Bibliography Builder|Bibliography/i,
 			})
 		);
 }
